@@ -1,0 +1,37 @@
+{
+  "name": "rudymas/easymvc",
+  "description": "Easy MVC PHP Framework",
+  "type": "project",
+  "keywords": ["MVC", "Framework", "PHP"],
+  "license":  "GPL-3.0",
+  "authors": [
+    {
+      "name": "Rudy Mas",
+      "email": "rudy.mas@rudymas.be",
+      "homepage": "http://www.rudymas.be",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@rudymas.be",
+    "source": "https://github.com/RudyMas/easymvc"
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^5.4 || ^7.0",
+    "rudymas/pdo-ext": "*",
+    "rudymas/router": "*",
+    "rudymas/html5": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Model\\": "src/models",
+      "Controller\\": "src/controllers",
+      "View\\": "src/views",
+      "Library\\": "libs"
+    }
+  }
+}

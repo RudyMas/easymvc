@@ -1,2 +1,2 @@
-# easymvc
-An easy to use PHP MVC framework
+# PHP EasyMVC
+An easy to use MVC PHP framework
