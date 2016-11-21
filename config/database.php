@@ -2,6 +2,8 @@
 /**
  * Settings for your database(s)
  */
+$database = [];
+
 $database[0]['objectName'] = 'dbconnect';
 $database[0]['dbHost'] = 'localhost';
 $database[0]['dbUsername'] = 'username';
@@ -18,3 +20,5 @@ $database[0]['dbType'] = 'mysql';
 //$database[1]['dbName'] = 'db_name';
 //$database[1]['dbCharset'] = 'utf8';
 //$database[1]['dbType'] = 'mysql';
+
+/** End of File: database.php **/
