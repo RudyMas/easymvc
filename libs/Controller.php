@@ -4,10 +4,10 @@ namespace Library;
 use RudyMas\XML_JSON\XML_JSON;
 
 /**
- * Class Render
+ * Class Controller
  * @package Library
  */
-class Render
+class Controller
 {
     /**
      * @param array $data Array of data following XML standards

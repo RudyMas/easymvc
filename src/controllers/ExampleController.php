@@ -1,14 +1,14 @@
 <?php
 namespace Controller;
-use Library\Render;
+
+use Library\Controller;
 
 /**
  * Class ExampleController
  */
-class ExampleController
+class ExampleController extends Controller
 {
     private $text;
-    private $render;
     private $data;
 
     /**
@@ -16,7 +16,6 @@ class ExampleController
      */
     public function __construct()
     {
-        $this->render = new Render();
         $this->data = [];
         $this->data['personalInfo'][0]['name'] = 'Firstname Lastname';
         $this->data['personalInfo'][0]['address'] = 'Somestreet 5';
@@ -30,7 +29,7 @@ class ExampleController
         $this->text = 'This is text configured in the constructor.';
 
         // Only use the constructor for output when you don't have any other functions in your class.
-        // In most cases, you will use the constructor to initiate your class.
+        // In most cases, you will use the constructor to initiate other classes or data.
     }
 
     /**
@@ -46,17 +45,17 @@ class ExampleController
 
     public function showJSONAction()
     {
-        $this->render->renderJSON($this->data);
+        $this->renderJSON($this->data);
     }
 
     public function showXMLAction()
     {
-        $this->render->renderXML($this->data);
+        $this->renderXML($this->data);
     }
 
     public function showPHPAction()
     {
-        $this->render->renderPHP('Example', $this->data);
+        $this->renderPHP('Example', $this->data);
     }
 }
 /** End of File: ExampleController.php **/
