@@ -2,8 +2,12 @@
   "name": "rudymas/easymvc",
   "description": "Easy MVC PHP Framework",
   "type": "project",
-  "keywords": ["MVC", "Framework", "PHP"],
-  "license":  "GPL-3.0",
+  "keywords": [
+    "MVC",
+    "Framework",
+    "PHP"
+  ],
+  "license": "GPL-3.0",
   "authors": [
     {
       "name": "Rudy Mas",
@@ -32,7 +36,7 @@
       "Model\\": "src/models",
       "Controller\\": "src/controllers",
       "View\\": "src/views",
-      "Library\\": "libs"
+      "Library\\": "libraries"
     }
   }
 }
