@@ -66,12 +66,31 @@ class Controller
     }
 
     /**
-     * @param string $PHPpage Name of the HTML5 view class
+     * @param string $page Name of the HTML5 view class
      * @param array $data array of data to insert on the page
      */
-    private function renderPHP(string $PHPpage, array $data)
+    private function renderPHP(string $page, array $data)
     {
-        $view = '\\View\\' . $PHPpage . 'View';
+        $view = $this->processPhpPage($page);
         new $view($data);
+    }
+
+    /**
+     * @param string $page
+     * @return string
+     */
+    private function processPhpPage(string $page)
+    {
+        $view = '\\View';
+        $class = explode('/', trim($page, '/'));
+        if (1 == count($class)) {
+            $view .= "\\{$class[0]}\\Index";
+        } else {
+            foreach ($class as $path) {
+                $view .= "\\{$path}";
+            }
+        }
+        $view .= 'View';
+        return $view;
     }
 }

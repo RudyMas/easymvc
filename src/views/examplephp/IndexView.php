@@ -1,12 +1,26 @@
 <?php
-namespace View;
+namespace View\ExamplePHP;
 
 use RudyMas\HTML5\HTML5;
 
-class ExampleView extends HTML5
+/**
+ * Class IndexView
+ * @package View\ExamplePHP
+ *
+ * You can name your namespace anything you want, but the default way to do it, is by adding the folder name to the
+ * View namespace.
+ */
+class IndexView extends HTML5
 {
+    /**
+     * @var string
+     */
     private $output;
 
+    /**
+     * IndexView constructor.
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         parent::__construct('nl-BE');
@@ -24,3 +38,4 @@ class ExampleView extends HTML5
         echo $this->output;
     }
 }
+/** End of File: IndexView.php **/

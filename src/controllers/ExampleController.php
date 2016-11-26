@@ -12,7 +12,8 @@ class ExampleController extends Controller
     private $data;
 
     /**
-     * Example constructor.
+     * Example constructor
+     * Only use the constructor for initiating settings to be used inside the controller's functions
      */
     public function __construct()
     {
@@ -25,11 +26,6 @@ class ExampleController extends Controller
         $this->data['personalInfo'][1]['address'] = 'Somestreet 7';
         $this->data['personalInfo'][1]['city'] = 'City2';
         $this->data['personalInfo'][1]['extra'] = 'Extra Information 2';
-
-        $this->text = '<p>This is text configured in the constructor.</p>';
-
-        // Only use the constructor for output when you don't have any other functions in your class.
-        // In most cases, you will use the constructor to initiate other classes or data.
     }
 
     /**
@@ -55,7 +51,7 @@ class ExampleController extends Controller
 
     public function showPHPAction()
     {
-        $this->render('Example', $this->data, 'PHP');
+        $this->render('ExamplePHP', $this->data, 'PHP');
     }
 }
 /** End of File: ExampleController.php **/
