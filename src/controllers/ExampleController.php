@@ -26,7 +26,7 @@ class ExampleController extends Controller
         $this->data['personalInfo'][1]['city'] = 'City2';
         $this->data['personalInfo'][1]['extra'] = 'Extra Information 2';
 
-        $this->text = 'This is text configured in the constructor.';
+        $this->text = '<p>This is text configured in the constructor.</p>';
 
         // Only use the constructor for output when you don't have any other functions in your class.
         // In most cases, you will use the constructor to initiate other classes or data.
@@ -38,24 +38,24 @@ class ExampleController extends Controller
      */
     public function testAction($var)
     {
-        print($this->text.'<br>');
-        print('This is text from the function testAction.<br>');
-        if (isset($var['name'])) print('Name: '. $var['name']);
+        print($this->text);
+        print('<p>This is text from the function testAction.</p>');
+        if (isset($var['name'])) print('<p>Name: ' . $var['name'] . '</p>');
     }
 
     public function showJSONAction()
     {
-        $this->renderJSON($this->data);
+        $this->render(null, $this->data, 'JSON');
     }
 
     public function showXMLAction()
     {
-        $this->renderXML($this->data);
+        $this->render(null, $this->data, 'XML');
     }
 
     public function showPHPAction()
     {
-        $this->renderPHP('Example', $this->data);
+        $this->render('Example', $this->data, 'PHP');
     }
 }
 /** End of File: ExampleController.php **/

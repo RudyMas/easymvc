@@ -15,7 +15,10 @@ class ExampleView extends HTML5
         $this->output .= parent::head('stop');
 
         $this->output .= parent::body('start');
-        $this->output .= parent::p('full', '', '', '', 'Als je informatie wenst over het gebruik van een element gebruik dan: parent::&lt;tag&gt;(\'!help\');');
+        $this->output .= parent::h3('full', '', '', '', 'Help function');
+        $this->output .= parent::p('full', '', '', '', 'If you need help with a HTML-tag, use "parent::&lt;HTML-tag&gt;(\'!help!\');" inside your code.');
+        $this->output .= parent::p('full', '', '', '', 'Keep in mind that this will abort the output and only display the information about the tag.');
+        $this->output .= $this->p('full', '', '', '', 'You can also use: "$this->&lt;HTML-tag&gt;(...);');
         $this->output .= parent::body('stop');
 
         echo $this->output;

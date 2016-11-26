@@ -1,6 +1,7 @@
 <?php
 namespace Library;
 
+use Exception;
 use RudyMas\XML_JSON\XML_JSON;
 
 /**
@@ -10,10 +11,34 @@ use RudyMas\XML_JSON\XML_JSON;
 class Controller
 {
     /**
+     * @param string|null $page
+     * @param array $data
+     * @param string $type
+     * @param int $httpResponseCode
+     * @throws Exception
+     */
+    public function render($page, array $data, string $type, int $httpResponseCode = 200)
+    {
+        switch (strtoupper($type)) {
+            case 'JSON':
+                $this->renderJSON($data, $httpResponseCode);
+                break;
+            case 'XML':
+                $this->renderXML($data, $httpResponseCode);
+                break;
+            case 'PHP':
+                $this->renderPHP($page, $data);
+                break;
+            default:
+                throw new Exception("<p><b>Exception:</b> Wrong page type ({$type}) given.</p>", 404);
+        }
+    }
+
+    /**
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    public function renderJSON(array $data, int $httpResponseCode = 200)
+    private function renderJSON(array $data, int $httpResponseCode = 200)
     {
         $convert = new XML_JSON();
         $convert->setArrayData($data);
@@ -29,7 +54,7 @@ class Controller
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    public function renderXML(array $data, int $httpResponseCode = 200)
+    private function renderXML(array $data, int $httpResponseCode = 200)
     {
         $convert = new XML_JSON();
         $convert->setArrayData($data);
@@ -44,7 +69,7 @@ class Controller
      * @param string $PHPpage Name of the HTML5 view class
      * @param array $data array of data to insert on the page
      */
-    public function renderPHP(string $PHPpage, array $data)
+    private function renderPHP(string $PHPpage, array $data)
     {
         $view = '\\View\\' . $PHPpage . 'View';
         new $view($data);
