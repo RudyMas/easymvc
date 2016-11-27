@@ -26,7 +26,8 @@
     "rudymas/pdo-ext": "*",
     "rudymas/router": "*",
     "rudymas/html5": "*",
-    "rudymas/xml_json": "*"
+    "rudymas/xml_json": "*",
+    "twig/twig": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
