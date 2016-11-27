@@ -51,7 +51,7 @@ class ExampleController extends Controller
 
     public function showPHPAction()
     {
-        $this->render('ExamplePHP', $this->data, 'PHP');
+        $this->render('ExamplePHP/IndexView', $this->data, 'PHP');
     }
 }
 /** End of File: ExampleController.php **/

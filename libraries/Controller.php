@@ -83,14 +83,9 @@ class Controller
     {
         $view = '\\View';
         $class = explode('/', trim($page, '/'));
-        if (1 == count($class)) {
-            $view .= "\\{$class[0]}\\Index";
-        } else {
-            foreach ($class as $path) {
-                $view .= "\\{$path}";
-            }
+        foreach ($class as $path) {
+            $view .= "\\{$path}";
         }
-        $view .= 'View';
         return $view;
     }
 }
