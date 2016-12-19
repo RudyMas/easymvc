@@ -40,8 +40,15 @@ class Controller
      */
     private function renderJSON(array $data, int $httpResponseCode = 200)
     {
+        if ($httpResponseCode >= 200 && $httpResponseCode <= 206) {
+            $jsonData['data'] = $data;
+        } else {
+            $jsonData['error']['code'] = $httpResponseCode;
+            $jsonData['error']['message'] = 'Error '.$httpResponseCode.' has occurred';
+        }
+
         $convert = new XML_JSON();
-        $convert->setArrayData($data);
+        $convert->setArrayData($jsonData);
         $convert->array2json();
 
         http_response_code($httpResponseCode);
@@ -58,7 +65,7 @@ class Controller
     {
         $convert = new XML_JSON();
         $convert->setArrayData($data);
-        $convert->array2xml('<data/>');
+        $convert->array2xml('<xmldata/>');
 
         http_response_code($httpResponseCode);
         header('Content-Type: application/xml; charset=utf-8');

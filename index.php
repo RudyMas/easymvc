@@ -12,7 +12,7 @@
  * @author      Rudy Mas <rudy.mas@rudymas.be>
  * @copyright   2016, rudymas.be. (http://www.rudymas.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.2.1
+ * @version     0.2.2
  */
 require(__DIR__.'/vendor/autoload.php');
 require(__DIR__.'/config/config.php');
