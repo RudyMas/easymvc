@@ -21,20 +21,12 @@
  * - Array of Objects: This can be any object you want to pass on to the controller
  *                     In most cases, it will be the database object(s)
  */
-use RudyMas\Router\EasyRouter;
-
-$router = new EasyRouter();
 $router->addRoute('GET', '/', 'Example');
 $router->addRoute('GET', '/test', 'Example:test');
 $router->addRoute('GET', '/test/{name}', 'Example:test');
 $router->addRoute('GET', '/showjson', 'Example:showJSON');
 $router->addRoute('GET', '/showxml', 'Example:showXML');
 $router->addRoute('GET', '/showphp', 'Example:showPHP');
-
-try {
-    $router->execute();
-} catch (Exception $exception) {
-    http_response_code($exception->getCode());
-    print($exception->getMessage());
-}
+$router->addRoute('GET', '/info', 'Example:infoPHP');
+$router->addRoute('GET', '/tabel', 'Example:tabelPHP');
 /** End of File: router.php **/

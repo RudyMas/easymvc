@@ -44,7 +44,7 @@ class Controller
             $jsonData['data'] = $data;
         } else {
             $jsonData['error']['code'] = $httpResponseCode;
-            $jsonData['error']['message'] = 'Error '.$httpResponseCode.' has occurred';
+            $jsonData['error']['message'] = 'Error ' . $httpResponseCode . ' has occurred';
         }
 
         $convert = new XML_JSON();
@@ -78,8 +78,14 @@ class Controller
      */
     private function renderPHP(string $page, array $data)
     {
-        $view = $this->processPhpPage($page);
-        new $view($data);
+        list($view, $subpage) = $this->processPhpPage($page);
+        if ($subpage == null) {
+            new $view($data);
+        } else {
+            $subpage .= 'Page';
+            $loadPage = new $view($data);
+            $loadPage->$subpage();
+        }
     }
 
     /**
@@ -89,10 +95,12 @@ class Controller
     private function processPhpPage(string $page)
     {
         $view = '\\View';
-        $class = explode('/', trim($page, '/'));
+        $split = explode(':', trim($page, '/'));
+        if (count($split) > 1) $subpage = $split[1]; else $subpage = null;
+        $class = explode('/', trim($split[0], '/'));
         foreach ($class as $path) {
             $view .= "\\{$path}";
         }
-        return $view;
+        return [$view, $subpage];
     }
 }

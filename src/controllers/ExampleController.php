@@ -9,7 +9,7 @@ use Library\Controller;
 class ExampleController extends Controller
 {
     private $text;
-    private $data;
+    private $data = [];
 
     /**
      * Example constructor
@@ -17,7 +17,6 @@ class ExampleController extends Controller
      */
     public function __construct()
     {
-        $this->data = [];
         $this->data['personalInfo'][0]['name'] = 'Firstname Lastname';
         $this->data['personalInfo'][0]['address'] = 'Somestreet 5';
         $this->data['personalInfo'][0]['city'] = 'City';
@@ -26,6 +25,9 @@ class ExampleController extends Controller
         $this->data['personalInfo'][1]['address'] = 'Somestreet 7';
         $this->data['personalInfo'][1]['city'] = 'City2';
         $this->data['personalInfo'][1]['extra'] = 'Extra Information 2';
+
+        $this->text = '<h2>Text to be used in a function</h2>';
+        $this->text .= '<p>This is created inside the constructor.</p>';
     }
 
     /**
@@ -53,5 +55,16 @@ class ExampleController extends Controller
     {
         $this->render('ExamplePHP/IndexView', $this->data, 'PHP');
     }
+
+    public function infoPHPAction()
+    {
+        $this->render('ExamplePHP/SubpageView:info', $this->data, 'PHP');
+    }
+
+    public function tabelPHPAction()
+    {
+        $this->render('ExamplePHP/SubpageView:tabel', $this->data, 'PHP');
+    }
 }
+
 /** End of File: ExampleController.php **/
