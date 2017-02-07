@@ -23,7 +23,7 @@ class SubpageView extends HTML5
     private $output;
 
     /**
-     * IndexView constructor.
+     * SubpageView constructor.
      * @param array $data
      */
     public function __construct(array $data = [])
@@ -36,6 +36,9 @@ class SubpageView extends HTML5
         $this->output .= parent::body('start');
     }
 
+    /**
+     * SubpageView deconstruct.
+     */
     public function __destruct()
     {
         $this->output .= parent::body('stop');
