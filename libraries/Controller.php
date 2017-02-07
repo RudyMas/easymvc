@@ -20,6 +20,9 @@ class Controller
     public function render($page, array $data, string $type, int $httpResponseCode = 200)
     {
         switch (strtoupper($type)) {
+            case 'HTML':
+                $this->renderHTML($page);
+                break;
             case 'JSON':
                 $this->renderJSON($data, $httpResponseCode);
                 break;
@@ -29,8 +32,33 @@ class Controller
             case 'PHP':
                 $this->renderPHP($page, $data);
                 break;
+            case 'TWIG':
+                $this->renderTWIG($page, $data);
+                break;
             default:
                 throw new Exception("<p><b>Exception:</b> Wrong page type ({$type}) given.</p>", 404);
+        }
+    }
+
+    /**
+     * @param string $page Page to redirect to (Can by an URL or a routing directive)
+     */
+    public function redirect(string $page)
+    {
+        header('Location: ' . $page);
+        exit;
+    }
+
+    /**
+     * @param string $page HTML page to output to the browser
+     */
+    private function renderHTML(string $page)
+    {
+        $display = __DIR__ . '/../src/views/' . $page;
+        if (file_exists($display)) {
+            readfile($display);
+        } else {
+            header('HTTP/1.1 404 Not Found');
         }
     }
 
@@ -103,4 +131,11 @@ class Controller
         }
         return [$view, $subpage];
     }
+
+    private function renderTWIG(string $page, array $data)
+    {
+        throw new Exception('Not implemented yet');
+    }
 }
+
+/** End of File: Controller.php **/

@@ -21,12 +21,14 @@
  * - Array of Objects: This can be any object you want to pass on to the controller
  *                     In most cases, it will be the database object(s)
  */
-$router->addRoute('GET', '/', 'Example');
-$router->addRoute('GET', '/test', 'Example:test');
-$router->addRoute('GET', '/test/{name}', 'Example:test');
-$router->addRoute('GET', '/showjson', 'Example:showJSON');
-$router->addRoute('GET', '/showxml', 'Example:showXML');
-$router->addRoute('GET', '/showphp', 'Example:showPHP');
+$router->addRoute('GET', '/', 'Example:help');
+$router->addRoute('GET', '/help', 'Example:help');
+$router->addRoute('GET', '/text', 'Example:test');
+$router->addRoute('GET', '/text/{name}', 'Example:test');
+$router->addRoute('GET', '/redirect', 'Example:redirect');
+$router->addRoute('GET', '/json', 'Example:showJSON');
+$router->addRoute('GET', '/xml', 'Example:showXML');
+$router->addRoute('GET', '/php', 'Example:showPHP');
 $router->addRoute('GET', '/info', 'Example:infoPHP');
-$router->addRoute('GET', '/tabel', 'Example:tabelPHP');
+$router->addRoute('GET', '/table', 'Example:tablePHP');
 /** End of File: router.php **/

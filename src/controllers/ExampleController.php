@@ -26,8 +26,20 @@ class ExampleController extends Controller
         $this->data['personalInfo'][1]['city'] = 'City2';
         $this->data['personalInfo'][1]['extra'] = 'Extra Information 2';
 
-        $this->text = '<h2>Text to be used in a function</h2>';
+        $this->text = '<!DOCTYPE html>';
+        $this->text .= '<html lang="en">';
+        $this->text .= '<head>';
+        $this->text .= '<meta charset="UTF-8">';
+        $this->text .= '<title>EasyMVC Text</title>';
+        $this->text .= '</head>';
+        $this->text .= '<body>';
+        $this->text .= '<h2>Text to be used in a function</h2>';
         $this->text .= '<p>This is created inside the constructor.</p>';
+    }
+
+    public function helpAction()
+    {
+        $this->render('help.html', [], 'HTML');
     }
 
     /**
@@ -39,6 +51,13 @@ class ExampleController extends Controller
         print($this->text);
         print('<p>This is text from the function testAction.</p>');
         if (isset($var['name'])) print('<p>Name: ' . $var['name'] . '</p>');
+        print('</body>');
+        print('</html>');
+    }
+
+    public function redirectAction()
+    {
+        $this->redirect('text/Redirect');
     }
 
     public function showJSONAction()
@@ -61,9 +80,9 @@ class ExampleController extends Controller
         $this->render('ExamplePHP/SubpageView:info', $this->data, 'PHP');
     }
 
-    public function tabelPHPAction()
+    public function tablePHPAction()
     {
-        $this->render('ExamplePHP/SubpageView:tabel', $this->data, 'PHP');
+        $this->render('ExamplePHP/SubpageView:table', $this->data, 'PHP');
     }
 }
 

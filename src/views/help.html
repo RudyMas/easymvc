@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyMVC</title>
+</head>
+<body>
+<div id="container">
+    <h1>EasyMVC</h1>
+    <h2>Welcome to EasyMVC</h2>
+    <p>You have successfully installed EasyMVC! Now you can start using this framework and start developing your own
+        website. This framework was created to provide everyone with an easy to use MVC framework that uses clean URL's.<br><br>
+        The version you installed has some examples included in how to use it. Use the following references to see a
+        demonstration of how to use different kinds of outputs:</p>
+    <ul>
+        <li><h3>http://your_website's_URL/</h3>
+            <ul>
+                <li>This is the page you are seeing right now. It's a plain HTML file that's being send to your browser.
+                    You can send HTML pages to display by using the code "$this->render('page.html', [], 'HTML');"
+                    inside your controller.<br>
+                    <b>http://your_website's_URL/help</b> will display this page as well.
+                </li>
+            </ul>
+        </li>
+        <li><h3>http://your_website's_URL/text</h3>
+            <ul>
+                <li>In my example, I have used this to produce an output to the browser. But in general, you would use
+                    this to run some code that doesn't need to output anything. Then, you would use
+                    "$this->redirect('route');" at the end of the code to redirect the user to another page which you want
+                    to display.<br><br>
+                    I use this very rarely, but now and then, it can come in handy to do things like this to quickly
+                    test something on your website, before implementing it the right way.
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

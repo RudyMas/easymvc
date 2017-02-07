@@ -51,7 +51,7 @@ class SubpageView extends HTML5
         $this->output .= $this->p('full', '', '', '', 'You can also use: "$this->&lt;HTML-tag&gt;(...);');
     }
 
-    public function tabelPage()
+    public function tablePage()
     {
         $this->output .= parent::h4('full', '', '', '', '<u>Tabel $data</u>');
         $this->output .= parent::table('start');
