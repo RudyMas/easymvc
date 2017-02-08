@@ -44,9 +44,9 @@ class ExampleController extends Controller
 
     /**
      * function testAction($var)
-     * @param string $var
+     * @param array $var
      */
-    public function testAction($var)
+    public function testAction(array $var)
     {
         print($this->text);
         print('<p>This is text from the function testAction.</p>');
