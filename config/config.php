@@ -4,4 +4,5 @@
  * and edit database.php to configure the connection
  */
 define('USE_DATABASE', false);
+defile('USE_LOGIN', false);
 /** End of File: config.php **/
