@@ -3,6 +3,8 @@ namespace Library;
 
 use Exception;
 use RudyMas\XML_JSON\XML_JSON;
+use Twig_Environment;
+use Twig_Loader_Filesystem;
 
 /**
  * Class Controller
@@ -132,9 +134,15 @@ class Controller
         return [$view, $subpage];
     }
 
+    /**
+     * @param string $page
+     * @param array $data
+     */
     private function renderTWIG(string $page, array $data)
     {
-        throw new Exception('Not implemented yet');
+        $loader = new Twig_Loader_Filesystem('src/views');
+        $twig = new Twig_Environment($loader);
+        $twig->display($page, $data);
     }
 }
 

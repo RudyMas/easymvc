@@ -29,6 +29,9 @@ $router->addRoute('GET', '/redirect', 'Example:redirect');
 $router->addRoute('GET', '/json', 'Example:showJSON');
 $router->addRoute('GET', '/xml', 'Example:showXML');
 $router->addRoute('GET', '/php', 'Example:showPHP');
-$router->addRoute('GET', '/info', 'Example:infoPHP');
-$router->addRoute('GET', '/table', 'Example:tablePHP');
+$router->addRoute('GET', '/php/info', 'Example:infoPHP');
+$router->addRoute('GET', '/php/table', 'Example:tablePHP');
+$router->addRoute('GET', '/twig', 'Example:showTwig');
+$router->addRoute('GET', '/twig/info', 'Example:infoTwig');
+$router->addRoute('GET', '/twig/table', 'Example:tableTwig');
 /** End of File: router.php **/

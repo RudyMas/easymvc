@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="revisit-after" content="7 days">
+        <meta name="author" content="Rudy Mas">
+        <meta name="contact" content="rudy.mas@rudymas.be">
+        <meta name="keywords" content="EasyMVC, example, page">
+        <meta name="description" content="Example of a HTML5 PHP page">
+        <meta name="robots" content="index,follow">
+        <meta name="rating" content="General">
+        <title>{% block title %}EasyMVC Twig{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+<div id="container">{% block container %}{% endblock %}</div>
+</body>
+</html>

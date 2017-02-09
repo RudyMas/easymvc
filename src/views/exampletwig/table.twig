@@ -1,0 +1,31 @@
+{% extends "exampletwig/base.twig" %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}
+    {{ parent() }} - Table
+{% endblock %}
+{% block container %}
+    <h4><u>Tabel $data</u></h4>
+    <table>
+        <thead>
+        <tr>
+            <th>[name]</th>
+            <th>[address]</th>
+            <th>[city]</th>
+            <th>[extra]</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for info in personalInfo %}
+            <tr>
+                <td>{{ info.name }}</td>
+                <td>{{ info.address }}</td>
+                <td>{{ info.city }}</td>
+                <td>{{ info.extra }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
