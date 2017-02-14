@@ -34,10 +34,10 @@ class ExampleController extends Controller
         $this->text .= '</head>';
         $this->text .= '<body>';
         $this->text .= '<h2>Text to be used in a function</h2>';
-        $this->text .= '<p>This is created inside the constructor.</p>';
+        $this->text .= '<p>Text created inside the constructor can be used in all the other functions. You should probably only use it to set the head part of the HTML page.</p>';
     }
 
-    public function helpAction()
+    public function helpAction(): void
     {
         $this->render('help.html', [], 'HTML');
     }
@@ -46,7 +46,7 @@ class ExampleController extends Controller
      * function testAction($var)
      * @param array $var
      */
-    public function testAction(array $var)
+    public function testAction(array $var): void
     {
         print($this->text);
         print('<p>This is text from the function testAction.</p>');
@@ -55,34 +55,49 @@ class ExampleController extends Controller
         print('</html>');
     }
 
-    public function redirectAction()
+    public function redirectAction(): void
     {
         $this->redirect('text/Redirect');
     }
 
-    public function showJSONAction()
+    public function showJSONAction(): void
     {
         $this->render(null, $this->data, 'JSON');
     }
 
-    public function showXMLAction()
+    public function showXMLAction(): void
     {
         $this->render(null, $this->data, 'XML');
     }
 
-    public function showPHPAction()
+    public function showPHPAction(): void
     {
         $this->render('ExamplePHP/IndexView', $this->data, 'PHP');
     }
 
-    public function infoPHPAction()
+    public function infoPHPAction(): void
     {
         $this->render('ExamplePHP/SubpageView:info', $this->data, 'PHP');
     }
 
-    public function tablePHPAction()
+    public function tablePHPAction(): void
     {
         $this->render('ExamplePHP/SubpageView:table', $this->data, 'PHP');
+    }
+
+    public function showTwigAction(): void
+    {
+        $this->render('ExampleTWIG/index.twig', $this->data, 'TWIG');
+    }
+
+    public function infoTwigAction(): void
+    {
+        $this->render('ExampleTWIG/info.twig', $this->data, 'TWIG');
+    }
+
+    public function tableTwigAction(): void
+    {
+        $this->render('ExampleTWIG/table.twig', $this->data, 'TWIG');
     }
 }
 
