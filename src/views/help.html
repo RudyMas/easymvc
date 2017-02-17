@@ -9,13 +9,14 @@
     <h1>EasyMVC</h1>
     <h2>Welcome to EasyMVC</h2>
     <p>You have successfully installed EasyMVC! Now you can start using this framework and start developing your own
-        website. This framework was created to provide everyone with an easy to use MVC framework that uses clean URL's.<br><br>
+        website. This framework was created to provide everyone with an easy to use MVC framework that uses clean
+        URLs.<br><br>
         The version you installed has some examples included in how to use it. Use the following references to see a
         demonstration of how to use different kinds of outputs:</p>
     <ul>
-        <li><h3>http://your_website's_URL/</h3>
+        <li><h3>http://your_website's_URL/ | http://your_website's_URL/help</h3>
             <ul>
-                <li>This is the page you are seeing right now. It's a plain HTML file that's being send to your browser.
+                <li>this is the page you are seeing right now. It's a plain HTML file that's being sent to your browser.
                     You can send HTML pages to display by using the code "$this->render('page.html', [], 'HTML');"
                     inside your controller.<br>
                     <b>http://your_website's_URL/help</b> will display this page as well.
@@ -24,12 +25,58 @@
         </li>
         <li><h3>http://your_website's_URL/text</h3>
             <ul>
-                <li>In my example, I have used this to produce an output to the browser. But in general, you would use
-                    this to run some code that doesn't need to output anything. Then, you would use
-                    "$this->redirect('route');" at the end of the code to redirect the user to another page which you want
-                    to display.<br><br>
-                    I use this very rarely, but now and then, it can come in handy to do things like this to quickly
-                    test something on your website, before implementing it the right way.
+                <li>in my example, I have used this to produce an output to the browser. But in general, you would use
+                    this to run some code that doesn't need to output anything. When it is finished running, you would
+                    use "$this->redirect('route');" at the end of the code to redirect the user to another page which
+                    you want to display.<br><br>
+                    I use this rarely, but now and then; it can come in handy to do things this way to test
+                    something quickly on your website, before implementing it the right way.<br><br>
+                    The only other reason I would use a URI to run some code without displaying anything, is for
+                    processing a posted form. At the end, depending on the outcome, I would redirect the user to another
+                    page to display a message or whatever the next page would be. It provides you with an extra
+                    flexibility.
+                </li>
+            </ul>
+        </li>
+        <li><h3>http://your_website's_URL/text/&lt;a name&gt;</h3>
+            <ul>
+                <li>the same example as above, but this also demonstrates how you can use information from your URI. In
+                    this example, the name given will be used in the output in the browser.
+                </li>
+            </ul>
+        </li>
+        <li><h3>http://your_website's_URL/redirect</h3>
+            <ul>
+                <li>an example in how to use a redirect in EasyMVC.</li>
+            </ul>
+        </li>
+        <li><h3>http://your_website's_URL/json | http://your_website's_URL/xml</h3>
+            <ul>
+                <li>an example in how you are able to output JSON data in EasyMVC. The data module for JSON in this
+                    framework can covert data between an array, Json or XML and output it.
+                </li>
+            </ul>
+        </li>
+        <li><h3>http://your_website's_URL/php | http://your_website's_URL/php/info |
+            http://your_website's_URL/php/table</h3>
+            <ul>
+                <li>This will demonstrate how you can use the HTML5 class in EasyMVC.<br><br>
+                    This is one of the classes I have written in the past, so I didn't need to worry about creating my
+                    own HTML pages next to my PHP code. With this class, you can create fully compliant HTML5 pages from
+                    inside your PHP code. This is a personal choice, and I wouldn't recommend it as the default method
+                    to use. It's just an extra option I provide in my framework.
+                </li>
+            </ul>
+        </li>
+        <li><h3>http://your_website's_URL/twig | http://your_website's_URL/twig/info |
+            http://your_website's_URL/twig/table</h3>
+            <ul>
+                <li>This is an example of the twig template engine for PHP.<br><br>
+                    I would recommend using this template engine. It's very flexible and fast, and provides you with a
+                    template engine used by many other PHP frameworks already.<br><br>
+                    I only recently discovered this template engine when I needed to use the Symphony framework a while
+                    ago, and it quickly became my favorite one. That's way I have built it into my own framework as
+                    well.
                 </li>
             </ul>
         </li>
