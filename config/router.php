@@ -34,6 +34,7 @@ $router->addRoute('GET', '/php/table', 'Example:tablePHP');
 $router->addRoute('GET', '/twig', 'Example:showTwig');
 $router->addRoute('GET', '/twig/info', 'Example:infoTwig');
 $router->addRoute('GET', '/twig/table', 'Example:tableTwig');
+$router->addRoute('GET', '/model', 'ModelExample:model');
 
 $router->setDefault('/');
 /** End of File: router.php **/
