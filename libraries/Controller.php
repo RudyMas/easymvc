@@ -7,7 +7,7 @@ use Twig_Environment;
 use Twig_Loader_Filesystem;
 
 /**
- * Class Controller
+ * Class Controller (PHP 7.0)
  * @package Library
  */
 class Controller
@@ -19,7 +19,7 @@ class Controller
      * @param int $httpResponseCode
      * @throws Exception
      */
-    public function render($page, array $data, string $type, int $httpResponseCode = 200)
+    public function render($page, array $data, string $type, int $httpResponseCode = 200): void
     {
         switch (strtoupper($type)) {
             case 'HTML':
@@ -45,7 +45,7 @@ class Controller
     /**
      * @param string $page Page to redirect to (Can by an URL or a routing directive)
      */
-    public function redirect(string $page)
+    public function redirect(string $page): void
     {
         header('Location: ' . $page);
         exit;
@@ -54,7 +54,7 @@ class Controller
     /**
      * @param string $page HTML page to output to the browser
      */
-    private function renderHTML(string $page)
+    private function renderHTML(string $page): void
     {
         $display = __DIR__ . '/../src/views/' . $page;
         if (file_exists($display)) {
@@ -68,7 +68,7 @@ class Controller
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    private function renderJSON(array $data, int $httpResponseCode = 200)
+    private function renderJSON(array $data, int $httpResponseCode = 200): void
     {
         if ($httpResponseCode >= 200 && $httpResponseCode <= 206) {
             $jsonData['data'] = $data;
@@ -91,7 +91,7 @@ class Controller
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    private function renderXML(array $data, int $httpResponseCode = 200)
+    private function renderXML(array $data, int $httpResponseCode = 200): void
     {
         $convert = new XML_JSON();
         $convert->setArrayData($data);
@@ -106,7 +106,7 @@ class Controller
      * @param string $page Name of the HTML5 view class
      * @param array $data array of data to insert on the page
      */
-    private function renderPHP(string $page, array $data)
+    private function renderPHP(string $page, array $data): void
     {
         list($view, $subpage) = $this->processPhpPage($page);
         if ($subpage == null) {
@@ -120,9 +120,9 @@ class Controller
 
     /**
      * @param string $page
-     * @return string
+     * @return array
      */
-    private function processPhpPage(string $page)
+    private function processPhpPage(string $page): array
     {
         $view = '\\View';
         $split = explode(':', trim($page, '/'));
@@ -138,12 +138,11 @@ class Controller
      * @param string $page
      * @param array $data
      */
-    private function renderTWIG(string $page, array $data)
+    private function renderTWIG(string $page, array $data): void
     {
         $loader = new Twig_Loader_Filesystem('src/views');
         $twig = new Twig_Environment($loader);
         $twig->display($page, $data);
     }
 }
-
 /** End of File: Controller.php **/
