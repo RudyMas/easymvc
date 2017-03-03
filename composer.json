@@ -28,7 +28,8 @@
     "rudymas/html5": "*",
     "rudymas/xml_json": "*",
     "rudymas/manipulator": "*",
-    "twig/twig": "*"
+    "twig/twig": "*",
+    "guzzlehttp/guzzle": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
