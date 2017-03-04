@@ -9,6 +9,10 @@ class ApiExampleController extends Controller
 {
     private $http;
 
+    /**
+     * ApiExampleController constructor.
+     * @param $args
+     */
     public function __construct($args)
     {
         $this->http = $args['http'];
@@ -18,16 +22,12 @@ class ApiExampleController extends Controller
     {
         $json = new XML_JSON();
         try {
-            $response = $this->http->get('GET', 'http://webapi.rmfoto.be/api/habits/1');
-            $json->setJsonData($response->getBody(), 'overview');
+            $response = $this->http->get('http://webapi.rmfoto.be/api/overview');
+            $json->setJsonData($response->getBody());
             $json->json2array();
             $this->render(null, $json->getArrayData(), 'JSON');
-            exit;
         } catch (RequestException $exception) {
-            print('<pre>');
-            print_r($exception->getMessage());
-            print('</pre>');
-            exit;
+            die($exception->getMessage());
         }
     }
 }

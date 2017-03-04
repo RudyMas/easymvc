@@ -13,9 +13,9 @@ class HttpRequest
         $this->httpClient = new Client();
     }
 
-    public function get(string $method, string $URI, string $username = null, string $password = null): Response
+    public function get(string $URL, string $username = null, string $password = null): Response
     {
-        $response = $this->httpClient->request($method, $URI, [
+        $response = $this->httpClient->request('GET', $URL, [
             'auth' => [$username, $password]
         ]);
         return $response;
