@@ -20,6 +20,7 @@ session_start([
 require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/config/config.php');
 
+use Library\HttpRequest;
 use Library\Login;
 use RudyMas\PDOExt\DBconnect;
 use RudyMas\Router\EasyRouter;
@@ -41,6 +42,13 @@ if (USE_DATABASE) {
  */
 if (USE_LOGIN) {
     $login = new Login($database[0]['objectName']);
+}
+
+/**
+ * Setting up the HttpRequest for the website
+ */
+if (USE_HTTP_REQUEST) {
+    $http = new HttpRequest();
 }
 
 /**

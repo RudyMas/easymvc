@@ -36,5 +36,9 @@ $router->addRoute('GET', '/twig/info', 'Example:infoTwig');
 $router->addRoute('GET', '/twig/table', 'Example:tableTwig');
 $router->addRoute('GET', '/model', 'ModelExample:model');
 
+if (isset($http)) {
+    $router->addRoute('GET', '/api/overview', 'ApiExample:getOverview', ['http' => $http]);
+}
+
 $router->setDefault('/');
 /** End of File: router.php **/
