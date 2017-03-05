@@ -47,7 +47,7 @@ class Controller
      */
     public function redirect(string $page): void
     {
-        header('Location: ' . $page);
+        header('Location: ' . dirname($_SERVER['SCRIPT_NAME']) . $page);
         exit;
     }
 
@@ -145,4 +145,5 @@ class Controller
         $twig->display($page, $data);
     }
 }
+
 /** End of File: Controller.php **/

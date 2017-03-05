@@ -57,7 +57,7 @@ class ExampleController extends Controller
 
     public function redirectAction(): void
     {
-        $this->redirect('text/Redirect');
+        $this->redirect('/text/Redirect');
     }
 
     public function showJSONAction(): void

@@ -38,6 +38,8 @@ $router->addRoute('GET', '/model', 'ModelExample:model');
 
 if (isset($http)) {
     $router->addRoute('GET', '/api/overview', 'ApiExample:getOverview', ['http' => $http]);
+    $router->addRoute('GET', '/api/habits/{userId}', 'ApiExample:getHabitsUser', ['http' => $http]);
+    $router->addRoute('GET', '/api/setHabit/{userId}', 'ApiExample:setHabit', ['http' => $http]);
 }
 
 $router->setDefault('/');
