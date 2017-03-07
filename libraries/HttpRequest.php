@@ -66,6 +66,20 @@ class HttpRequest
     }
 
     /**
+     * @param string $Url
+     * @param string|null $username
+     * @param string|null $password
+     * @return Response
+     */
+    public function delete(string $Url, string $username = null, string $password = null): Response
+    {
+        $response = $this->httpClient->request('DELETE', $this->baseUri . $Url, [
+            'auth' => [$username, $password]
+        ]);
+        return $response;
+    }
+
+    /**
      * @return string
      */
     public function getBaseUri(): string
