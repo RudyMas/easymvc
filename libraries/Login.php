@@ -12,7 +12,7 @@ use RudyMas\PDOExt\DBconnect;
  * In the MySQL table 'emvc_users' you only need to add 6 fixed fields:
  * - id             = int : Is the index for the table (auto_increment)
  * - username       = varchar(30) : The login username
- * - password       = varchar(40) : The login password
+ * - password       = varchar(64) : The login password
  * - salt           = varchar(20) : Used for extra security
  * - remember_me    = varchar(40) : Special hashed password to automatically login
  * - remember_me_ip = varchar(45) : The IP from where the user can login automatically (Can be an IPv4 or IPv6 address)
@@ -25,7 +25,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.0.0
+ * @version     1.1.0
  * @package     Library
  */
 class Login
@@ -68,7 +68,7 @@ class Login
         $this->db->query($query);
         if ($this->db->rows != 0) {
             $this->db->fetch(0);
-            if ($sha1Password = sha1($password . $this->db->data['salt']) == $this->db->data['password']) {
+            if ($sha256Password = hash('sha256', $password . $this->db->data['salt'] == $this->db->data['password'])) {
                 setcookie('username', $username, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
                     $text = new Text();
@@ -77,7 +77,7 @@ class Login
                     $this->updateUser($username);
                     setcookie('rememberMe', $this->data['remember_me'], time() + (30 * 24 * 3600), '/');
                 } else {
-                    $_SESSION['password'] = $sha1Password;
+                    $_SESSION['password'] = $sha256Password;
                     $_SESSION['IP'] = $this->getIP();
                 }
                 $this->data = $this->db->data;
@@ -171,7 +171,7 @@ class Login
         for ($x = 1; $x < $numberOfFields; $x++) {
             $query .= ", ";
             if ($nameField[$x] == 'password') {
-                $query .= '\'' . sha1($this->data['password'] . $this->data['salt']) . '\'';
+                $query .= '\'' . hash('sha256', $this->data['password'] . $this->data['salt']) . '\'';
             } else {
                 $query .= $this->db->cleanSQL($this->data[$nameField[$x]]);
             }
@@ -223,5 +223,4 @@ class Login
         return $IP;
     }
 }
-
 /** End of File: Login.php **/
