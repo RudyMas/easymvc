@@ -7,8 +7,12 @@ use Twig_Environment;
 use Twig_Loader_Filesystem;
 
 /**
- * Class Controller (PHP 7.0)
- * @package Library
+ * Class Controller (PHP version 7.0)
+ *
+ * @author      Rudy Mas <rudy.mas@rmsoft.be>
+ * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
+ * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
+ * @package     Library
  */
 class Controller
 {

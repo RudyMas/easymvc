@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP EasyMVC
+ * PHP EasyMVC (PHP version 7.0)
  * An easy to use MVC PHP Framework.
  *
  * This app uses the following classes: (composer.json provided)
@@ -8,9 +8,12 @@
  *  - EasyRouter (composer require rudymas/router)
  *  - HTML5 (composer require rudymas/html5)
  *  - XML_JSON (composer require rudymas/xml_json)
+ *  - Text (composer require rudymas/manipulator)
+ *  - Twig (composer require twig/twig)
+ *  - Guzzle (composer require guzzlehttp/guzzle)
  *
- * @author      Rudy Mas <rudy.mas@rudymas.be>
- * @copyright   2016-2017, rudymas.be. (http://www.rudymas.be/)
+ * @author      Rudy Mas <rudy.mas@rmsoft.be>
+ * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
  * @version     0.3.0
  */
@@ -24,6 +27,11 @@ use Library\HttpRequest;
 use Library\Login;
 use RudyMas\PDOExt\DBconnect;
 use RudyMas\Router\EasyRouter;
+
+/**
+ * Setting up some easy to use constant variables
+ */
+define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
 /**
  * Loading the database(s)

@@ -22,8 +22,8 @@ use RudyMas\PDOExt\DBconnect;
  *
  * All the extra fields added to the user table can be accessed by using $login->data['....']
  *
- * @author      Rudy Mas <rudy.mas@rudymas.be>
- * @copyright   Copyright (c) 2017, rudymas.be. (http://www.rudymas.be/)
+ * @author      Rudy Mas <rudy.mas@rmsoft.be>
+ * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
  * @version     1.0.0
  * @package     Library
@@ -68,8 +68,7 @@ class Login
         $this->db->query($query);
         if ($this->db->rows != 0) {
             $this->db->fetch(0);
-            if (sha1($password . $this->db->data['salt']) == $this->db->data['password']) {
-                $sha1Password = sha1($password . $this->db->data['salt']);
+            if ($sha1Password = sha1($password . $this->db->data['salt']) == $this->db->data['password']) {
                 setcookie('username', $username, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
                     $text = new Text();
