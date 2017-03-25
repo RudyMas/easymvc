@@ -7,6 +7,13 @@ class UserRepository
 {
     private $users = [];
 
+    public function __construct(User $users = null)
+    {
+        if ($users != null) {
+            $this->users[] = $users;
+        }
+    }
+
     public function add(User $user)
     {
         $this->users[] = $user;
@@ -17,11 +24,13 @@ class UserRepository
         return $this->users;
     }
 
-    public function getAtIndex(int $index)
+    public function getAtIndex(int $index): User
     {
-        if (isset($this->users[$index]))
-            return $this->users[$index];
-        else
-            throw new Exception('<b>ERROR:</b> Unknown User Index: ' . $index);
+        foreach ($this->users as $value) {
+            if ($value->getId() === $index) {
+                return $value;
+            }
+        }
+        throw new Exception('<b>ERROR:</b> Call to an unknown Index!');
     }
 }

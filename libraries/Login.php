@@ -11,7 +11,8 @@ use RudyMas\PDOExt\DBconnect;
  *
  * In the MySQL table 'emvc_users' you only need to add 6 fixed fields:
  * - id             = int : Is the index for the table (auto_increment)
- * - username       = varchar(30) : The login username
+ * - username       = varchar(40) : The login username
+ * - email          = varchar(70) : The login e-mail
  * - password       = varchar(64) : The login password
  * - salt           = varchar(20) : Used for extra security
  * - remember_me    = varchar(40) : Special hashed password to automatically login
@@ -25,21 +26,23 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.1.0
+ * @version     1.2.7
  * @package     Library
  */
 class Login
 {
     public $data, $errorCode;
-    private $db;
+    private $db, $emailLogin;
 
     /**
      * Login constructor.
-     * @param DBconnect $DBconnect
+     * @param DBconnect $dbconnect
+     * @param bool $emailLogin
      */
-    public function __construct(DBconnect $DBconnect)
+    public function __construct(DBconnect $dbconnect, bool $emailLogin = false)
     {
-        $this->db = $DBconnect;
+        $this->db = $dbconnect;
+        $this->emailLogin = $emailLogin;
     }
 
     /**
@@ -49,32 +52,36 @@ class Login
     {
         unset($_SESSION['password']);
         unset($_SESSION['IP']);
-        unset($this->data);
+        $this->data = [];
+        setcookie('rememberMe', '', -1, '/');
         if ($cookie == true) {
-            setcookie('username', '', -1, '/');
-            setcookie('rememberMe', '', -1, '/');
+            setcookie('login', '', -1, '/');
         }
     }
 
     /**
-     * @param string $username
+     * @param string $userLogin
      * @param string $password
      * @param bool $remember
      * @return bool
      */
-    public function loginUser(string $username, string $password, bool $remember = false): bool
+    public function loginUser(string $userLogin, string $password, bool $remember = false): bool
     {
-        $query = "SELECT * FROM emvc_users WHERE username = {$this->db->cleanSQL($username)}";
+        if ($this->emailLogin) {
+            $query = "SELECT * FROM emvc_users WHERE email = {$this->db->cleanSQL($userLogin)}";
+        } else {
+            $query = "SELECT * FROM emvc_users WHERE username = {$this->db->cleanSQL($userLogin)}";
+        }
         $this->db->query($query);
         if ($this->db->rows != 0) {
             $this->db->fetch(0);
             if ($sha256Password = hash('sha256', $password . $this->db->data['salt'] == $this->db->data['password'])) {
-                setcookie('username', $username, time() + (30 * 24 * 3600), '/');
+                setcookie('login', $userLogin, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
                     $text = new Text();
                     $this->data['remember_me'] = $text->randomText(25);
                     $this->data['remember_me_ip'] = $this->getIP();
-                    $this->updateUser($username);
+                    $this->updateUser($userLogin);
                     setcookie('rememberMe', $this->data['remember_me'], time() + (30 * 24 * 3600), '/');
                 } else {
                     $_SESSION['password'] = $sha256Password;
@@ -98,7 +105,7 @@ class Login
         $remember = false;
         $IP = '';
         $password = '';
-        if (isset($_COOKIE['username'])) $username = $_COOKIE['username']; else $username = '';
+        if (isset($_COOKIE['login'])) $userLogin = $_COOKIE['login']; else $userLogin = '';
         if (isset($_COOKIE['rememberMe'])) {
             $password = $_COOKIE['rememberMe'];
             $remember = true;
@@ -106,8 +113,12 @@ class Login
             $password = $_SESSION['password'];
             $IP = $_SESSION['IP'];
         }
-        if ($username != '' && $password != '') {
-            $query = "SELECT * FROM emvc_users WHERE username = {$this->db->cleanSQL($username)}";
+        if ($userLogin != '' && $password != '') {
+            if ($this->emailLogin) {
+                $query = "SELECT * FROM emvc_users WHERE email = {$this->db->cleanSQL($userLogin)}";
+            } else {
+                $query = "SELECT * FROM emvc_users WHERE username = {$this->db->cleanSQL($userLogin)}";
+            }
             $this->db->query($query);
             if ($this->db->rows != 0) {
                 $this->db->fetch(0);
@@ -117,7 +128,7 @@ class Login
                         $this->data = $this->db->data;
                         return true;
                     } else {
-                        unset($this->data);
+                        $this->data = [];
                         $this->logoutUser(true);
                         ?>
                         <script type="text/javascript">
@@ -127,15 +138,15 @@ class Login
                         return false;
                     }
                 } else {
-                    unset($this->data);
+                    $this->data = [];
                     return false;
                 }
             } else {
-                unset($this->data);
+                $this->data = [];
                 return false;
             }
         } else {
-            unset($this->data);
+            $this->data = [];
             return false;
         }
     }
@@ -147,11 +158,17 @@ class Login
     {
         $nameField = [];
         $text = new Text();
+        if ($this->emailLogin) $this->data['username'] = 'Not Used';
+        if (!isset($this->data['email'])) $this->data['email'] = 'No Email Address';
         $this->data['salt'] = $text->randomText(20);
-        $this->data['remember_me'] = null;
-        $this->data['remember_me_ip'] = null;
+        $this->data['remember_me'] = '';
+        $this->data['remember_me_ip'] = '';
 
-        $query = "SELECT id FROM emvc_users WHERE username = {$this->db->cleanSQL($this->data['username'])}";
+        if ($this->emailLogin) {
+            $query = "SELECT id FROM emvc_users WHERE email = {$this->db->cleanSQL($this->data['email'])}";
+        } else {
+            $query = "SELECT id FROM emvc_users WHERE username = {$this->db->cleanSQL($this->data['username'])}";
+        }
         $this->db->query($query);
         if ($this->db->rows != 0) {
             $this->errorCode = 9;
@@ -173,12 +190,18 @@ class Login
             if ($nameField[$x] == 'password') {
                 $query .= '\'' . hash('sha256', $this->data['password'] . $this->data['salt']) . '\'';
             } else {
+                if (!isset($this->data[$nameField[$x]])) $this->data[$nameField[$x]] = '';
                 $query .= $this->db->cleanSQL($this->data[$nameField[$x]]);
             }
         }
         $query .= ")";
         $this->db->insert($query);
-        if ($this->loginUser($this->data['username'], $this->data['password'])) {
+        if ($this->emailLogin) {
+            $loginResult = $this->loginUser($this->data['email'], $this->data['password']);
+        } else {
+            $loginResult = $this->loginUser($this->data['username'], $this->data['password']);
+        }
+        if ($loginResult) {
             return true;
         } else {
             $this->errorCode = 2;
@@ -192,15 +215,21 @@ class Login
      */
     public function updateUser(string $user = ''): bool
     {
-        if (isset($_COOKIE['username'])) $username = $_COOKIE['username'];
-        elseif ($user != '') $username = $user;
+        if ($user != '') $userLogin = $user;
+        elseif (isset($_COOKIE['login']) && $user == '') $userLogin = $_COOKIE['login'];
         else return false;
         $query = "UPDATE emvc_users SET ";
         foreach ($this->data as $key => $value) {
-            $query .= "{$key} = '{$value}', ";
+            if ($key != 'id') {
+                $query .= "{$key} = '{$value}', ";
+            }
         }
         $query = substr($query, 0, -2);
-        $query .= " WHERE username = {$this->db->cleanSQL($username)}";
+        if ($this->emailLogin) {
+            $query .= " WHERE email = {$this->db->cleanSQL($userLogin)}";
+        } else {
+            $query .= " WHERE username = {$this->db->cleanSQL($userLogin)}";
+        }
         $this->db->update($query);
         return true;
     }

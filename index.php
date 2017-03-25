@@ -4,18 +4,20 @@
  * An easy to use MVC PHP Framework.
  *
  * This app uses the following classes: (composer.json provided)
- *  - DBconnect (composer require rudymas/pdo-ext)
- *  - EasyRouter (composer require rudymas/router)
- *  - HTML5 (composer require rudymas/html5)
- *  - XML_JSON (composer require rudymas/xml_json)
- *  - Text (composer require rudymas/manipulator)
- *  - Twig (composer require twig/twig)
- *  - Guzzle (composer require guzzlehttp/guzzle)
+ *  - DBconnect (rudymas/pdo-ext)
+ *  - EasyRouter (rudymas/router)
+ *  - HTML5 (rudymas/html5)
+ *  - XML_JSON (rudymas/xml_json)
+ *  - Text (rudymas/manipulator)
+ *  - Twig (twig/twig)
+ *  - Guzzle (guzzlehttp/guzzle)
+ *  - Nette (nette/mail)
+ *  - Latte (latte/latte)
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.3.0
+ * @version     0.4.3
  */
 session_start([
     'cookie_lifetime' => 10800
@@ -23,6 +25,7 @@ session_start([
 require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/config/config.php');
 
+use Library\Email;
 use Library\HttpRequest;
 use Library\Login;
 use RudyMas\PDOExt\DBconnect;
@@ -31,7 +34,9 @@ use RudyMas\Router\EasyRouter;
 /**
  * Setting up some easy to use constant variables
  */
-define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
+$arrayServerName = explode('.', $_SERVER['SERVER_NAME']);
+$scriptName = rtrim(str_replace($arrayServerName, '', dirname($_SERVER['SCRIPT_NAME'])), '/');
+define('BASE_URL', $scriptName);
 
 /**
  * Loading the database(s)
@@ -49,7 +54,8 @@ if (USE_DATABASE) {
  * Setting up the login for the website
  */
 if (USE_LOGIN) {
-    $login = new Login($database[0]['objectName']);
+    $object = $database[0]['objectName'];
+    $login = new Login($$object, USE_EMAIL_LOGIN);
 }
 
 /**
@@ -57,6 +63,13 @@ if (USE_LOGIN) {
  */
 if (USE_HTTP_REQUEST) {
     $http = new HttpRequest();
+}
+
+/**
+ * Setting up the E-mail for the website
+ */
+if (USE_EMAIL) {
+    $email = new Email();
 }
 
 /**

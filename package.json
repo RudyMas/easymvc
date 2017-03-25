@@ -1,0 +1,12 @@
+{
+  "name": "easymvc",
+  "version": "1.0.0",
+  "description": "JavaScript add-ons for EasyMVC",
+  "author": "Rudy Mas",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.0",
+    "datatables": "^1.10.13",
+    "jquery": "^3.2.1"
+  }
+}

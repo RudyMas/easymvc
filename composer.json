@@ -11,13 +11,13 @@
   "authors": [
     {
       "name": "Rudy Mas",
-      "email": "rudy.mas@rudymas.be",
-      "homepage": "http://www.rudymas.be",
+      "email": "rudy.mas@rmssoft.be",
+      "homepage": "http://www.rmsoft.be",
       "role": "Developer"
     }
   ],
   "support": {
-    "email": "support@rudymas.be",
+    "email": "support@rmsoft.be",
     "source": "https://github.com/RudyMas/easymvc"
   },
   "minimum-stability": "stable",
@@ -29,7 +29,9 @@
     "rudymas/xml_json": "*",
     "rudymas/manipulator": "*",
     "twig/twig": "*",
-    "guzzlehttp/guzzle": "*"
+    "guzzlehttp/guzzle": "*",
+    "nette/mail": "^2",
+    "latte/latte": "^2"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

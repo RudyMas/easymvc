@@ -5,6 +5,9 @@
 _notes/
 
 # Managed by Composer
-vendor/*
+vendor/
 composer.lock
 composer.phar
+
+# Managed by npm
+node_modules/
