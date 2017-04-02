@@ -27,7 +27,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.4.0
+ * @version     1.4.1
  * @package     Library
  */
 class Login
@@ -49,7 +49,7 @@ class Login
     /**
      * @param bool $cookie
      */
-    public function logoutUser(bool $cookie = false): void
+    public function logoutUser(bool $cookie = false)
     {
         unset($_SESSION['password']);
         unset($_SESSION['IP']);
@@ -76,7 +76,8 @@ class Login
         $this->db->query($query);
         if ($this->db->rows != 0) {
             $this->db->fetch(0);
-            if ($sha256Password = hash('sha256', $password . $this->db->data['salt'] == $this->db->data['password'])) {
+            $sha256Password = hash('sha256', $password . $this->db->data['Salt']);
+            if ($sha256Password == $this->db->data['Password']) {
                 setcookie('login', $userLogin, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
                     $text = new Text();
@@ -253,13 +254,17 @@ class Login
         } else {
             $IP = 'Unknown';
         }
+        if (preg_match('/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]*/', $IP)) {
+            $temp = explode(':', $IP);
+            $IP = $temp[0];
+        }
         return $IP;
     }
 
     /**
      * Transform clean SQL data to normal data
      */
-    private function setData(): void
+    private function setData()
     {
         foreach ($this->db->data as $key => $value) {
             $this->data[$key] = $this->db->uncleanSQL($value);
