@@ -27,7 +27,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.3.0
+ * @version     1.4.0
  * @package     Library
  */
 class Login
@@ -176,7 +176,9 @@ class Login
             return false;
         }
 
-        $query = "SHOW COLUMNS FROM emvc_users";
+        $query = "SELECT COLUMN_NAME as 'Field'
+                  FROM INFORMATION_SCHEMA.COLUMNS
+                  WHERE TABLE_NAME = 'emvc_users'";
         $this->db->query($query);
         $numberOfFields = $this->db->rows;
         for ($x = 0; $x < $numberOfFields; $x++) {
@@ -196,6 +198,7 @@ class Login
             }
         }
         $query .= ")";
+
         $this->db->insert($query);
         if ($this->emailLogin) {
             $loginResult = $this->loginUser($this->data['email'], $this->data['password']);
