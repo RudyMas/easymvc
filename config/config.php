@@ -28,7 +28,8 @@ define('USE_SMTP', false);
 // Your SMTP Configuration
 define('EMAIL_HOST', 'smtp.server.com');
 define('EMAIL_FROM', 'your@email.address');
-define('EMAIL_USERNAME', 'username_login'); // Most SMTP servers expect the sender (From) to be the same as the username!
+define('EMAIL_BCC', 'bcc@email.address'); // Set this to null is you don't want to receive copies of the e-mails send
+define('EMAIL_USERNAME', 'username_login');
 define('EMAIL_PASSWORD', 'password_login');
 define('EMAIL_SECURITY', 'ssl');
 

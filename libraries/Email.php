@@ -2,6 +2,7 @@
 
 namespace Library;
 
+use Latte\Engine;
 use Nette\Mail\Message;
 use Nette\Mail\SendmailMailer;
 use Nette\Mail\SmtpMailer;
@@ -12,12 +13,13 @@ use Nette\Mail\SmtpMailer;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.0.0
+ * @version     1.2.0
  * @package     Library
  */
 class Email
 {
     private $email;
+    private $from;
 
     /**
      * Email constructor.
@@ -25,6 +27,17 @@ class Email
     public function __construct()
     {
         $this->email = new Message();
+        $this->from = EMAIL_FROM;
+    }
+
+    /**
+     * For changing the sender of the E-mail
+     *
+     * @param string $email
+     */
+    public function setFrom(string $email): void
+    {
+        $this->from = $email;
     }
 
     /**
@@ -38,7 +51,7 @@ class Email
      */
     public function setTextMessage(array $to, array $cc = null, array $bcc = null, string $subject, string $body): void
     {
-        $this->email->setFrom(EMAIL_FROM);
+        $this->email->setFrom($this->from);
         foreach ($to as $value) {
             $this->email->addTo($value);
         }
@@ -51,6 +64,8 @@ class Email
             foreach ($bcc as $value) {
                 $this->email->addBcc($value);
             }
+        } elseif (EMAIL_BCC != null) {
+            $this->email->addBcc(EMAIL_BCC);
         }
         $this->email->setSubject($subject);
         $this->email->setBody($body);
@@ -67,9 +82,9 @@ class Email
      */
     public function setHtmlMessage(array $to, array $cc = null, array $bcc = null, string $subject, string $body): void
     {
-        $this->email->setFrom(EMAIL_FROM);
+        $this->email->setFrom($this->from);
         foreach ($to as $value) {
-            $this->email->addCc($value);
+            $this->email->addTo($value);
         }
         if ($cc != null) {
             foreach ($cc as $value) {
@@ -80,6 +95,8 @@ class Email
             foreach ($bcc as $value) {
                 $this->email->addBcc($value);
             }
+        } elseif (EMAIL_BCC != null) {
+            $this->email->addBcc(EMAIL_BCC);
         }
         $this->email->setSubject($subject);
         $this->email->setHtmlBody($body);
@@ -101,6 +118,20 @@ class Email
             $mailer = new SendmailMailer();
         }
         $mailer->send($this->email);
+    }
+
+    /**
+     * Use Latte for rendering HTML E-mails
+     *
+     * @param string $latteFile
+     * @param array $data
+     * @return string
+     */
+    public function renderHtml(string $latteFile, array $data): string
+    {
+        $latte = new Engine();
+        $latte->setTempDirectory(__DIR__ . '/../tmp/latte');
+        return $latte->renderToString(__DIR__ . '/../public/latte/' . $latteFile, $data);
     }
 }
 /** End of File: Email.php **/

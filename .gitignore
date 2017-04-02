@@ -1,9 +1,6 @@
 # PHPstorm
 .idea/
 
-# Dreamweaver
-_notes/
-
 # Managed by Composer
 vendor/
 composer.lock

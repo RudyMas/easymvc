@@ -1,4 +1,5 @@
 <?php
+
 namespace Library;
 
 use RudyMas\Manipulator\Text;
@@ -26,7 +27,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.2.7
+ * @version     1.3.0
  * @package     Library
  */
 class Login
@@ -79,7 +80,7 @@ class Login
                 setcookie('login', $userLogin, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
                     $text = new Text();
-                    $this->data['remember_me'] = $text->randomText(25);
+                    $this->data['remember_me'] = $text->randomText(40);
                     $this->data['remember_me_ip'] = $this->getIP();
                     $this->updateUser($userLogin);
                     setcookie('rememberMe', $this->data['remember_me'], time() + (30 * 24 * 3600), '/');
@@ -87,7 +88,7 @@ class Login
                     $_SESSION['password'] = $sha256Password;
                     $_SESSION['IP'] = $this->getIP();
                 }
-                $this->data = $this->db->data;
+                $this->setData();
                 return true;
             } else {
                 return false;
@@ -125,7 +126,7 @@ class Login
                 if ($password == ($remember) ? $this->db->data['remember_me'] : $this->db->data['password']) {
                     if ($remember) $IP = $this->db->data['remember_me_ip'];
                     if ($IP == $this->getIP()) {
-                        $this->data = $this->db->data;
+                        $this->setData();
                         return true;
                     } else {
                         $this->data = [];
@@ -221,7 +222,7 @@ class Login
         $query = "UPDATE emvc_users SET ";
         foreach ($this->data as $key => $value) {
             if ($key != 'id') {
-                $query .= "{$key} = '{$value}', ";
+                $query .= "{$key} = {$this->db->cleanSQL($value)}, ";
             }
         }
         $query = substr($query, 0, -2);
@@ -250,6 +251,16 @@ class Login
             $IP = 'Unknown';
         }
         return $IP;
+    }
+
+    /**
+     * Transform clean SQL data to normal data
+     */
+    private function setData(): void
+    {
+        foreach ($this->db->data as $key => $value) {
+            $this->data[$key] = $this->db->uncleanSQL($value);
+        }
     }
 }
 /** End of File: Login.php **/
