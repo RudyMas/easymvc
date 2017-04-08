@@ -27,7 +27,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.4.1
+ * @version     1.5.0
  * @package     Library
  */
 class Login
@@ -76,8 +76,8 @@ class Login
         $this->db->query($query);
         if ($this->db->rows != 0) {
             $this->db->fetch(0);
-            $sha256Password = hash('sha256', $password . $this->db->data['Salt']);
-            if ($sha256Password == $this->db->data['Password']) {
+            $sha256Password = hash('sha256', $password . $this->db->data['salt']);
+            if ($sha256Password == $this->db->data['password']) {
                 setcookie('login', $userLogin, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
                     $text = new Text();
@@ -188,11 +188,18 @@ class Login
         }
 
         $query = "INSERT INTO emvc_users ";
-        $query .= "VALUES (0";
-        for ($x = 1; $x < $numberOfFields; $x++) {
+        $query .= $nameField[1];
+        for ($x = 2; $x < $numberOfFields; $x++) {
             $query .= ", ";
-            if ($nameField[$x] == 'password') {
-                $query .= '\'' . hash('sha256', $this->data['password'] . $this->data['salt']) . '\'';
+            $query .= $nameField[$x];
+        }
+        $query .= ") VALUES (";
+        if (!isset($this->data[$nameField[1]])) $this->data[$nameField[1]] = '';
+        $query .= $this->db->cleanSQL($this->data[$nameField[1]]);
+        for ($x = 2; $x < $numberOfFields; $x++) {
+            $query .= ", ";
+            if ($nameField[$x] == 'Password') {
+                $query .= '\'' . hash('sha256', $this->data['Password'] . $this->data['Salt']) . '\'';
             } else {
                 if (!isset($this->data[$nameField[$x]])) $this->data[$nameField[$x]] = '';
                 $query .= $this->db->cleanSQL($this->data[$nameField[$x]]);

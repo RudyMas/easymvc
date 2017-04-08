@@ -12,7 +12,7 @@ use Twig_Loader_Filesystem;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.0.1
+ * @version     1.0.3
  * @package     Library
  */
 class Controller
@@ -24,7 +24,7 @@ class Controller
      * @param int $httpResponseCode
      * @throws Exception
      */
-    public function render(string $page, array $data, string $type, int $httpResponseCode = 200): void
+    public function render(string $page, array $data, string $type, int $httpResponseCode = 200)
     {
         switch (strtoupper($type)) {
             case 'HTML':
@@ -50,16 +50,17 @@ class Controller
     /**
      * @param string $page Page to redirect to (Can by an URL or a routing directive)
      */
-    public function redirect(string $page): void
+    public function redirect(string $page)
     {
-        header('Location: ' . dirname($_SERVER['SCRIPT_NAME']) . $page);
+        $dirname = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
+        header('Location: ' . $dirname . $page);
         exit;
     }
 
     /**
      * @param string $page HTML page to output to the browser
      */
-    private function renderHTML(string $page): void
+    private function renderHTML(string $page)
     {
         $display = __DIR__ . '/../src/views/' . $page;
         if (file_exists($display)) {
@@ -73,7 +74,7 @@ class Controller
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    private function renderJSON(array $data, int $httpResponseCode = 200): void
+    private function renderJSON(array $data, int $httpResponseCode = 200)
     {
         if ($httpResponseCode >= 200 && $httpResponseCode <= 206) {
             $jsonData['data'] = $data;
@@ -96,7 +97,7 @@ class Controller
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    private function renderXML(array $data, int $httpResponseCode = 200): void
+    private function renderXML(array $data, int $httpResponseCode = 200)
     {
         $convert = new XML_JSON();
         $convert->setArrayData($data);
@@ -111,7 +112,7 @@ class Controller
      * @param string $page Name of the HTML5 view class
      * @param array $data array of data to insert on the page
      */
-    private function renderPHP(string $page, array $data): void
+    private function renderPHP(string $page, array $data)
     {
         list($view, $subpage) = $this->processPhpPage($page);
         if ($subpage == null) {
@@ -143,7 +144,7 @@ class Controller
      * @param string $page
      * @param array $data
      */
-    private function renderTWIG(string $page, array $data): void
+    private function renderTWIG(string $page, array $data)
     {
         $loader = new Twig_Loader_Filesystem('src/views');
         $twig = new Twig_Environment($loader);

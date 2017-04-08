@@ -1,4 +1,5 @@
 <?php
+
 namespace Library;
 
 use GuzzleHttp\Client;
@@ -10,7 +11,7 @@ use GuzzleHttp\Psr7\Response;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.0.0
+ * @version     1.1.0
  * @package     Library
  */
 class HttpRequest
@@ -99,7 +100,7 @@ class HttpRequest
     /**
      * @param string $baseUri
      */
-    public function setBaseUri(string $baseUri): void
+    public function setBaseUri(string $baseUri)
     {
         $this->baseUri = $baseUri;
     }
