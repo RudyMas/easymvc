@@ -274,7 +274,7 @@ class Login
     private function setData()
     {
         foreach ($this->db->data as $key => $value) {
-            $this->data[$key] = $this->db->uncleanSQL($value);
+            $this->data[$key] = $value;
         }
     }
 }
