@@ -3,6 +3,7 @@ namespace Model;
 
 class User
 {
+    private $id;
     private $firstname = '';
     private $lastname = '';
     private $phone = '';
@@ -10,17 +11,35 @@ class User
 
     /**
      * User constructor.
+     * @param int $id
      * @param string $firstname
      * @param string $lastname
      * @param string $phone
      * @param string $email
      */
-    public function __construct(string $firstname, string $lastname, string $phone, string $email)
+    public function __construct(int $id, string $firstname, string $lastname, string $phone, string $email)
     {
+        $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->phone = $phone;
         $this->email = $email;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
     }
 
     /**

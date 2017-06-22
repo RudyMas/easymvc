@@ -17,14 +17,14 @@ class ExampleController extends Controller
      */
     public function __construct()
     {
-        $this->data['personalInfo'][0]['name'] = 'Firstname Lastname';
-        $this->data['personalInfo'][0]['address'] = 'Somestreet 5';
-        $this->data['personalInfo'][0]['city'] = 'City';
-        $this->data['personalInfo'][0]['extra'] = 'Extra Information';
-        $this->data['personalInfo'][1]['name'] = 'Firstname2 Lastname2';
-        $this->data['personalInfo'][1]['address'] = 'Somestreet 7';
-        $this->data['personalInfo'][1]['city'] = 'City2';
-        $this->data['personalInfo'][1]['extra'] = 'Extra Information 2';
+        $this->data['member'][0]['name'] = 'Firstname Lastname';
+        $this->data['member'][0]['address'] = 'Somestreet 5';
+        $this->data['member'][0]['city'] = 'City';
+        $this->data['member'][0]['extra'] = 'Extra Information';
+        $this->data['member'][1]['name'] = 'Firstname2 Lastname2';
+        $this->data['member'][1]['address'] = 'Somestreet 7';
+        $this->data['member'][1]['city'] = 'City2';
+        $this->data['member'][1]['extra'] = 'Extra Information 2';
 
         $this->text = '<!DOCTYPE html>';
         $this->text .= '<html lang="en">';

@@ -8,12 +8,12 @@ use Nette\Mail\SendmailMailer;
 use Nette\Mail\SmtpMailer;
 
 /**
- * Class Email (PHP version 7.0)
+ * Class Email (PHP version 7.1)
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.2.0
+ * @version     1.3.0
  * @package     Library
  */
 class Email
@@ -134,4 +134,5 @@ class Email
         return $latte->renderToString(__DIR__ . '/../public/latte/' . $latteFile, $data);
     }
 }
+
 /** End of File: Email.php **/

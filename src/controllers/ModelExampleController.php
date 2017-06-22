@@ -12,8 +12,8 @@ class ModelExampleController extends Controller
     {
         $users = new UserRepository();
 
-        $users->add(new User('Rudy', 'Mas', '+32-12-345678', 'rudy.mas@rudymas.be'));
-        $users->add(new User('Other', 'Person', '+32-488-123456', 'other.person@rudymas.be'));
+        $users->add(new User(1,'Rudy', 'Mas', '+32-12-345678', 'rudy.mas@rudymas.be'));
+        $users->add(new User(2,'Other', 'Person', '+32-488-123456', 'other.person@rudymas.be'));
 
         print('<pre>');
         print_r($users->getAll());
@@ -24,8 +24,9 @@ class ModelExampleController extends Controller
         }
 
         print('<br>');
-        print($users->getAtIndex(0)->getFirstname() . '<br>');
-        print($users->getAtIndex(1)->getFirstname() . '<br>');
-        print($users->getAtIndex(2)->getFirstname() . '<br>');
+        print($users->getByIndex(1)->getFirstname() . ' ' . $users->getByIndex(1)->getLastname() . '<br>');
+        print($users->getByIndex(2)->getFirstname() . ' ' . $users->getByIndex(2)->getLastname(). '<br>');
     }
 }
+
+/** End of File: ModelExampleController.php **/

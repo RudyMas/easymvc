@@ -1,4 +1,5 @@
 <?php
+
 namespace Library;
 
 use Exception;
@@ -7,12 +8,12 @@ use Twig_Environment;
 use Twig_Loader_Filesystem;
 
 /**
- * Class Controller (PHP version 7.0)
+ * Class Controller (PHP version 7.1)
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.0.3
+ * @version     1.3.0
  * @package     Library
  */
 class Controller
@@ -24,7 +25,7 @@ class Controller
      * @param int $httpResponseCode
      * @throws Exception
      */
-    public function render(?string $page, array $data, string $type, int $httpResponseCode = 200)
+    public function render(?string $page, array $data, string $type, int $httpResponseCode = 200): void
     {
         switch (strtoupper($type)) {
             case 'HTML':
@@ -43,24 +44,28 @@ class Controller
                 $this->renderTWIG($page, $data);
                 exit;
             default:
-                throw new Exception("<p><b>Exception:</b> Wrong page type ({$type}) given.</p>", 404);
+                throw new Exception("<p><b>Exception:</b> Wrong page type ({$type}) given.</p>", 501);
         }
     }
 
     /**
-     * @param string $page Page to redirect to (Can by an URL or a routing directive)
+     * @param string $page Page to redirect to (Can be an URL or a routing directive)
      */
-    public function redirect(string $page)
+    public function redirect(string $page): void
     {
-        $dirname = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
-        header('Location: ' . $dirname . $page);
+        if (preg_match("/(http|ftp|https)?:?\/\//", $page)) {
+            header('Location: ' . $page);
+        } else {
+            $dirname = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
+            header('Location: ' . $dirname . $page);
+        }
         exit;
     }
 
     /**
      * @param string $page HTML page to output to the browser
      */
-    private function renderHTML(string $page)
+    private function renderHTML(string $page): void
     {
         $display = __DIR__ . '/../src/views/' . $page;
         if (file_exists($display)) {
@@ -74,7 +79,30 @@ class Controller
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    private function renderJSON(array $data, int $httpResponseCode = 200)
+    private function renderJSON(array $data, int $httpResponseCode = 200): void
+    {
+        if ($httpResponseCode >= 200 && $httpResponseCode <= 206) {
+            $jsonData = $data;
+        } else {
+            $jsonData['error']['code'] = $httpResponseCode;
+            $jsonData['error']['message'] = 'Error ' . $httpResponseCode . ' has occurred';
+        }
+
+        $convert = new XML_JSON();
+        $convert->setArrayData($jsonData);
+        $convert->array2json();
+
+        http_response_code($httpResponseCode);
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
+        print($convert->getJsonData());
+    }
+
+    /**
+     * @param array $data Array of data following XML standards
+     * @param int $httpResponseCode HTTP response code to send (Default: 200)
+     */
+    private function renderJSONData(array $data, int $httpResponseCode = 200): void
     {
         if ($httpResponseCode >= 200 && $httpResponseCode <= 206) {
             $jsonData['data'] = $data;
@@ -97,11 +125,18 @@ class Controller
      * @param array $data Array of data following XML standards
      * @param int $httpResponseCode HTTP response code to send (Default: 200)
      */
-    private function renderXML(array $data, int $httpResponseCode = 200)
+    private function renderXML(array $data, int $httpResponseCode = 200): void
     {
+        if ($httpResponseCode >= 200 && $httpResponseCode <= 206) {
+            $xmlData = $data;
+        } else {
+            $xmlData['error']['code'] = $httpResponseCode;
+            $xmlData['error']['message'] = 'Error ' . $httpResponseCode . ' has occurred';
+        }
+
         $convert = new XML_JSON();
-        $convert->setArrayData($data);
-        $convert->array2xml('<xmldata/>');
+        $convert->setArrayData($xmlData);
+        $convert->array2xml('members');
 
         http_response_code($httpResponseCode);
         header('Content-Type: application/xml; charset=utf-8');
@@ -112,7 +147,7 @@ class Controller
      * @param string $page Name of the HTML5 view class
      * @param array $data array of data to insert on the page
      */
-    private function renderPHP(string $page, array $data)
+    private function renderPHP(string $page, array $data): void
     {
         list($view, $subpage) = $this->processPhpPage($page);
         if ($subpage == null) {
@@ -143,23 +178,25 @@ class Controller
     /**
      * @param string $page
      * @param array $data
+     * @param bool $debug
      */
-    private function renderTWIG(string $page, array $data)
+    private function renderTWIG(string $page, array $data, bool $debug = false): void
     {
         $loader = new Twig_Loader_Filesystem('src/views');
-        $twig = new Twig_Environment($loader);
+        $twig = new Twig_Environment($loader, ['debug' => $debug]);
+        if ($debug === true) $twig->addExtension(new \Twig_Extension_Debug());
         $twig->display($page, $data);
     }
 
     /**
-     * Used for checking arrays for their content
-     * @param array $array
+     * @param mixed $array
      */
-    public function checkArray(array $array)
+    public function checkArray(mixed $array): void
     {
         print('<pre>');
         print_r($array);
         print('</pre>');
     }
 }
+
 /** End of File: Controller.php **/
