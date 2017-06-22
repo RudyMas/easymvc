@@ -1,11 +1,11 @@
 <?php
-namespace Model;
+namespace Repository;
 
 use Library\Repository;
 
 /**
  * Class UserRepository
- * @package Model
+ * @package Repository
  */
 class UserRepository extends Repository
 {

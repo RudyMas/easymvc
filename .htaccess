@@ -2,7 +2,7 @@ Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine On
 
-# Unremark if you always want to use a HTTPS connection
+# Uncomment the next 2 lines if you always want to use an HTTPS connection
 # RewriteCond %{HTTPS} !=on
 # RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 

@@ -18,13 +18,13 @@ use Twig_Loader_Filesystem;
 class Controller
 {
     /**
-     * @param string $page
+     * @param null|string $page
      * @param array $data
      * @param string $type
      * @param int $httpResponseCode
      * @throws Exception
      */
-    public function render(string $page, array $data, string $type, int $httpResponseCode = 200)
+    public function render(?string $page, array $data, string $type, int $httpResponseCode = 200)
     {
         switch (strtoupper($type)) {
             case 'HTML':

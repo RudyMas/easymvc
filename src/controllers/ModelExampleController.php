@@ -1,9 +1,10 @@
 <?php
+
 namespace Controller;
 
 use Library\Controller;
 use Model\User;
-use Model\UserRepository;
+use Repository\UserRepository;
 
 class ModelExampleController extends Controller
 {
@@ -19,12 +20,12 @@ class ModelExampleController extends Controller
         print('</pre>');
 
         foreach ($users->getAll() as $user) {
-                print("Voornaam: {$user->getFirstname()}<br>");
+            print("Voornaam: {$user->getFirstname()}<br>");
         }
 
         print('<br>');
-        print($users->getAtIndex(0)->getFirstname().'<br>');
-        print($users->getAtIndex(1)->getFirstname().'<br>');
-        print($users->getAtIndex(2)->getFirstname().'<br>');
+        print($users->getAtIndex(0)->getFirstname() . '<br>');
+        print($users->getAtIndex(1)->getFirstname() . '<br>');
+        print($users->getAtIndex(2)->getFirstname() . '<br>');
     }
 }

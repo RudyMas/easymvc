@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP EasyMVC (PHP version 7.0)
+ * PHP EasyMVC (PHP version 7.1)
  * An easy to use MVC PHP Framework.
  *
  * This app uses the following classes: (composer.json provided)
@@ -17,11 +17,9 @@
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.5.2
+ * @version     0.7.0
  */
-session_start([
-    'cookie_lifetime' => 10800
-]);
+session_start();
 require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/config/config.php');
 
@@ -83,4 +81,5 @@ try {
     http_response_code($exception->getCode());
     print($exception->getMessage());
 }
+
 /** End of File: index.php **/

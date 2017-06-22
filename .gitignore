@@ -8,3 +8,4 @@ composer.phar
 
 # Managed by npm
 node_modules/
+package-lock.json

@@ -43,4 +43,5 @@ if (isset($http)) {
 }
 
 $router->setDefault('/');
+
 /** End of File: router.php **/

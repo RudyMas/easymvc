@@ -2,6 +2,7 @@
   "name": "rudymas/easymvc",
   "description": "Easy MVC PHP Framework",
   "type": "project",
+  "version": "0.7.0",
   "keywords": [
     "MVC",
     "Framework",
@@ -22,7 +23,7 @@
   },
   "minimum-stability": "stable",
   "require": {
-    "php": "^7.0",
+    "php": "^7.1",
     "rudymas/pdo-ext": "*",
     "rudymas/router": "*",
     "rudymas/html5": "*",
@@ -39,9 +40,11 @@
   "autoload": {
     "psr-4": {
       "Model\\": "src/models",
+      "Repository\\": "src/repositories",
       "Controller\\": "src/controllers",
       "View\\": "src/views",
-      "Library\\": "libraries"
+      "Library\\": "libraries",
+      "Test\\": "tests"
     }
   }
 }
