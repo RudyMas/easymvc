@@ -1,0 +1,44 @@
+/* EasyMVC special CSS options (24/06/2017) */
+
+.emvc-label {
+    display: inline-block;
+}
+
+.emvc-label-primary {
+    background-color: #337ab7;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.emvc-label-danger {
+    background-color: #d9534f;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.emvc-label-success {
+    background-color: #5cb85c;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.emvc-label-warning {
+    background-color: #f0ad4e;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.emvc-row:before,
+.emvc-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
