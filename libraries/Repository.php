@@ -38,7 +38,7 @@ class Repository
     /**
      * @param $object
      */
-    public function add($object)
+    public function add($object): void
     {
         $this->data[] = $object;
     }
