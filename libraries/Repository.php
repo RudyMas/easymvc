@@ -11,7 +11,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.3.0
+ * @version     1.4.0
  * @package     Library
  */
 class Repository
@@ -75,6 +75,21 @@ class Repository
             }
         }
         throw new Exception('<b>ERROR:</b> Call to an unknown repository Index!');
+    }
+
+    /**
+     * @param string $field
+     * @param string $search
+     * @return array
+     */
+    public function getBy(string $field, string $search): array {
+        $output = [];
+        foreach ($this->data as $value) {
+            if ($value[$field] == $search) {
+                $output[] = $value;
+            }
+        }
+        return $output;
     }
 
     /**
