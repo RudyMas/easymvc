@@ -11,7 +11,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.4.0
+ * @version     1.5.0
  * @package     Library
  */
 class Repository
@@ -82,7 +82,8 @@ class Repository
      * @param string $search
      * @return array
      */
-    public function getBy(string $field, string $search): array {
+    public function getBy(string $field, string $search): array
+    {
         $output = [];
         foreach ($this->data as $value) {
             if ($value[$field] == $search) {
@@ -111,6 +112,21 @@ class Repository
     {
         $this->indexMarker++;
         return $this->data[$this->indexMarker - 1];
+    }
+
+    /**
+     * @param string $column
+     * @param string $model
+     */
+    public function loadAllFromColumn(string $column, string $model): void
+    {
+        $newModel = '\\Model\\' . $model;
+        $query = "SELECT * FROM {$column}";
+        $this->db->query($query);
+        $this->db->fetchAll();
+        foreach ($this->db->data as $data) {
+            $this->data[] = new $newModel($data);
+        }
     }
 }
 
