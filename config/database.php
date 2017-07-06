@@ -2,7 +2,6 @@
 /**
  * Settings for your database(s)
  */
-$database = [];
 
 # If the EasyMVC Login system is used, this database needs to contain the Login User Table
 $database[0]['objectName'] = 'dbconnect';

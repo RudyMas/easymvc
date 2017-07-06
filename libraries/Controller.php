@@ -191,7 +191,7 @@ class Controller
     /**
      * @param mixed $array
      */
-    public function checkArray(mixed $array): void
+    public function checkArray($array): void
     {
         print('<pre>');
         print_r($array);

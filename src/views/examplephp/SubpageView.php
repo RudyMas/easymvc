@@ -67,12 +67,12 @@ class SubpageView extends HTML5
         $this->output .= parent::tr('stop');
         $this->output .= parent::thead('start');
         $this->output .= parent::tbody('start');
-        foreach ($this->data['personalInfo'] as $personalInfo) {
+        foreach ($this->data['member'] as $member) {
             $this->output .= parent::tr('start');
-            $this->output .= parent::td('full', '', '', '', $personalInfo['name']);
-            $this->output .= parent::td('full', '', '', '', $personalInfo['address']);
-            $this->output .= parent::td('full', '', '', '', $personalInfo['city']);
-            $this->output .= parent::td('full', '', '', '', $personalInfo['extra']);
+            $this->output .= parent::td('full', '', '', '', $member['name']);
+            $this->output .= parent::td('full', '', '', '', $member['address']);
+            $this->output .= parent::td('full', '', '', '', $member['city']);
+            $this->output .= parent::td('full', '', '', '', $member['extra']);
             $this->output .= parent::tr('stop');
         }
         $this->output .= parent::tbody('start');
