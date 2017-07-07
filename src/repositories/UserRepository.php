@@ -2,6 +2,7 @@
 namespace Repository;
 
 use Library\Repository;
+use Model\User;
 
 /**
  * Class UserRepository
@@ -18,3 +19,5 @@ class UserRepository extends Repository
         parent::__construct($users);
     }
 }
+
+/** End of File: UserRepository.php **/

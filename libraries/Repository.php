@@ -125,7 +125,7 @@ class Repository
         $this->db->query($query);
         $this->db->fetchAll();
         foreach ($this->db->data as $data) {
-            $this->data[] = new $newModel($data);
+            $this->data[] = new $newModel->new($data);
         }
     }
 }

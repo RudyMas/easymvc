@@ -1,4 +1,5 @@
 <?php
+
 namespace Model;
 
 class User
@@ -24,6 +25,15 @@ class User
         $this->lastname = $lastname;
         $this->phone = $phone;
         $this->email = $email;
+    }
+
+    /**
+     * @param array $data
+     * @return User
+     */
+    public static function new(array $data): User
+    {
+        return new self($data['id'], $data['firstname'], $data['lastname'], $data['phone'], $data['email']);
     }
 
     /**
@@ -106,3 +116,5 @@ class User
         $this->email = $email;
     }
 }
+
+/** End of File: User.php **/

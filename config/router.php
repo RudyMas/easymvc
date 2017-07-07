@@ -57,10 +57,10 @@ if (USE_EMAIL) {
  *                                                                                $var['city'] = 'Hasselt'
  * - Controller[:Function]:
  *      - 'Controller' -> This will load the class Controller
- *                     The Controller will receive 'Array of Classes, Array of Repositories', $var[], $html_body (JSON/XML/...))
+ *                     The Controller will receive 'Array of Classes, Array of Repositories, $var[], $html_body (JSON/XML/...)'
  *      - 'Controller:Function' -> This will load the class Controller and the Function inside the class
  *                              The Controller will receive 'Array of Classes'
- *                              The Function will receive 'Array of Repositories, $var[], $html_body (JSON/XML/...)'
+ *                              The Function will receive 'Repository1, Repository2, RepositoryX..., $var[], $html_body (JSON/XML/...)'
  * - Array of Classes to inject: This can be any class you want to pass on to the controller
  *                               You can use the following syntax:
  *                                  ['dbconnect' => $dbconnect, 'someClass' => new SomeClass(), ...]
@@ -83,7 +83,8 @@ $router->addRoute('GET', '/php/table', 'Example:tablePHP');
 $router->addRoute('GET', '/twig', 'Example:showTwig');
 $router->addRoute('GET', '/twig/info', 'Example:infoTwig');
 $router->addRoute('GET', '/twig/table', 'Example:tableTwig');
-$router->addRoute('GET', '/model', 'ModelExample:model');
+$router->addRoute('GET', '/model', 'ModelExample:model', [], ['User']);
+$router->addRoute('GET', '/model/{text}', 'ModelExample:modelAndVariable', [], ['User']);
 
 if (isset($http)) {
     $router->addRoute('GET', '/api/overview', 'ApiExample:getOverview', ['http' => $http, 'xmlJson' => new XML_JSON()]);
