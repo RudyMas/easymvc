@@ -6,7 +6,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "datatables.net": "^1.10.15",
+    "datatables.net": "^1.10.16",
     "jquery": "^3.2.1",
     "trix": "^0.10.2"
   }
