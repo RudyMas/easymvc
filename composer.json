@@ -2,7 +2,7 @@
   "name": "rudymas/easymvc",
   "description": "Easy MVC PHP Framework",
   "type": "project",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "keywords": [
     "MVC",
     "Framework",
@@ -32,7 +32,8 @@
     "twig/twig": "*",
     "guzzlehttp/guzzle": "*",
     "nette/mail": "^2",
-    "latte/latte": "^2"
+    "latte/latte": "^2",
+    "mobiledetect/mobiledetectlib": "^2.8"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

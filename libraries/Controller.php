@@ -41,7 +41,7 @@ class Controller
                 $this->renderPHP($page, $data);
                 exit;
             case 'TWIG':
-                $this->renderTWIG($page, $data);
+                $this->renderTWIG($page, $data, true); //TODO: Set debug to false when done coding
                 exit;
             default:
                 throw new Exception("<p><b>Exception:</b> Wrong page type ({$type}) given.</p>", 501);

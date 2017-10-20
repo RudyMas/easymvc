@@ -1,44 +1,176 @@
-/* EasyMVC special CSS options (24/06/2017) */
+/*
+EasyMVC special CSS options
+Version 1.1.1
+*/
 
-.emvc-label {
+/* Layout */
+.emvc-center-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+    .emvc-center-element {
+        position: relative;
+        top: 10px;
+        left: 10%;
+        margin-bottom: 10px;
+        transform: none;
+    }
+}
+
+/* End Layout */
+
+/* Form Elements */
+
+.emvc-input {
+    background-color: white;
+    border: 1px solid darkgray;
+    border-radius: 1000px;
+}
+
+/* End Form Elements */
+
+/* Labels */
+.emvc-label,
+.emvc-badge {
     display: inline-block;
-}
-
-.emvc-label-primary {
-    background-color: #337ab7;
-    color: white;
-    padding: 2px 5px;
+    border: 1px solid darkgray;
+    background-color: white;
     border-radius: 5px;
     margin-right: 5px;
-}
-
-.emvc-label-danger {
-    background-color: #d9534f;
-    color: white;
     padding: 2px 5px;
-    border-radius: 5px;
-    margin-right: 5px;
 }
 
-.emvc-label-success {
-    background-color: #5cb85c;
+.emvc-badge-pill {
+    border-radius: 1000px;
+}
+
+.emvc-label-primary,
+.emvc-badge-primary {
+    background-color: #007bff;
+    border-color: #007bff;
     color: white;
-    padding: 2px 5px;
-    border-radius: 5px;
-    margin-right: 5px;
 }
 
-.emvc-label-warning {
-    background-color: #f0ad4e;
+.emvc-label-outline-primary,
+.emvc-badge-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.emvc-label-secondary,
+.emvc-badge-secondary {
+    background-color: #868e96;
+    border-color: #868e96;
     color: white;
-    padding: 2px 5px;
-    border-radius: 5px;
-    margin-right: 5px;
 }
 
-.emvc-row:before,
-.emvc-row:after {
+.emvc-label-outline-secondary,
+.emvc-badge-outline-secondary {
+    border-color: #868e96;
+    color: #868e96;
+}
+
+.emvc-label-success,
+.emvc-badge-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.emvc-label-outline-success,
+.emvc-badge-outline-success {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.emvc-label-danger,
+.emvc-badge-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.emvc-label-outline-danger,
+.emvc-badge-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.emvc-label-warning,
+.emvc-badge-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: white;
+}
+
+.emvc-label-outline-warning,
+.emvc-badge-outline-warning {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+.emvc-label-info,
+.emvc-badge-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}
+
+.emvc-label-outline-info,
+.emvc-badge-outline-info {
+    border-color: #17a2b8;
+    color: #17a2b8;
+}
+
+.emvc-label-light,
+.emvc-badge-light {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.emvc-label-outline-light,
+.emvc-badge-outline-light {
+    border-color: #f8f9fa;
+}
+
+.emvc-label-dark,
+.emvc-badge-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: white;
+}
+
+.emvc-label-outline-dark,
+.emvc-badge-outline-dark {
+    border-color: #343a40;
+    color: #343a40;
+}
+
+.emvc-label-inverse,
+.emvc-badge-inverse {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
+.emvc-label-outline-inverse,
+.emvc-badge-outline-inverse {
+    border-color: black;
+}
+
+/* End Labels */
+
+/* Clearing Floats */
+
+.emvc-clearfix:before,
+.emvc-clearfix:after {
     content: "";
     display: table;
     clear: both;
 }
+
+/* End Clearing Floats */

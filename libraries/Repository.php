@@ -11,21 +11,21 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.5.0
+ * @version     2.0.0
  * @package     Library
  */
 class Repository
 {
     private $data = [];
     private $indexMarker = 0;
-    private $db;
+    protected $db;
 
     /**
      * Repository constructor.
-     * @param $object
      * @param DBconnect|null $db
+     * @param $object
      */
-    public function __construct($object, DBconnect $db = null)
+    public function __construct(DBconnect $db = null, $object = null)
     {
         if ($object !== null) {
             $this->data[] = $object;
@@ -53,24 +53,24 @@ class Repository
 
     /**
      * @deprecated
-     * @param int $index
+     * @param int $id
      * @return mixed
      */
-    public function getAtIndex(int $index)
+    public function getAtIndex(int $id)
     {
         trigger_error('Use getByIndex instead.', E_USER_DEPRECATED);
-        return $this->getByIndex($index);
+        return $this->getByIndex($id);
     }
 
     /**
-     * @param int $index
+     * @param int $id
      * @return mixed
      * @throws Exception
      */
-    public function getByIndex(int $index)
+    public function getByIndex(int $id)
     {
         foreach ($this->data as $value) {
-            if ($value->getId() === $index) {
+            if ($value->getId() === $id) {
                 return $value;
             }
         }
@@ -98,7 +98,19 @@ class Repository
      */
     public function hasNext(): bool
     {
-        if (isset($this->data[$this->indexMarker])) {
+        if (isset($this->data[$this->indexMarker + 1])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasPrevious(): bool
+    {
+        if (isset($this->data[$this->indexMarker - 1])) {
             return true;
         } else {
             return false;
@@ -108,24 +120,73 @@ class Repository
     /**
      * @return mixed
      */
-    public function next()
+    public function current()
     {
-        $this->indexMarker++;
-        return $this->data[$this->indexMarker - 1];
+        return $this->data[$this->indexMarker];
     }
 
     /**
-     * @param string $column
+     * @return mixed
+     */
+    public function next()
+    {
+        $this->indexMarker++;
+        return $this->current();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function previous()
+    {
+        $this->indexMarker--;
+        return $this->current();
+    }
+
+    public function reset()
+    {
+        $this->indexMarker = 0;
+    }
+
+    /**
+     * @param string $table
      * @param string $model
      */
-    public function loadAllFromColumn(string $column, string $model): void
+    public function loadAllFromTable(string $table, string $model): void
     {
         $newModel = '\\Model\\' . $model;
-        $query = "SELECT * FROM {$column}";
+        $query = "SELECT * FROM {$table}";
         $this->db->query($query);
         $this->db->fetchAll();
         foreach ($this->db->data as $data) {
-            $this->data[] = new $newModel->new($data);
+            $this->data[] = $newModel::new($data);
+        }
+    }
+
+    /**
+     * @param string $model
+     * @param string $preparedStatement
+     * @param array $keyBindings
+     */
+    public function loadAllFromTableByQuery(string $model, string $preparedStatement, array $keyBindings): void
+    {
+        $newModel = '\\Model\\' . $model;
+        $this->db->prepare($preparedStatement);
+        foreach ($keyBindings as $key => $value) {
+            if (is_integer($value)) {
+                $this->db->bindValue($key, $value, \PDO::PARAM_INT);
+            } elseif (is_bool($value)) {
+                $this->db->bindValue($key, $value, \PDO::PARAM_BOOL);
+            } elseif (is_null($value)) {
+                $this->db->bindValue($key, $value, \PDO::PARAM_NULL);
+            } elseif (is_string($value)) {
+                $this->db->bindValue($key, $value, \PDO::PARAM_STR);
+            }
+        }
+        $this->db->execute();
+        $this->db->fetchAll();
+        foreach ($this->db->data as $data) {
+            $this->data[] = $newModel::new($data);
         }
     }
 }

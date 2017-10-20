@@ -11,7 +11,7 @@ use GuzzleHttp\Psr7\Response;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.2.0
+ * @version     1.2.1
  * @package     Library
  */
 class HttpRequest
@@ -28,29 +28,29 @@ class HttpRequest
     }
 
     /**
-     * @param string $Url
+     * @param string $url
      * @param string|null $username
      * @param string|null $password
      * @return Response
      */
-    public function get(string $Url, string $username = null, string $password = null): Response
+    public function get(string $url, string $username = null, string $password = null): Response
     {
-        $response = $this->httpClient->request('GET', $this->baseUri . $Url, [
+        $response = $this->httpClient->request('GET', $this->baseUri . $url, [
             'auth' => [$username, $password]
         ]);
         return $response;
     }
 
     /**
-     * @param string $Url
+     * @param string $url
      * @param string $body
      * @param string|null $username
      * @param string|null $password
      * @return Response
      */
-    public function post(string $Url, string $body, string $username = null, string $password = null): Response
+    public function post(string $url, string $body, string $username = null, string $password = null): Response
     {
-        $response = $this->httpClient->request('POST', $this->baseUri . $Url, [
+        $response = $this->httpClient->request('POST', $this->baseUri . $url, [
             'auth' => [$username, $password],
             'headers' => ['Content-Type' => 'application/json', 'accept' => 'application/json'],
             'body' => $body
@@ -59,15 +59,15 @@ class HttpRequest
     }
 
     /**
-     * @param string $Url
+     * @param string $url
      * @param string $body
      * @param string|null $username
      * @param string|null $password
      * @return Response
      */
-    public function put(string $Url, string $body, string $username = null, string $password = null): Response
+    public function put(string $url, string $body, string $username = null, string $password = null): Response
     {
-        $response = $this->httpClient->request('PUT', $this->baseUri . $Url, [
+        $response = $this->httpClient->request('PUT', $this->baseUri . $url, [
             'auth' => [$username, $password],
             'headers' => ['content-type' => 'application/json', 'accept' => 'application/json'],
             'body' => $body
@@ -76,14 +76,14 @@ class HttpRequest
     }
 
     /**
-     * @param string $Url
+     * @param string $url
      * @param string|null $username
      * @param string|null $password
      * @return Response
      */
-    public function delete(string $Url, string $username = null, string $password = null): Response
+    public function delete(string $url, string $username = null, string $password = null): Response
     {
-        $response = $this->httpClient->request('DELETE', $this->baseUri . $Url, [
+        $response = $this->httpClient->request('DELETE', $this->baseUri . $url, [
             'auth' => [$username, $password]
         ]);
         return $response;
