@@ -17,12 +17,13 @@
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.7.1
+ * @version     0.7.3
  */
 session_start();
 require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/config/config.php');
 
+use RudyMas\PDOExt\DBconnect;
 use RudyMas\Router\EasyRouter;
 
 /**
@@ -33,14 +34,27 @@ $scriptName = rtrim(str_replace($arrayServerName, '', dirname($_SERVER['SCRIPT_N
 define('BASE_URL', $scriptName);
 
 /**
+ * Loading the Database(s) configured in database.php
+ */
+if (USE_DATABASE) {
+    $database = [];
+    include(__DIR__ . '/config/database.php');
+    foreach ($database as $connect) {
+        $object = $connect['objectName'];
+        $$object = new DBconnect($connect['dbHost'], $connect['port'], $connect['dbUsername'],
+            $connect['dbPassword'], $connect['dbName'], $connect['dbCharset'], $connect['dbType']);
+    }
+}
+
+/**
  * Processing the URL through the EasyRouter Class
  */
-$router = new EasyRouter();
+$router = new EasyRouter($DBconnect);
 require(__DIR__ . '/config/router.php');
 try {
     $router->execute();
 } catch (Exception $exception) {
-    http_response_code($exception->getCode());
+    http_response_code(500);
     print($exception->getMessage());
 }
 

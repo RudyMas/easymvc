@@ -6,28 +6,18 @@
 use Library\Email;
 use Library\HttpRequest;
 use Library\Login;
-use RudyMas\PDOExt\DBconnect;
+use RudyMas\Manipulator\Text;
 use RudyMas\XML_JSON\XML_JSON;
 
 /**
  * Following classes belong to the EasyMVC framework. They are not loaded by default! You can activate them inside
  * the config.php file. (Don't change this part of the router.php file!)
  */
-# Loading the Database configured in database.php
-if (USE_DATABASE) {
-    $database = [];
-    include(__DIR__ . '/database.php');
-    foreach ($database as $connect) {
-        $object = $connect['objectName'];
-        $$object = new DBconnect($connect['dbHost'], $connect['port'], $connect['dbUsername'],
-            $connect['dbPassword'], $connect['dbName'], $connect['dbCharset'], $connect['dbType']);
-    }
-}
-
 # Loading the EasyMVC Login Class
 if (USE_LOGIN && isset($database)) {
-    $loginDB = $database[0]['objectName'];
-    $login = new Login($$loginDB, USE_EMAIL_LOGIN);
+    $LoginDB = $database[0]['objectName'];
+    $Text = new Text();
+    $Login = new Login($$LoginDB, $Text, USE_EMAIL_LOGIN);
 }
 
 # Loading the EasyMVC HttpRequest Class

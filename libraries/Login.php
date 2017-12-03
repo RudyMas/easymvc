@@ -16,10 +16,10 @@ use RudyMas\PDOExt\DBconnect;
  * - email          = varchar(70) : The login e-mail
  * - password       = varchar(64) : The login password (Hashed with SHA256)
  * - salt           = varchar(20) : Used for extra security
- * - remember_me    = varchar(40) : Special password to automatically login
- * - remember_me_ip = varchar(45) : The IP from where the user can login automatically (Can be an IPv4 or IPv6 address)
+ * - rememberMe     = varchar(40) : Special password to automatically login
+ * - rememberMeIp   = varchar(45) : The IP from where the user can login automatically (Can be an IPv4 or IPv6 address)
  *
- * For security purposes, the user will only be able to automatically login as long as he is working with the same
+ * For security purposes, the users will only be able to automatically login as long as they are working with the same
  * IP-address. If the IP-address changes, the user needs to login again.
  *
  * All the extra fields you add to the emvc_users table can be accessed by using $login->data['...']
@@ -27,22 +27,24 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     2.3.0
+ * @version     2.3.4
  * @package     Library
  */
 class Login
 {
     public $data, $errorCode;
-    private $db, $emailLogin;
+    private $db, $text, $emailLogin;
 
     /**
      * Login constructor.
      * @param DBconnect $dbconnect
+     * @param Text $text
      * @param bool $emailLogin
      */
-    public function __construct(DBconnect $dbconnect, bool $emailLogin = false)
+    public function __construct(DBconnect $dbconnect, Text $text, bool $emailLogin = false)
     {
         $this->db = $dbconnect;
+        $this->text = $text;
         $this->emailLogin = $emailLogin;
     }
 
@@ -85,11 +87,10 @@ class Login
             if ($sha256Password == $this->db->data['password']) {
                 setcookie('login', $userLogin, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
-                    $text = new Text();
-                    $this->data['remember_me'] = $text->randomText(40);
-                    $this->data['remember_me_ip'] = $this->getIP();
+                    $this->data['rememberMe'] = $this->text->randomText(40);
+                    $this->data['rememberMeIp'] = $this->getIP();
                     $this->updateUser($userLogin);
-                    setcookie('rememberMe', $this->data['remember_me'], time() + (30 * 24 * 3600), '/');
+                    setcookie('rememberMe', $this->data['rememberMe'], time() + (30 * 24 * 3600), '/');
                 } else {
                     $_SESSION['password'] = $sha256Password;
                     $_SESSION['IP'] = $this->getIP();
@@ -134,8 +135,8 @@ class Login
             $this->db->query($query);
             if ($this->db->rows != 0) {
                 $this->db->fetch(0);
-                if ($password == ($remember) ? $this->db->data['remember_me'] : $this->db->data['password']) {
-                    if ($remember) $IP = $this->db->data['remember_me_ip'];
+                if ($password == ($remember) ? $this->db->data['rememberMe'] : $this->db->data['password']) {
+                    if ($remember) $IP = $this->db->data['rememberMeIp'];
                     if ($IP == $this->getIP()) {
                         $this->setData();
                         return true;
@@ -169,12 +170,11 @@ class Login
     public function insertUser(): bool
     {
         $nameField = [];
-        $text = new Text();
         if (!isset($this->data['username'])) $this->data['username'] = 'Not Used';
         if (!isset($this->data['email'])) $this->data['email'] = 'No Email Address';
-        $this->data['salt'] = $text->randomText(20);
-        $this->data['remember_me'] = '';
-        $this->data['remember_me_ip'] = '';
+        $this->data['salt'] = $this->text->randomText(20);
+        $this->data['rememberMe'] = '';
+        $this->data['rememberMeIp'] = '';
 
         if ($this->emailLogin) {
             $query = "SELECT id
@@ -191,14 +191,14 @@ class Login
             return false;
         }
 
-        $query = "SELECT COLUMN_NAME as 'Field'
+        $query = "SELECT COLUMN_NAME as 'field'
                   FROM INFORMATION_SCHEMA.COLUMNS
                   WHERE TABLE_NAME = 'emvc_users'";
         $this->db->query($query);
         $numberOfFields = $this->db->rows;
         for ($x = 0; $x < $numberOfFields; $x++) {
             $this->db->fetch($x);
-            $nameField[$x] = $this->db->data['Field'];
+            $nameField[$x] = $this->db->data['field'];
         }
 
         $query = "INSERT INTO emvc_users (";
@@ -212,8 +212,8 @@ class Login
         $query .= $this->db->cleanSQL($this->data[$nameField[1]]);
         for ($x = 2; $x < $numberOfFields; $x++) {
             $query .= ", ";
-            if ($nameField[$x] == 'Password') {
-                $password = hash('sha256', $this->data['Password'] . $this->data['Salt']);
+            if ($nameField[$x] == 'password') {
+                $password = hash('sha256', $this->data['password'] . $this->data['salt']);
                 $query .= $this->db->cleanSQL($password);
             } else {
                 if (!isset($this->data[$nameField[$x]])) $this->data[$nameField[$x]] = '';
@@ -267,8 +267,6 @@ class Login
      */
     public function resetPassword(string $login): mixed
     {
-        $text = new Text();
-
         if ($this->emailLogin) {
             $query = "SELECT *
                   FROM emvc_users
@@ -281,28 +279,26 @@ class Login
         $this->db->queryRow($query);
         if ($this->db->rows == 0) return false;
         $this->setData();
-        $output = $this->data['remember_me'] = $text->randomText(15);
+        $output = $this->data['rememberMe'] = $this->text->randomText(15);
         $this->updateUser($login);
         $this->logoutUser();
         return $output;
     }
 
     /**
-     * @param string $remember_me
+     * @param string $rememberMe
      * @param string $password
      */
-    public function createNewPassword(string $remember_me, string $password): void
+    public function createNewPassword(string $rememberMe, string $password): void
     {
-        $text = new Text();
-
         $query = "SELECT *
                   FROM emvc_users
-                  WHERE remember_me = {$this->db->cleanSQL($remember_me)}";
+                  WHERE rememberMe = {$this->db->cleanSQL($rememberMe)}";
         $this->db->queryRow($query);
         $this->setData();
-        $this->data['salt'] = $text->randomText(20);
+        $this->data['salt'] = $this->text->randomText(20);
         $this->data['password'] = hash('sha256', $password . $this->data['salt']);
-        $this->data['remember_me'] = '';
+        $this->data['rememberMe'] = '';
         if ($this->emailLogin) {
             $this->updateUser($this->data['email']);
         } else {
