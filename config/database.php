@@ -4,7 +4,7 @@
  */
 
 # If the EasyMVC Login system is used, this database needs to contain the Login User Table
-$database[0]['objectName'] = 'dbconnect';
+$database[0]['objectName'] = 'DBconnect'; // Don't change this name (Router uses this to inject repositories)
 $database[0]['dbHost'] = 'localhost';
 $database[0]['port'] = '3306';
 $database[0]['dbUsername'] = 'username';

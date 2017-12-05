@@ -55,6 +55,7 @@ class Repository
      * @deprecated
      * @param int $id
      * @return mixed
+     * @throws Exception
      */
     public function getAtIndex(int $id)
     {

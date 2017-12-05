@@ -17,7 +17,7 @@
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.7.3
+ * @version     0.8.0
  */
 session_start();
 require(__DIR__ . '/vendor/autoload.php');
@@ -49,7 +49,11 @@ if (USE_DATABASE) {
 /**
  * Processing the URL through the EasyRouter Class
  */
-$router = new EasyRouter($DBconnect);
+if (isset($DBconnect)) {
+    $router = new EasyRouter($DBconnect);
+} else {
+    $router = new EasyRouter();
+}
 require(__DIR__ . '/config/router.php');
 try {
     $router->execute();
