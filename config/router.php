@@ -70,7 +70,7 @@ if (USE_EMAIL) {
  */
 $router->addRoute('GET', '/', 'Example:help');
 $router->addRoute('GET', '/help', 'Example:help', [], [], 'web');
-$router->addRoute('GET', '/text', 'Example:test', [], [], 'mobile');
+$router->addRoute('GET', '/text', 'Example:test');
 $router->addRoute('GET', '/text/{name}', 'Example:test');
 $router->addRoute('GET', '/redirect', 'Example:redirect');
 $router->addRoute('GET', '/json', 'Example:showJSON');
@@ -83,6 +83,8 @@ $router->addRoute('GET', '/twig/info', 'Example:infoTwig');
 $router->addRoute('GET', '/twig/table', 'Example:tableTwig');
 $router->addRoute('GET', '/model', 'ModelExample:model', [], ['User']);
 $router->addRoute('GET', '/model/{text}', 'ModelExample:modelAndVariable', [], ['User']);
+
+$router->addRoute('GET', '/heroes', '', [], [], 'mobile');
 
 if (isset($http)) {
     $router->addRoute('GET', '/api/overview', 'ApiExample:getOverview', ['http' => $http, 'xmlJson' => new XML_JSON()]);
