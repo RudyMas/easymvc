@@ -85,6 +85,8 @@ $router->addRoute('GET', '/model', 'ModelExample:model', [], ['User']);
 $router->addRoute('GET', '/model/{text}', 'ModelExample:modelAndVariable', [], ['User']);
 
 $router->addRoute('GET', '/heroes', '', [], [], 'mobile');
+$router->addRoute('GET', '/dashboard', '', [], [], 'mobile');
+$router->addRoute('GET', '/detail/{id}', '', [], [], 'mobile');
 
 if (isset($http)) {
     $router->addRoute('GET', '/api/overview', 'ApiExample:getOverview', ['http' => $http, 'xmlJson' => new XML_JSON()]);
@@ -95,6 +97,6 @@ if (isset($http)) {
 $router->setDefault('/');
 
 // $router->setMobileDetection('auto');
-// $router->setDefaultMobileApp('/m');
+// $router->setDefaultMobileApp('http://m.localhost');
 
 /** End of File: router.php **/
