@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is used to configure all the routes of your website (See the information at the bottom of the file)
+ * This file is used to configure all the routes of your website
  * and to load the classes which are used by EasyMVC
  */
 
@@ -65,8 +65,8 @@ if (USE_EMAIL) {
  *                  folder submap under src/repositories
  * - Mobile Detection: ('auto', 'web', 'api', 'mobile') (OPTIONAL) (DEFAULT = auto)
  *      'auto' : Every call to the website will be checked. If a mobile device is detected, the mobile app will start
- *      'web|api' : The call to the website will always be handled by the website. (Website or API)
- *      'mobile' : The call to the website will always be handled by the mobile app (URL info will be transferred to the App)
+ *      'web|api' : Every call to the website will always be handled by the website. (Website or API)
+ *      'mobile' : Every call to the website will always be handled by the mobile app (URL info will be transferred to the App)
  */
 $router->addRoute('GET', '/', 'Example:help');
 $router->addRoute('GET', '/help', 'Example:help', [], [], 'web');

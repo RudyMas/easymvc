@@ -1,3 +1,10 @@
+# EasyMVC specific
+
+/config/config.php
+/config/database.php
+
+# End EasyMVC specific
+
 # Created by https://www.gitignore.io/api/node,angular,composer,phpstorm+all,webstorm+all
 
 ### Angular ###
