@@ -16,8 +16,8 @@ use RudyMas\PDOExt\DBconnect;
  * - email          = varchar(70) : The login e-mail
  * - password       = varchar(64) : The login password (Hashed with SHA256)
  * - salt           = varchar(20) : Used for extra security
- * - rememberMe     = varchar(40) : Special password to automatically login
- * - rememberMeIp   = varchar(45) : The IP from where the user can login automatically (Can be an IPv4 or IPv6 address)
+ * - remember_me    = varchar(40) : Special password to automatically login
+ * - remember_me_ip = varchar(45) : The IP from where the user can login automatically (Can be an IPv4 or IPv6 address)
  *
  * For security purposes, the users will only be able to automatically login as long as they are working with the same
  * IP-address. If the IP-address changes, the user needs to login again.
@@ -27,7 +27,7 @@ use RudyMas\PDOExt\DBconnect;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     2.3.4
+ * @version     2.3.5
  * @package     Library
  */
 class Login
@@ -56,7 +56,7 @@ class Login
         unset($_SESSION['password']);
         unset($_SESSION['IP']);
         $this->data = [];
-        setcookie('rememberMe', '', -1, '/');
+        setcookie('remember_me', '', -1, '/');
         if ($cookie == true) {
             setcookie('login', '', -1, '/');
         }
@@ -87,10 +87,10 @@ class Login
             if ($sha256Password == $this->db->data['password']) {
                 setcookie('login', $userLogin, time() + (30 * 24 * 3600), '/');
                 if ($remember === true) {
-                    $this->data['rememberMe'] = $this->text->randomText(40);
-                    $this->data['rememberMeIp'] = $this->getIP();
+                    $this->data['remember_me'] = $this->text->randomText(40);
+                    $this->data['remember_me_ip'] = $this->getIP();
                     $this->updateUser($userLogin);
-                    setcookie('rememberMe', $this->data['rememberMe'], time() + (30 * 24 * 3600), '/');
+                    setcookie('remember_me', $this->data['remember_me'], time() + (30 * 24 * 3600), '/');
                 } else {
                     $_SESSION['password'] = $sha256Password;
                     $_SESSION['IP'] = $this->getIP();
@@ -114,8 +114,8 @@ class Login
         $IP = '';
         $password = '';
         if (isset($_COOKIE['login'])) $userLogin = $_COOKIE['login']; else $userLogin = '';
-        if (isset($_COOKIE['rememberMe'])) {
-            $password = $_COOKIE['rememberMe'];
+        if (isset($_COOKIE['remember_me'])) {
+            $password = $_COOKIE['remember_me'];
             $remember = true;
         } elseif (isset($_SESSION['password']) && isset($_SESSION['IP'])) {
             $password = $_SESSION['password'];
@@ -135,8 +135,8 @@ class Login
             $this->db->query($query);
             if ($this->db->rows != 0) {
                 $this->db->fetch(0);
-                if ($password == ($remember) ? $this->db->data['rememberMe'] : $this->db->data['password']) {
-                    if ($remember) $IP = $this->db->data['rememberMeIp'];
+                if ($password == ($remember) ? $this->db->data['remember_me'] : $this->db->data['password']) {
+                    if ($remember) $IP = $this->db->data['remember_me_ip'];
                     if ($IP == $this->getIP()) {
                         $this->setData();
                         return true;
@@ -173,8 +173,8 @@ class Login
         if (!isset($this->data['username'])) $this->data['username'] = 'Not Used';
         if (!isset($this->data['email'])) $this->data['email'] = 'No Email Address';
         $this->data['salt'] = $this->text->randomText(20);
-        $this->data['rememberMe'] = '';
-        $this->data['rememberMeIp'] = '';
+        $this->data['remember_me'] = '';
+        $this->data['remember_me_ip'] = '';
 
         if ($this->emailLogin) {
             $query = "SELECT id
@@ -193,7 +193,8 @@ class Login
 
         $query = "SELECT COLUMN_NAME as 'field'
                   FROM INFORMATION_SCHEMA.COLUMNS
-                  WHERE TABLE_NAME = 'emvc_users'";
+                  WHERE TABLE_NAME = 'emvc_users'
+                    AND TABLE_SCHEMA = 'sc_sven'";
         $this->db->query($query);
         $numberOfFields = $this->db->rows;
         for ($x = 0; $x < $numberOfFields; $x++) {
@@ -262,6 +263,23 @@ class Login
     }
 
     /**
+     * @param string $oldPassword
+     * @param string $newPassword
+     * @return bool
+     */
+    public function updatePassword(string $oldPassword, string $newPassword): bool {
+        $sha256Password = hash('sha256', $oldPassword . $this->db->data['salt']);
+        if ($this->data['password'] == $sha256Password) {
+            $this->data['salt'] = $this->text->randomText(20);
+            $this->data['password'] = hash('sha256', $newPassword . $this->data['salt']);
+            $this->updateUser($this->data['username']);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * @param string $login
      * @return mixed
      */
@@ -279,26 +297,26 @@ class Login
         $this->db->queryRow($query);
         if ($this->db->rows == 0) return false;
         $this->setData();
-        $output = $this->data['rememberMe'] = $this->text->randomText(15);
+        $output = $this->data['remember_me'] = $this->text->randomText(15);
         $this->updateUser($login);
         $this->logoutUser();
         return $output;
     }
 
     /**
-     * @param string $rememberMe
+     * @param string $remember_me
      * @param string $password
      */
-    public function createNewPassword(string $rememberMe, string $password): void
+    public function createNewPassword(string $remember_me, string $password): void
     {
         $query = "SELECT *
                   FROM emvc_users
-                  WHERE rememberMe = {$this->db->cleanSQL($rememberMe)}";
+                  WHERE remember_me = {$this->db->cleanSQL($remember_me)}";
         $this->db->queryRow($query);
         $this->setData();
         $this->data['salt'] = $this->text->randomText(20);
         $this->data['password'] = hash('sha256', $password . $this->data['salt']);
-        $this->data['rememberMe'] = '';
+        $this->data['remember_me'] = '';
         if ($this->emailLogin) {
             $this->updateUser($this->data['email']);
         } else {
