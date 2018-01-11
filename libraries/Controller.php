@@ -13,7 +13,7 @@ use Twig_Loader_Filesystem;
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.3.1
+ * @version     1.3.2
  * @package     Library
  */
 class Controller
@@ -95,6 +95,7 @@ class Controller
         http_response_code($httpResponseCode);
         header('Content-Type: application/json');
         header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: *');
         print($convert->getJsonData());
     }
 
@@ -118,6 +119,7 @@ class Controller
         http_response_code($httpResponseCode);
         header('Content-Type: application/json');
         header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: *');
         print($convert->getJsonData());
     }
 
@@ -140,6 +142,8 @@ class Controller
 
         http_response_code($httpResponseCode);
         header('Content-Type: application/xml; charset=utf-8');
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: *');
         print($convert->getXmlData());
     }
 
@@ -179,6 +183,9 @@ class Controller
      * @param string $page
      * @param array $data
      * @param bool $debug
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     private function renderTWIG(string $page, array $data, bool $debug = false): void
     {
