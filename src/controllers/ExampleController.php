@@ -99,6 +99,11 @@ class ExampleController extends Controller
     {
         $this->render('ExampleTWIG/table.twig', $this->data, 'TWIG');
     }
+
+    public function headersAction(array $var): void
+    {
+        $this->checkArray($var);
+    }
 }
 
 /** End of File: ExampleController.php **/

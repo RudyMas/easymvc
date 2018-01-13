@@ -83,6 +83,7 @@ $router->addRoute('GET', '/twig/info', 'Example:infoTwig');
 $router->addRoute('GET', '/twig/table', 'Example:tableTwig');
 $router->addRoute('GET', '/model', 'ModelExample:model', [], ['User']);
 $router->addRoute('GET', '/model/{text}', 'ModelExample:modelAndVariable', [], ['User']);
+$router->addRoute('GET', '/headers', 'Example:headers');
 
 $router->addRoute('GET', '/heroes', '', [], [], 'mobile');
 $router->addRoute('GET', '/dashboard', '', [], [], 'mobile');
