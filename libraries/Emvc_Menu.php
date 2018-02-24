@@ -6,12 +6,12 @@ namespace Library;
  * Class Menu
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright   2017, rmsoft.be. (http://www.rmsoft.be/)
+ * @copyright   2017-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
  * @version     1.4.0
  * @package     Library
  */
-class Menu
+class Emvc_Menu
 {
     private $menuData = [];
 
@@ -289,4 +289,4 @@ class Menu
     }
 }
 
-/** End of File: Menu.php **/
+/** End of File: Emvc_Menu.php **/

@@ -11,12 +11,12 @@ use Nette\Mail\SmtpMailer;
  * Class Email (PHP version 7.1)
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright   2017, rmsoft.be. (http://www.rmsoft.be/)
+ * @copyright   2017-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.3.1
+ * @version     1.4.0
  * @package     Library
  */
-class Email
+class Emvc_Email
 {
     private $email;
     private $from;
@@ -135,4 +135,4 @@ class Email
     }
 }
 
-/** End of File: Email.php **/
+/** End of File: Emvc_Email.php **/

@@ -8,8 +8,6 @@ use RudyMas\PDOExt\DBconnect;
 /**
  * Class Login (Version PHP 7.1)
  *
- * Translated Login class (rudymas/login)
- *
  * In the MySQL table 'emvc_users' you only need to add 6 fixed fields:
  * - id             = int : Is the index for the table (auto_increment)
  * - username       = varchar(40) : The login username
@@ -25,12 +23,12 @@ use RudyMas\PDOExt\DBconnect;
  * All the extra fields you add to the emvc_users table can be accessed by using $login->data['...']
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
+ * @copyright   2016-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     2.3.5
+ * @version     2.4.0
  * @package     Library
  */
-class Login
+class Emvc_Login
 {
     public $data, $errorCode;
     private $db, $text, $emailLogin;
@@ -191,7 +189,7 @@ class Login
             return false;
         }
 
-        $query = "SELECT COLUMN_NAME as 'field'
+        $query = "SELECT COLUMN_NAME AS 'field'
                   FROM INFORMATION_SCHEMA.COLUMNS
                   WHERE TABLE_NAME = 'emvc_users'
                     AND TABLE_SCHEMA = 'sc_sven'";
@@ -267,7 +265,8 @@ class Login
      * @param string $newPassword
      * @return bool
      */
-    public function updatePassword(string $oldPassword, string $newPassword): bool {
+    public function updatePassword(string $oldPassword, string $newPassword): bool
+    {
         $sha256Password = hash('sha256', $oldPassword . $this->db->data['salt']);
         if ($this->data['password'] == $sha256Password) {
             $this->data['salt'] = $this->text->randomText(20);
@@ -357,4 +356,4 @@ class Login
     }
 }
 
-/** End of File: Login.php **/
+/** End of File: Emvc_Login.php **/

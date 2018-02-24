@@ -2,14 +2,14 @@
 namespace Controller;
 
 use GuzzleHttp\Exception\RequestException;
-use Library\Controller;
+use RudyMas\Emvc_Controller\Emvc_Controller;
 use RudyMas\XML_JSON\XML_JSON;
 
 /**
  * Class ApiExampleController
  * @package Controller
  */
-class ApiExampleController extends Controller
+class ApiExampleController extends Emvc_Controller
 {
     private $http, $xmlJson;
 

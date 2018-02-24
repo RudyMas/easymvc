@@ -9,12 +9,12 @@ use GuzzleHttp\Psr7\Response;
  * Class HttpRequest (PHP version 7.1)
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
+ * @copyright   2016-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
  * @version     1.2.1
  * @package     Library
  */
-class HttpRequest
+class Emvc_HttpRequest
 {
     private $httpClient;
     private $baseUri = '';
@@ -106,4 +106,4 @@ class HttpRequest
     }
 }
 
-/** End of File: HttpRequest.php **/
+/** End of File: Emvc_HttpRequest.php **/

@@ -1,12 +1,13 @@
 <?php
+
 namespace Controller;
 
-use Library\Controller;
+use RudyMas\Emvc_Controller\Emvc_Controller;
 
 /**
  * Class ExampleController
  */
-class ExampleController extends Controller
+class ExampleController extends Emvc_Controller
 {
     private $text;
     private $data = [];
@@ -39,7 +40,10 @@ class ExampleController extends Controller
 
     public function helpAction(): void
     {
-        $this->render('help.html', [], 'HTML');
+        try {
+            $this->render('help.html', [], 'HTML');
+        } catch (\Exception $e) {
+        }
     }
 
     /**

@@ -4,9 +4,9 @@
  * and to load the classes which are used by EasyMVC
  */
 
-use Library\Email;
-use Library\HttpRequest;
-use Library\Login;
+use Library\Emvc_Email;
+use Library\Emvc_HttpRequest;
+use Library\Emvc_Login;
 use RudyMas\Manipulator\Text;
 use RudyMas\XML_JSON\XML_JSON;
 
@@ -18,17 +18,17 @@ use RudyMas\XML_JSON\XML_JSON;
 if (USE_LOGIN && isset($database)) {
     $LoginDB = $database[0]['objectName'];
     $Text = new Text();
-    $Login = new Login($$LoginDB, $Text, USE_EMAIL_LOGIN);
+    $Login = new Emvc_Login($$LoginDB, $Text, USE_EMAIL_LOGIN);
 }
 
 # Loading the EasyMVC HttpRequest Class
 if (USE_HTTP_REQUEST) {
-    $http = new HttpRequest();
+    $http = new Emvc_HttpRequest();
 }
 
 # Loading the EasyMVC Email Class
 if (USE_EMAIL) {
-    $email = new Email();
+    $email = new Emvc_Email();
 }
 
 /**

@@ -1,14 +1,14 @@
 <?php
 namespace Repository;
 
-use Library\Repository;
 use Model\User;
+use RudyMas\Emvc_Repository\Emvc_Repository;
 
 /**
  * Class UserRepository
  * @package Repository
  */
-class UserRepository extends Repository
+class UserRepository extends Emvc_Repository
 {
     /**
      * UserRepository constructor.
