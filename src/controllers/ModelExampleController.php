@@ -2,11 +2,11 @@
 
 namespace Controller;
 
+use EasyMVC\Controller\Controller;
 use Model\User;
 use Repository\UserRepository;
-use RudyMas\Emvc_Controller\Emvc_Controller;
 
-class ModelExampleController extends Emvc_Controller
+class ModelExampleController extends Controller
 {
     public function modelAction(UserRepository $userRepository)
     {

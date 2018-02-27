@@ -2,12 +2,12 @@
 
 namespace Controller;
 
-use RudyMas\Emvc_Controller\Emvc_Controller;
+use EasyMVC\Controller\Controller;
 
 /**
  * Class ExampleController
  */
-class ExampleController extends Emvc_Controller
+class ExampleController extends Controller
 {
     private $text;
     private $data = [];

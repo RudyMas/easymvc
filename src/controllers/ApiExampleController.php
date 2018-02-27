@@ -1,15 +1,15 @@
 <?php
 namespace Controller;
 
+use EasyMVC\Controller\Controller;
 use GuzzleHttp\Exception\RequestException;
-use RudyMas\Emvc_Controller\Emvc_Controller;
 use RudyMas\XML_JSON\XML_JSON;
 
 /**
  * Class ApiExampleController
  * @package Controller
  */
-class ApiExampleController extends Emvc_Controller
+class ApiExampleController extends Controller
 {
     private $http, $xmlJson;
 
