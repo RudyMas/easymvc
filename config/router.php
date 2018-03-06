@@ -62,7 +62,7 @@ if (USE_EMAIL) {
  *          ['User', 'submap\Something', ...]
  *              'User' will inject the UserRepository into the Class/Function
  *              'submap\Something' will inject the SomethingRepository into the Class/Function located in the
- *                  folder submap under src/repositories
+ *                  folder submap under src/Repositories
  * - Mobile Detection: ('auto', 'web', 'api', 'mobile') (OPTIONAL) (DEFAULT = auto)
  *      'auto' : Every call to the website will be checked. If a mobile device is detected, the mobile app will start
  *      'web|api' : Every call to the website will always be handled by the website. (Website or API)

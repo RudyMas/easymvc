@@ -21465,13 +21465,13 @@ var SwitchView = /** @class */ (function () {
  * ```
  * \@description
  *
- * `NgSwitch` stamps out nested views when their match expression value matches the value of the
+ * `NgSwitch` stamps out nested Views when their match expression value matches the value of the
  * switch expression.
  *
  * In other words:
  * - you define a container element (where you place the directive with a switch expression on the
  * `[ngSwitch]="..."` attribute)
- * - you define inner views inside the `NgSwitch` and place a `*ngSwitchCase` attribute on the view
+ * - you define inner Views inside the `NgSwitch` and place a `*ngSwitchCase` attribute on the view
  * root elements.
  *
  * Elements within `NgSwitch` but outside of a `NgSwitchCase` or `NgSwitchDefault` directives will
@@ -37248,7 +37248,7 @@ function decimalDigest(message) {
 /**
  * Serialize the i18n ast to something xml-like in order to generate an UID.
  *
- * The visitor is also used in the i18n parser tests
+ * The visitor is also used in the i18n parser Tests
  *
  * \@internal
  */
@@ -56509,7 +56509,7 @@ function fixedAttrsDef(elementAst) {
         });
     });
     // Note: We need to sort to get a defined output order
-    // for tests and for caching generated artifacts...
+    // for Tests and for caching generated artifacts...
     return literalArr(Object.keys(mapResult).sort().map(function (attrName) { return literalArr([literal(attrName), literal(mapResult[attrName])]); }));
 }
 /**
@@ -69349,10 +69349,10 @@ var ApplicationRef = /** @class */ (function () {
     };
     Object.defineProperty(ApplicationRef.prototype, "viewCount", {
         /**
-         * Returns the number of attached views.
+         * Returns the number of attached Views.
          */
         get: /**
-         * Returns the number of attached views.
+         * Returns the number of attached Views.
          * @return {?}
          */
         function () { return this._views.length; },
@@ -70119,7 +70119,7 @@ var ViewRef = /** @class */ (function (_super) {
  *
  * Notice that the original template is broken down into two separate {\@link TemplateRef}s.
  *
- * The outer/inner {\@link TemplateRef}s are then assembled into views like so:
+ * The outer/inner {\@link TemplateRef}s are then assembled into Views like so:
  *
  * ```
  * <!-- ViewRef: outer-0 -->
@@ -72802,7 +72802,7 @@ SecurityContext[SecurityContext.SCRIPT] = "SCRIPT";
 SecurityContext[SecurityContext.URL] = "URL";
 SecurityContext[SecurityContext.RESOURCE_URL] = "RESOURCE_URL";
 /**
- * Sanitizer is used by the views to sanitize potentially dangerous values.
+ * Sanitizer is used by the Views to sanitize potentially dangerous values.
  *
  * \@stable
  * @abstract
@@ -73351,8 +73351,8 @@ function declaredViewContainer(view) {
     return null;
 }
 /**
- * for component views, this is the host element.
- * for embedded views, this is the index of the parent node
+ * for component Views, this is the host element.
+ * for embedded Views, this is the index of the parent node
  * that contains the view container.
  * @param {?} view
  * @return {?}
@@ -74358,9 +74358,9 @@ function attachProjectedView(vcElementData, view) {
     // - add a view to template._projectedViews only 1x throughout its lifetime,
     //   and remove it not until the view is destroyed.
     //   (hard, as when a parent view is attached/detached we would need to attach/detach all
-    //    nested projected views as well, even accross component boundaries).
-    // - don't track the insertion order of views in the projected views array
-    //   (hard, as when the views of the same template are inserted different view containers)
+    //    nested projected Views as well, even accross component boundaries).
+    // - don't track the insertion order of Views in the projected Views array
+    //   (hard, as when the Views of the same template are inserted different view containers)
     view.state |= 16 /* IsProjectedView */;
     var /** @type {?} */ projectedViews = dvcElementData.template._projectedViews;
     if (!projectedViews) {
@@ -76248,7 +76248,7 @@ function calcQueryValues(view, startIndex, endIndex, queryDef, values) {
             (/** @type {?} */ ((/** @type {?} */ ((nodeDef.element)).template)).nodeMatchedQueries & queryDef.filterId) ===
                 queryDef.filterId) {
             var /** @type {?} */ elementData = asElementData(view, i);
-            // check embedded views that were attached at the place of their template,
+            // check embedded Views that were attached at the place of their template,
             // but process child nodes first if some match the query (see issue #16568)
             if ((nodeDef.childMatchedQueries & queryDef.filterId) === queryDef.filterId) {
                 calcQueryValues(view, i + 1, i + nodeDef.childCount, queryDef, values);
@@ -76958,7 +76958,7 @@ function validateNode(parent, node, nodeCount) {
         }
         if (template.lastRenderRootNode &&
             template.lastRenderRootNode.flags & 16777216 /* EmbeddedViews */) {
-            throw new Error("Illegal State: Last root node of a template can't have embedded views, at index " + node.nodeIndex + "!");
+            throw new Error("Illegal State: Last root node of a template can't have embedded Views, at index " + node.nodeIndex + "!");
         }
     }
     if (node.flags & 20224 /* CatProvider */) {
@@ -76991,7 +76991,7 @@ function validateNode(parent, node, nodeCount) {
  * @return {?}
  */
 function createEmbeddedView(parent, anchorDef$$1, viewDef, context) {
-    // embedded views are seen as siblings to the anchor, so we need
+    // embedded Views are seen as siblings to the anchor, so we need
     // to get the parent of the anchor and use it as parentIndex.
     var /** @type {?} */ view = createView(parent.root, parent.renderer, parent, anchorDef$$1, viewDef);
     initView(view, parent.component, context);
@@ -77144,7 +77144,7 @@ function createViewNodes(view) {
         }
         nodes[i] = nodeData;
     }
-    // Create the ViewData.nodes of component views after we created everything else,
+    // Create the ViewData.nodes of component Views after we created everything else,
     // so that e.g. ng-content works
     execComponentViewsAction(view, ViewAction.CreateViewNodes);
     // fill static content and view queries
@@ -77547,8 +77547,8 @@ function callViewAction(view, action) {
             }
             break;
         case ViewAction.Destroy:
-            // Note: destroyView recurses over all views,
-            // so we don't need to special case projected views here.
+            // Note: destroyView recurses over all Views,
+            // so we don't need to special case projected Views here.
             destroyView(view);
             break;
         case ViewAction.CreateViewNodes:
@@ -88949,7 +88949,7 @@ var Headers = /** @class */ (function () {
  * All values are null by default. Typical defaults can be found in the
  * {\@link BaseResponseOptions} class, which sub-classes `ResponseOptions`.
  *
- * This class may be used in tests to build {\@link Response Responses} for
+ * This class may be used in Tests to build {\@link Response Responses} for
  * mock responses (see {\@link MockBackend}).
  *
  * ### Example ([live demo](http://plnkr.co/edit/P9Jkk8e8cz6NVzbcxEsD?p=preview))
@@ -88984,7 +88984,7 @@ var ResponseOptions = /** @class */ (function () {
      * existing values. This method will not change the values of the instance on which it is being
      * called.
      *
-     * This may be useful when sharing a base `ResponseOptions` object inside tests,
+     * This may be useful when sharing a base `ResponseOptions` object inside Tests,
      * where certain properties may change from test to test.
      *
      * ### Example ([live demo](http://plnkr.co/edit/1lXquqFfgduTFBWjNoRE?p=preview))
@@ -89009,7 +89009,7 @@ var ResponseOptions = /** @class */ (function () {
      * existing values. This method will not change the values of the instance on which it is being
      * called.
      *
-     * This may be useful when sharing a base `ResponseOptions` object inside tests,
+     * This may be useful when sharing a base `ResponseOptions` object inside Tests,
      * where certain properties may change from test to test.
      *
      * ### Example ([live demo](http://plnkr.co/edit/1lXquqFfgduTFBWjNoRE?p=preview))
@@ -89036,7 +89036,7 @@ var ResponseOptions = /** @class */ (function () {
      * existing values. This method will not change the values of the instance on which it is being
      * called.
      *
-     * This may be useful when sharing a base `ResponseOptions` object inside tests,
+     * This may be useful when sharing a base `ResponseOptions` object inside Tests,
      * where certain properties may change from test to test.
      *
      * ### Example ([live demo](http://plnkr.co/edit/1lXquqFfgduTFBWjNoRE?p=preview))
@@ -90044,7 +90044,7 @@ var XSSI_PREFIX = /^\)\]\}',?\n/;
  * request.
  *
  * This class would typically not be created or interacted with directly inside applications, though
- * the {\@link MockConnection} may be interacted with in tests.
+ * the {\@link MockConnection} may be interacted with in Tests.
  *
  * @deprecated use \@angular/common/http instead
  */

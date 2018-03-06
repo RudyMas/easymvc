@@ -38,11 +38,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Model\\": "src/models",
-      "Repository\\": "src/repositories",
-      "Controller\\": "src/controllers",
-      "View\\": "src/views",
-      "Test\\": "tests"
+      "Models\\": "src/Models",
+      "Repositories\\": "src/Repositories",
+      "Controllers\\": "src/Controllers",
+      "Views\\": "src/Views",
+      "Tests\\": "Tests"
     }
   }
 }
