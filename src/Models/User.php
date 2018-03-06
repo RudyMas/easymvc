@@ -5,24 +5,24 @@ namespace Models;
 class User
 {
     private $id;
-    private $firstname = '';
-    private $lastname = '';
+    private $firstName = '';
+    private $lastName = '';
     private $phone = '';
     private $email = '';
 
     /**
      * User constructor.
      * @param int $id
-     * @param string $firstname
-     * @param string $lastname
+     * @param string $firstName
+     * @param string $lastName
      * @param string $phone
      * @param string $email
      */
-    public function __construct(int $id, string $firstname, string $lastname, string $phone, string $email)
+    public function __construct(int $id, string $firstName, string $lastName, string $phone, string $email)
     {
         $this->id = $id;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
         $this->phone = $phone;
         $this->email = $email;
     }
@@ -33,7 +33,7 @@ class User
      */
     public static function new(array $data): User
     {
-        return new self($data['id'], $data['firstname'], $data['lastname'], $data['phone'], $data['email']);
+        return new self($data['id'], $data['first_name'], $data['last_name'], $data['phone'], $data['email']);
     }
 
     /**
@@ -47,7 +47,7 @@ class User
     /**
      * @param int $id
      */
-    public function setId(int $id)
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -55,33 +55,33 @@ class User
     /**
      * @return string
      */
-    public function getFirstname(): string
+    public function getFirstName(): string
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
     /**
-     * @param string $firstname
+     * @param string $firstName
      */
-    public function setFirstname(string $firstname)
+    public function setFirstName(string $firstName): void
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
     }
 
     /**
      * @return string
      */
-    public function getLastname(): string
+    public function getLastName(): string
     {
-        return $this->lastname;
+        return $this->lastName;
     }
 
     /**
-     * @param string $lastname
+     * @param string $lastName
      */
-    public function setLastname(string $lastname)
+    public function setLastName(string $lastName): void
     {
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
     }
 
     /**
@@ -95,7 +95,7 @@ class User
     /**
      * @param string $phone
      */
-    public function setPhone(string $phone)
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
@@ -111,7 +111,7 @@ class User
     /**
      * @param string $email
      */
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }

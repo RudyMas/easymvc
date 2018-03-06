@@ -1,26 +1,17 @@
 <?php
 /**
  * PHP EasyMVC (PHP version 7.1)
- * An easy to use MVC PHP Framework.
- *
- * This app uses the following classes: (composer.json provided)
- *  - DBconnect (rudymas/pdo-ext)
- *  - EasyRouter (rudymas/router)
- *  - HTML5 (rudymas/html5)
- *  - XML_JSON (rudymas/xml_json)
- *  - Text (rudymas/manipulator)
- *  - Twig (twig/twig)
- *  - Guzzle (guzzlehttp/guzzle)
- *  - Nette (nette/mail)
- *  - Latte (latte/latte)
+ * An easy to use MVC PHP Framework with Mobile App Support.
  *
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
- * @copyright   2016-2017, rmsoft.be. (http://www.rmsoft.be/)
+ * @copyright   2016-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     0.9.0
+ * @version     1.0.0
  */
 session_start();
 require(__DIR__ . '/vendor/autoload.php');
+if (!is_file(__DIR__ . '/config/config.php'))
+    @copy(__DIR__ . '/config/config.sample.php', __DIR__ . '/config/config.php');
 require(__DIR__ . '/config/config.php');
 
 use RudyMas\PDOExt\DBconnect;
@@ -38,6 +29,8 @@ define('BASE_URL', $scriptName);
  */
 if (USE_DATABASE) {
     $database = [];
+    if (!is_file(__DIR__ . '/config/database.php'))
+        @copy(__DIR__ . '/config/database.sample.php', __DIR__ . '/config/database.php');
     include(__DIR__ . '/config/database.php');
     foreach ($database as $connect) {
         $object = $connect['objectName'];

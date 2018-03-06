@@ -1,4 +1,6 @@
 <?php
+define('VERSION', '1.0.0');
+
 /**
  * Set this to true of you are going to use a database in your project
  * You can configure your database(s) in the config/database.php file

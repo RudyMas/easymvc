@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is used to configure all the routes of your website
- * and to load the classes which are used by EasyMVC
+ * and to load the special classes which are used by EasyMVC
  */
 
 use EasyMVC\Email\Email;
@@ -68,36 +68,15 @@ if (USE_EMAIL) {
  *      'web|api' : Every call to the website will always be handled by the website. (Website or API)
  *      'mobile' : Every call to the website will always be handled by the mobile app (URL info will be transferred to the App)
  */
-$router->addRoute('GET', '/', 'Example:help');
-$router->addRoute('GET', '/help', 'Example:help', [], [], 'web');
-$router->addRoute('GET', '/text', 'Example:test');
-$router->addRoute('GET', '/text/{name}', 'Example:test');
-$router->addRoute('GET', '/redirect', 'Example:redirect');
-$router->addRoute('GET', '/json', 'Example:showJSON');
-$router->addRoute('GET', '/xml', 'Example:showXML');
-$router->addRoute('GET', '/php', 'Example:showPHP');
-$router->addRoute('GET', '/php/info', 'Example:infoPHP');
-$router->addRoute('GET', '/php/table', 'Example:tablePHP');
-$router->addRoute('GET', '/twig', 'Example:showTwig');
-$router->addRoute('GET', '/twig/info', 'Example:infoTwig');
-$router->addRoute('GET', '/twig/table', 'Example:tableTwig');
-$router->addRoute('GET', '/model', 'ModelExample:model', [], ['User']);
-$router->addRoute('GET', '/model/{text}', 'ModelExample:modelAndVariable', [], ['User']);
-$router->addRoute('GET', '/headers', 'Example:headers');
+$router->addRoute('GET', '/', 'Main:welcome');
 
-$router->addRoute('GET', '/heroes', '', [], [], 'mobile');
+$router->addRoute('GET', '/mobile', '', [], [], 'mobile');
 $router->addRoute('GET', '/dashboard', '', [], [], 'mobile');
-$router->addRoute('GET', '/detail/{id}', '', [], [], 'mobile');
-
-if (isset($http)) {
-    $router->addRoute('GET', '/api/overview', 'ApiExample:getOverview', ['http' => $http, 'xmlJson' => new XML_JSON()]);
-    $router->addRoute('GET', '/api/habits/{userId}', 'ApiExample:getHabitsUser', ['http' => $http, 'xmlJson' => new XML_JSON()]);
-    $router->addRoute('GET', '/api/setHabit/{userId}', 'ApiExample:setHabit', ['http' => $http, 'xmlJson' => new XML_JSON()]);
-}
+$router->addRoute('GET', '/heroes', '', [], [], 'mobile');
 
 $router->setDefault('/');
 
-// $router->setMobileDetection('auto');
-// $router->setDefaultMobileApp('http://m.localhost');
+$router->setMobileDetection(true); // Comment this line if you don't provide a Mobile App (Angular, REACT, ...)
+// $router->setDefaultMobileApp('http://m.website.com'); // Uncomment this when you want a different path to your mobile app
 
 /** End of File: router.php **/

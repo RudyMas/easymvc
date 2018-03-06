@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}Welcome{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+{% block container %}
+    <div class="emvc-center-element">
+        <div class="jumbotron">
+            <h1 class="display-4">EasyMVC version {{ constant('VERSION') }}</h1>
+        </div>
+    </div>
+{% endblock %}
