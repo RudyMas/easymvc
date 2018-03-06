@@ -1,5 +1,5 @@
 <?php
-namespace View\ExamplePHP;
+namespace Views\ExamplePHP;
 
 use RudyMas\HTML5\HTML5;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Repository;
+namespace Repositories;
 
 use EasyMVC\Repository\Repository;
 use Model\User;

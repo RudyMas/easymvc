@@ -3151,7 +3151,7 @@ Zone.__load_patch('ZoneAwarePromise', function (global, Zone, api) {
             global['fetch'] = zoneify(fetch_1);
         }
     }
-    // This is not part of public API, but it is useful for Tests, so we expose it.
+    // This is not part of public API, but it is useful for tests, so we expose it.
     Promise[Zone.__symbol__('uncaughtPromiseErrors')] = _uncaughtPromiseErrors;
     return ZoneAwarePromise;
 });

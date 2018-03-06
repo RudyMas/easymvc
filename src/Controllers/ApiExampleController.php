@@ -1,5 +1,5 @@
 <?php
-namespace Controller;
+namespace Controllers;
 
 use EasyMVC\Controller\Controller;
 use GuzzleHttp\Exception\RequestException;

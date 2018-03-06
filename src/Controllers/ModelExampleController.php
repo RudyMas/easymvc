@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controllers;
 
 use EasyMVC\Controller\Controller;
 use Model\User;

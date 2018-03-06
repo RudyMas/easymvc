@@ -1,8 +1,8 @@
 {
   "name": "easymvc/easymvc",
-  "description": "EasyMVC PHP Framework with Angular 5 support",
+  "description": "EasyMVC PHP Framework with Mobile App support",
   "type": "project",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "keywords": [
     "MVC",
     "Framework",
