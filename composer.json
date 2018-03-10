@@ -44,5 +44,18 @@
       "Views\\": "src/Views",
       "Tests\\": "Tests"
     }
+  },
+  "scripts": {
+    "post-create-project-cmd" : [
+      "npm install"
+    ],
+    "post-update-cmd": [
+      "npm update --save"
+    ]
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    }
   }
 }

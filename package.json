@@ -1,6 +1,7 @@
 {
   "name": "easymvc",
   "version": "1.0.0",
+  "private": true,
   "description": "EasyMVC JavaScript Dependencies",
   "author": "Rudy Mas",
   "license": "ISC",
