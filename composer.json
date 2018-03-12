@@ -46,9 +46,6 @@
     }
   },
   "scripts": {
-    "post-create-project-cmd" : [
-      "npm install"
-    ],
     "post-update-cmd": [
       "npm update --save"
     ]
