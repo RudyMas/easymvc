@@ -2,7 +2,7 @@
   "name": "easymvc/easymvc",
   "description": "EasyMVC PHP Framework with Mobile App support",
   "type": "project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "MVC",
     "Framework",

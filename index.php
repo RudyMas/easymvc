@@ -6,13 +6,20 @@
  * @author      Rudy Mas <rudy.mas@rmsoft.be>
  * @copyright   2016-2018, rmsoft.be. (http://www.rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.0.0
+ * @version     1.0.1
  */
 session_start();
 require(__DIR__ . '/vendor/autoload.php');
-if (!is_file(__DIR__ . '/config/config.php'))
-    @copy(__DIR__ . '/config/config.sample.php', __DIR__ . '/config/config.php');
-require(__DIR__ . '/config/config.php');
+
+if ($_SERVER['HTTP_HOST'] == 'localhost') {
+    if (!is_file(__DIR__ . '/config/config.local.php'))
+        @copy(__DIR__ . '/config/config.sample.php', __DIR__ . '/config/config.local.php');
+    require(__DIR__ . '/config/config.local.php');
+} else {
+    if (!is_file(__DIR__ . '/config/config.php'))
+        @copy(__DIR__ . '/config/config.sample.php', __DIR__ . '/config/config.php');
+    require(__DIR__ . '/config/config.php');
+}
 
 use RudyMas\PDOExt\DBconnect;
 use RudyMas\Router\EasyRouter;

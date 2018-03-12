@@ -1,6 +1,7 @@
 # EasyMVC specific
 
 /config/config.php
+/config/config.local.php
 /config/database.php
 
 # End EasyMVC specific
