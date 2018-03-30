@@ -2,7 +2,7 @@
   "name": "easymvc/easymvc",
   "description": "EasyMVC PHP Framework with Mobile App support",
   "type": "project",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "keywords": [
     "MVC",
     "Framework",
@@ -24,14 +24,8 @@
   },
   "minimum-stability": "stable",
   "require": {
-    "php": "^7.1",
-    "rudymas/router": "*",
-    "easymvc/controller": "*",
-    "easymvc/repository": "*",
-    "easymvc/email": "*",
-    "easymvc/httprequest": "*",
-    "easymvc/login": "*",
-    "easymvc/menu": "*"
+    "php": ">=7.1",
+    "easymvc/core": "*",
   },
   "require-dev": {
     "phpunit/phpunit": "*"

@@ -1,5 +1,5 @@
 <?php
-define('VERSION', '1.0.1');
+define('VERSION', '1.1.0');
 
 /**
  * Set this to true of you are going to use a database in your project
@@ -19,6 +19,11 @@ define('USE_EMAIL_LOGIN', false);
  * Set this to true is you are planning to get information from a WebApi
  */
 define('USE_HTTP_REQUEST', false);
+
+/**
+ * Set this to true if you want to use the EasyMVC Menu system
+ */
+define('USE_MENU', false);
 
 /**
  * Set USE_EMAIL to true if you want to use the EasyMVC E-mail system
