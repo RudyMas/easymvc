@@ -25,7 +25,7 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.1",
-    "easymvc/core": "*",
+    "easymvc/core": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
