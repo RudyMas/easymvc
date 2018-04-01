@@ -5,7 +5,7 @@ namespace Controllers;
 use EasyMVC\Controller\Controller;
 use Exception;
 
-class MainController extends Controller
+class EmvcHelpController extends Controller
 {
     public function welcomeAction()
     {

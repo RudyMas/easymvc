@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class User
+class EmvcHelpUser
 {
     private $id;
     private $firstName = '';
@@ -11,7 +11,7 @@ class User
     private $email = '';
 
     /**
-     * User constructor.
+     * EmvcHelpUser constructor.
      * @param int $id
      * @param string $firstName
      * @param string $lastName
@@ -29,9 +29,9 @@ class User
 
     /**
      * @param array $data
-     * @return User
+     * @return EmvcHelpUser
      */
-    public static function new(array $data): User
+    public static function new(array $data): EmvcHelpUser
     {
         return new self($data['id'], $data['first_name'], $data['last_name'], $data['phone'], $data['email']);
     }
@@ -117,4 +117,4 @@ class User
     }
 }
 
-/** End of File: User.php **/
+/** End of File: EmvcHelpUser.phpUser.php **/
