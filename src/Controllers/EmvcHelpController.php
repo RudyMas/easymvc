@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use EasyMVC\Controller\Controller;
-use EasyMVC\Core\Core;
 use Exception;
 
 class EmvcHelpController extends Controller
