@@ -24,7 +24,7 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.1",
-    "easymvc/core": "^0"
+    "easymvc/router": "^1"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

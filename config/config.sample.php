@@ -1,5 +1,5 @@
 <?php
-define('VERSION', '1.1.1');
+define('VERSION', '1.2.0');
 
 /**
  * Set this to true of you are going to use a database in your project
