@@ -1,14 +1,13 @@
 {
   "name": "easymvc",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "private": true,
   "description": "EasyMVC JavaScript Dependencies",
   "author": "Rudy Mas",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.0.0",
-    "jquery": "^3.0.0",
-    "jquery-doubletaptogo": "^3.0.0",
-    "popper.js": "^1.14.1"
+    "bootstrap": "^4.1.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
   }
 }

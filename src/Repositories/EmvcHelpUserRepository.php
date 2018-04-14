@@ -6,13 +6,13 @@ use EasyMVC\Repository\Repository;
 use Model\User;
 
 /**
- * Class UserRepository
+ * Class EmvcHelpUserRepository
  * @package Repository
  */
-class UserRepository extends Repository
+class EmvcHelpUserRepository extends Repository
 {
     /**
-     * UserRepository constructor.
+     * EmvcHelpUserRepository constructor.
      * @param User|null $users
      */
     public function __construct(User $users = null)
@@ -21,4 +21,4 @@ class UserRepository extends Repository
     }
 }
 
-/** End of File: UserRepository.php **/
+/** End of File: EmvcHelpUserRepositorypository.php **/

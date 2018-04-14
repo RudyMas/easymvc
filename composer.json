@@ -2,7 +2,6 @@
   "name": "easymvc/easymvc",
   "description": "EasyMVC PHP Framework with Mobile App support",
   "type": "project",
-  "version": "1.1.0",
   "keywords": [
     "MVC",
     "Framework",
@@ -25,24 +24,25 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.1",
-    "easymvc/core": "*"
+    "easymvc/router": "^1"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
   },
   "autoload": {
     "psr-4": {
+      "Controllers\\": "src/Controllers",
+      "Helpers\\": "src/Helpers",
       "Models\\": "src/Models",
       "Repositories\\": "src/Repositories",
-      "Controllers\\": "src/Controllers",
-      "Views\\": "src/Views",
-      "Tests\\": "Tests"
+      "Tests\\": "Tests",
+      "Views\\": "src/Views"
     }
   },
   "scripts": {
     "post-update-cmd": [
-      "npm update --save",
-      "composer dump-autoload -o --no-dev"
+      "composer dump-autoload -o --no-dev",
+      "npm update --save"
     ]
   },
   "config": {
