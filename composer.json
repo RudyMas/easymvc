@@ -41,7 +41,8 @@
   },
   "scripts": {
     "post-update-cmd": [
-      "npm update --save"
+      "npm update --save",
+      "composer dump-autoload -o --no-dev"
     ]
   },
   "config": {
