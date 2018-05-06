@@ -22,5 +22,3 @@ $database[0]['dbType'] = 'mysql';
 //$database[1]['dbName'] = 'database_name';
 //$database[1]['dbCharset'] = 'utf8';
 //$database[1]['dbType'] = 'mysql';
-
-/** End of File: database.php **/

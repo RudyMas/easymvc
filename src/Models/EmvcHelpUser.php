@@ -2,6 +2,11 @@
 
 namespace Models;
 
+/**
+ * Class EmvcHelpUser
+ *
+ * @package Models
+ */
 class EmvcHelpUser
 {
     private $id;
@@ -12,6 +17,7 @@ class EmvcHelpUser
 
     /**
      * EmvcHelpUser constructor.
+     *
      * @param int $id
      * @param string $firstName
      * @param string $lastName
@@ -116,5 +122,3 @@ class EmvcHelpUser
         $this->email = $email;
     }
 }
-
-/** End of File: EmvcHelpUser.phpUser.php **/

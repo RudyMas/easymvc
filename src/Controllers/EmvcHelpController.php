@@ -5,19 +5,25 @@ namespace Controllers;
 use EasyMVC\Controller\Controller;
 use Exception;
 
+/**
+ * Class EmvcHelpController
+ *
+ * @package Controllers
+ */
 class EmvcHelpController extends Controller
 {
-    private $Core;
-
     /**
      * EmvcHelpController constructor.
      * @param array $args
      */
     public function __construct(array $args)
     {
-        $this->Core = $args['Core'];
+        $Core = $args['Core'];
     }
 
+    /**
+     *
+     */
     public function welcomeAction()
     {
         try {

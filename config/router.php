@@ -48,5 +48,3 @@ $router->setDefault('/');
 
 $router->setMobileDetection(true); // Comment this line if you don't provide a Mobile App (Angular, REACT, ...)
 // $router->setDefaultMobileApp('http://m.website.com'); // Uncomment this when you want a different path to your mobile app
-
-/** End of File: router.php **/

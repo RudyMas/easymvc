@@ -7,12 +7,14 @@ use Model\User;
 
 /**
  * Class EmvcHelpUserRepository
+ *
  * @package Repository
  */
 class EmvcHelpUserRepository extends Repository
 {
     /**
      * EmvcHelpUserRepository constructor.
+     *
      * @param User|null $users
      */
     public function __construct(User $users = null)
@@ -20,5 +22,3 @@ class EmvcHelpUserRepository extends Repository
         parent::__construct($users);
     }
 }
-
-/** End of File: EmvcHelpUserRepositorypository.php **/

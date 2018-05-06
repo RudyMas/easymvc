@@ -39,5 +39,3 @@ define('EMAIL_BCC', 'bcc@email.address'); // Set this to null is you don't want 
 define('EMAIL_USERNAME', 'username_login');
 define('EMAIL_PASSWORD', 'password_login');
 define('EMAIL_SECURITY', 'ssl');
-
-/** End of File: config.php **/

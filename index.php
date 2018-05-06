@@ -29,5 +29,3 @@ try {
     print('EasyMVC : Something went wrong.<br><br>');
     print($exception->getMessage());
 }
-
-/** End of File: index.php **/
