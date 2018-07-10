@@ -8,7 +8,7 @@
     "PHP",
     "Angular"
   ],
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Rudy Mas",
@@ -41,7 +41,7 @@
   },
   "scripts": {
     "post-update-cmd": [
-      "composer dump-autoload -o --no-dev",
+      "composer dump-autoload -o",
       "npm update --save"
     ]
   },
