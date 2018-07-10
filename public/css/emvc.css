@@ -1,7 +1,40 @@
 /*
 EasyMVC special CSS options
-Version 1.1.1
+Version 1.1.2
 */
+
+/* Stylish Background*/
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+#bgtopleft, #bgbottomright {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#bgtopleft {
+    background-color: #8892bf;
+    -webkit-clip-path: polygon(0 0, 95% 0, 30% 30%, 0 95%);
+    clip-path: polygon(0 0, 95% 0, 30% 30%, 0 95%);
+    z-index: -1;
+}
+
+#bgbottomright {
+    background-color: #dd0031;
+    -webkit-clip-path: polygon(100% 100%, 100% 5%, 70% 70%, 5% 100%);
+    clip-path: polygon(100% 100%, 100% 5%, 70% 70%, 5% 100%);
+    z-index: -2;
+}
 
 /* Layout */
 .emvc-center-element {
