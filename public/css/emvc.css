@@ -1,6 +1,6 @@
 /*
 EasyMVC special CSS options
-Version 1.2.1
+Version 1.2.2
 */
 
 /* Reset margin & padding for all html-alements */
@@ -11,7 +11,7 @@ Version 1.2.1
 /* End Reset margin & padding for all html-alements */
 
 /* EasyMVC Background */
-#bgtopleft, #bgbottomright {
+#bgtopleft, #bgbottomright, #bgmiddle {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -20,13 +20,19 @@ Version 1.2.1
 #bgtopleft {
     background-color: #8892bf;
     clip-path: polygon(0 0, 95% 0, 30% 30%, 0 95%);
-    z-index: -1;
+    z-index: -2;
 }
 
 #bgbottomright {
     background-color: #dd0031;
     clip-path: polygon(100% 100%, 100% 5%, 70% 70%, 5% 100%);
     z-index: -2;
+}
+
+#bgmiddle {
+    background-color: white;
+    clip-path: polygon(0 95%, 30% 30%, 95% 0, 100% 5%, 70% 70%, 5% 100%);
+    z-index: -1;
 }
 /* End EasyMVC Background */
 
