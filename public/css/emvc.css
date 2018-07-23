@@ -1,6 +1,6 @@
 /*
 EasyMVC special CSS options
-Version 1.2.2
+Version 1.2.4
 */
 
 /* Reset margin & padding for all html-alements */
@@ -60,7 +60,9 @@ button {
     .emvc-center-element {
         position: relative;
         top: 10px;
-        left: 10%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
         margin-bottom: 10px;
         transform: none;
     }
