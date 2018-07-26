@@ -9,7 +9,7 @@
  *                   'Controller[:Function]',
  *                   'Array of Classes to inject',
  *                   'Array of Repositories to inject'
- *                   'Mobile Detection')
+ *                   'Device Detection')
  *
  * - HTTP method: Can be anything, but in most cases, it will be GET or POST
  * - Route to use:
@@ -33,7 +33,7 @@
  *              'User' will inject the UserRepository into the Class/Function
  *              'submap\Something' will inject the SomethingRepository into the Class/Function located in the
  *                  folder submap under src/Repositories
- * - Mobile Detection: ('auto', 'web', 'api', 'mobile') (OPTIONAL) (DEFAULT = auto)
+ * - Device Detection: ('auto', 'web', 'api', 'mobile') (OPTIONAL) (DEFAULT = auto)
  *      'auto' : Every call to the website will be checked. If a mobile device is detected, the mobile app will start
  *      'web|api' : Every call to the website will always be handled by the website. (Website or API)
  *      'mobile' : Every call to the website will always be handled by the mobile app (URL info will be transferred to the App)
@@ -48,3 +48,4 @@ $router->setDefault('/');
 
 $router->setMobileDetection(true); // Comment this line if you don't provide a Mobile App (Angular, REACT, ...)
 // $router->setDefaultMobileApp('http://m.website.com'); // Uncomment this when you want a different path to your mobile app
+                                                         // Default:  http(s)://example.org/m/
