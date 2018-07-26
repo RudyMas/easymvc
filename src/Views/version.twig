@@ -3,7 +3,7 @@
 {% block head %}
     {{ parent() }}
 {% endblock %}
-{% block title %}Welcome{% endblock %}
+{% block title %}EasyMVC{% endblock %}
 {% block jvscript %}
     {{ parent() }}
 {% endblock %}
@@ -14,6 +14,10 @@
     <div class="emvc-center-element">
         <div class="jumbotron">
             <h1 class="display-4">EasyMVC version {{ constant('CORE_VERSION') }}</h1>
+            <h2>Development Website '{{ constant('NAME_WEBSITE') }}'</h2>
+            <h3>Alpha Version: {{ constant('VERSION_ALPHA')|raw }}</h3>
+            <h3>Beta Version: {{ constant('VERSION_BETA')|raw }}</h3>
+            <h3>Production Version: {{ constant('VERSION')|raw }}</h3>
         </div>
     </div>
 {% endblock %}

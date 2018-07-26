@@ -27,7 +27,7 @@ class EmvcHelpController extends Controller
     public function welcomeAction()
     {
         try {
-            $this->render('index.twig', [], 'TWIG');
+            $this->render('version.twig', [], 'TWIG');
         } catch (Exception $e) {
             $this->checkArray($e->getMessage());
         }
