@@ -1,5 +1,20 @@
 <?php
 /**
+ * This file is used to en/disable which modules of EasyMVC Core are
+ * going to be used in the project
+ *
+ * @version 1.0.0
+ */
+
+/**
+ * Use this constant to set the version numbering of your website, this
+ * way you can easily track the process of your project
+ */
+define('VERSION_ALPHA', '&alpha;0.0.1'); // Pre-Release development
+define('VERSION_BETA', '&beta;0.0.1'); // Beta-Release development
+define('VERSION', '0.0.1'); // Production-Release
+
+/**
  * Set this to true of you are going to use a database in your project
  * You can configure your database(s) in the config/database.php file
  */
