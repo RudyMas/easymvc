@@ -24,7 +24,7 @@ class EmvcHelpController extends Controller
     /**
      *
      */
-    public function welcomeAction()
+    public function versionAction()
     {
         try {
             $this->render('version.twig', [], 'TWIG');

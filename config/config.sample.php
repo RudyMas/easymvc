@@ -10,7 +10,7 @@
  * Use these constants to set the versions of your development branches,
  * this way you can easily track the process of your project
  */
-define('NAME_WEBSITE', 'EasyMVC');
+define('NAME_WEBSITE', 'Name Website');
 define('VERSION_ALPHA', '&alpha;0.0.1'); // Pre-Release development
 define('VERSION_BETA', '&beta;0.0.1'); // Beta-Release development
 define('VERSION', '0.0.1'); // Production-Release

@@ -12,12 +12,15 @@
 {% endblock %}
 {% block container %}
     <div class="emvc-center-element">
-        <div class="jumbotron">
-            <h1 class="display-4">EasyMVC version {{ constant('CORE_VERSION') }}</h1>
-            <h2>Development Website '{{ constant('NAME_WEBSITE') }}'</h2>
-            <h3>Alpha Version: {{ constant('VERSION_ALPHA')|raw }}</h3>
-            <h3>Beta Version: {{ constant('VERSION_BETA')|raw }}</h3>
-            <h3>Production Version: {{ constant('VERSION')|raw }}</h3>
+        <div class="jumbotron" style="overflow: hidden">
+            <h1 class="display-4">EasyMVC</h1>
+            <h4>version: {{ constant('EMVC_VERSION') }}</h4>
+            <h4>Core version: {{ constant('CORE_VERSION') }}</h4>
+            <hr>
+            <h1 class="display-4">Website '{{ constant('NAME_WEBSITE') }}'</h1>
+            <h4>Alpha Version: {{ constant('VERSION_ALPHA')|raw }}</h4>
+            <h4>Beta Version: {{ constant('VERSION_BETA')|raw }}</h4>
+            <h4>Production Version: {{ constant('VERSION')|raw }}</h4>
         </div>
     </div>
 {% endblock %}
