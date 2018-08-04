@@ -5,10 +5,10 @@
     {% block head %}
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        {% if redirect %}
-                <meta http-equiv="refresh" content="{{ redirect.sleep }};url={{ BASE_URL }}{{ redirect.page }}">
-        {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if redirect %}
+            <meta http-equiv="refresh" content="{{ redirect.sleep }};url={{ BASE_URL }}{{ redirect.page }}">
+        {% endif %}
         <meta name="revisit-after" content="7 days">
         <meta name="author" content="Rudy Mas">
         <meta name="contact" content="rudy.mas@rudymas.be">
@@ -32,9 +32,6 @@
     {% endblock %}
 </head>
 <body>
-<div id="bgtopleft"></div>
-<div id="bgbottomright"></div>
-<div id="bgmiddle"></div>
 <div id="container">{% block container %}{% endblock %}</div>
 </body>
 </html>

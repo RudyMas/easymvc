@@ -3,7 +3,7 @@
 {% block head %}
     {{ parent() }}
 {% endblock %}
-{% block title %}EasyMVC{% endblock %}
+{% block title %}EasyMVC version {{ constant('EMVC_VERSION') }}{% endblock %}
 {% block jvscript %}
     {{ parent() }}
 {% endblock %}
@@ -11,6 +11,9 @@
     {{ parent() }}
 {% endblock %}
 {% block container %}
+    <div id="bgtopleft"></div>
+    <div id="bgbottomright"></div>
+    <div id="bgmiddle"></div>
     <div class="emvc-center-element">
         <div class="jumbotron" style="overflow: hidden">
             <h1 class="display-4">EasyMVC</h1>
@@ -21,6 +24,9 @@
             <h4>Alpha Version: {{ constant('VERSION_ALPHA')|raw }}</h4>
             <h4>Beta Version: {{ constant('VERSION_BETA')|raw }}</h4>
             <h4>Production Version: {{ constant('VERSION')|raw }}</h4>
+            <div id="versionBackButton">
+                <button type="button" class="btn btn-dark" onclick="window.history.back()">&#10006;</button>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,19 +1,12 @@
 /*
 EasyMVC special CSS options
-Version 1.2.5
+Version 1.2.9
 */
 
-/* Reset margin & padding for all html-alements */
-* {
-    padding: 0;
-    margin: 0;
-}
-/* End Reset margin & padding for all html-alements */
-
-/* EasyMVC Background */
+/* EasyMVC Background + Version Page */
 #bgtopleft, #bgbottomright, #bgmiddle {
-    height: 100%;
     width: 100%;
+    height: 100%;
     position: fixed;
 }
 
@@ -30,22 +23,104 @@ Version 1.2.5
 }
 
 #bgmiddle {
-    background-color: white;
-    clip-path: polygon(0 95%, 30% 30%, 95% 0, 100% 5%, 70% 70%, 5% 100%);
+    background-color: #4f5b93;
+    clip-path: polygon(0 100%, 0 95%, 30% 30%, 95% 0, 100% 0, 100% 5%, 70% 70%, 5% 100%);
     z-index: -1;
 }
-/* End EasyMVC Background */
+
+#versionBackButton {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+#versionBackButton button {
+    border-radius: 1000px;
+    padding: 2px;
+    border: 1px solid white;
+    box-shadow: 0 0 0 2px black;
+}
+
+#versionBackButton button:hover {
+    background-color: darkgray;
+}
+
+/* End EasyMVC Background + Version Page */
 
 /* Changing normal behavior html-elements */
 button {
     cursor: pointer;
 }
+
 /* End Changing normal behavior html-elements */
 
 /* Background Colors Elements */
-.background {
-    background-color: #fff!important;
+.background,
+.background-white {
+    background-color: white !important;
 }
+
+.background-black,
+.background-inverse {
+    background-color: black !important;
+}
+
+.background-red {
+    background-color: red !important;
+}
+
+.background-green {
+    background-color: green !important;
+}
+
+.background-blue {
+    background-color: blue; !important;
+}
+
+.background-yellow {
+    background-color: yellow !important;
+}
+
+.background-orange {
+    background-color: orange !important;
+}
+
+.background-purple {
+    background-color: purple !important;
+}
+
+.background-primary {
+    background-color: #007bff !important;
+}
+
+.background-secondary {
+    background-color: #868e96 !important;
+}
+
+.background-success {
+    background-color: #28a745 !important;
+}
+
+.background-danger {
+    background-color: #dc3545 !important;
+}
+
+.background-warning {
+    background-color: #ffc107 !important;
+}
+
+.background-info {
+    background-color: #17a2b8 !important;
+}
+
+.background-light {
+    background-color: #f8f9fa !important;
+}
+
+.background-dark {
+    background-color: #343a40 !important;
+}
+
 /* End Background Colors Elements */
 
 /* Layout */
@@ -58,15 +133,14 @@ button {
 
 @media screen and (max-width: 768px) {
     .emvc-center-element {
-        position: relative;
-        top: 10px;
+        position: absolute;
+        top: 50%;
         left: 5%;
         right: 5%;
-        width: 90%;
-        margin-bottom: 10px;
-        transform: none;
+        transform: translateY(-50%);
     }
 }
+
 /* End Layout */
 
 /* Form Elements */
@@ -75,6 +149,7 @@ button {
     border: 1px solid darkgray;
     border-radius: 1000px;
 }
+
 /* End Form Elements */
 
 /* Labels / Badges */
@@ -205,6 +280,7 @@ button {
 .emvc-badge-outline-inverse {
     border-color: black;
 }
+
 /* End Labels / Badges */
 
 /* Clearing Floats */
@@ -214,10 +290,12 @@ button {
     display: table;
     clear: both;
 }
+
 /* End Clearing Floats */
 
 /* CSS Used for Testing */
 .test_border {
     border: 2px solid red;
 }
+
 /* End CSS Used for Testing */
