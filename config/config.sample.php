@@ -3,17 +3,8 @@
  * This file is used to en/disable which modules of EasyMVC Core are
  * going to be used in the project
  *
- * @version 1.0.0
+ * @version 1.1.0
  */
-
-/**
- * Use these constants to set the versions of your development branches,
- * this way you can easily track the process of your project
- */
-define('NAME_WEBSITE', 'Name Website');
-define('VERSION_ALPHA', '&alpha;0.0.1'); // Pre-Release development
-define('VERSION_BETA', '&beta;0.0.1'); // Beta-Release development
-define('VERSION', '0.0.1'); // Production-Release
 
 /**
  * Set this to true of you are going to use a database in your project

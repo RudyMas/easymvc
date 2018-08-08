@@ -1,6 +1,6 @@
 /*
 EasyMVC special CSS options
-Version 1.2.9
+Version 1.2.10
 */
 
 /* EasyMVC Background + Version Page */
@@ -30,19 +30,27 @@ Version 1.2.9
 
 #versionBackButton {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: -12px;
+    right: -12px;
 }
 
 #versionBackButton button {
-    border-radius: 1000px;
-    padding: 2px;
+    font-size: 20px;
+    line-height: 10px;
+    background-color: black;
+    color: white;
     border: 1px solid white;
-    box-shadow: 0 0 0 2px black;
+    border-radius: 1000px;
+    box-shadow: 0 0 0 1px black;
+}
+
+#versionBackButton button:before {
+    content: "Close";
 }
 
 #versionBackButton button:hover {
     background-color: darkgray;
+    color: black;
 }
 
 /* End EasyMVC Background + Version Page */
@@ -131,13 +139,13 @@ button {
     transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
     .emvc-center-element {
-        position: absolute;
-        top: 50%;
+        position: page;
+        top: 30px;
         left: 5%;
         right: 5%;
-        transform: translateY(-50%);
+        transform: none;
     }
 }
 
