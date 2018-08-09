@@ -3,7 +3,7 @@
  * This file is used to en/disable which modules of EasyMVC Core are
  * going to be used in the project
  *
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 /**
@@ -32,7 +32,7 @@ define('USE_MENU', false);
 
 /**
  * Set USE_EMAIL to true if you want to use the EasyMVC E-mail system
- * Set USE_SMTP to true if you want to use your own SMTP server instead of the one used by your server
+ * Set USE_SMTP to true if you want to use your personal SMTP server instead of the one used by your hosting server
  */
 define('USE_EMAIL', false);
 define('USE_SMTP', false);
