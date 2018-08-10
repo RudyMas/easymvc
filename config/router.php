@@ -42,6 +42,7 @@ $router->addRoute('GET', '/mobile', '', [], [], 'mobile');
 $router->addRoute('GET', '/dashboard', '', [], [], 'mobile');
 $router->addRoute('GET', '/heroes', '', [], [], 'mobile');
 
+$router->addRoute('GET', '/version', 'Version:version');
 $router->setDefault('/version');
 
 $router->setMobileDetection(true); // Comment this line if you don't provide a Mobile App (Angular, REACT, ...)

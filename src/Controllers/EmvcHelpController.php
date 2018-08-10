@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use EasyMVC\Controller\Controller;
-use Exception;
 
 /**
  * Class EmvcHelpController
@@ -19,17 +18,5 @@ class EmvcHelpController extends Controller
     public function __construct(array $args)
     {
         $Core = $args['Core'];
-    }
-
-    /**
-     *
-     */
-    public function versionAction()
-    {
-        try {
-            $this->render('version.twig', [], 'TWIG');
-        } catch (Exception $e) {
-            $this->checkArray($e->getMessage());
-        }
     }
 }

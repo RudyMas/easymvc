@@ -3,11 +3,11 @@
 namespace Models;
 
 /**
- * Class EmvcHelpUser
+ * Class EmvcHelpDummyData
  *
  * @package Models
  */
-class EmvcHelpUser
+class EmvcHelpDummyData
 {
     private $id;
     private $firstName = '';
@@ -16,7 +16,7 @@ class EmvcHelpUser
     private $email = '';
 
     /**
-     * EmvcHelpUser constructor.
+     * EmvcHelpDummyData constructor.
      *
      * @param int $id
      * @param string $firstName
@@ -35,9 +35,9 @@ class EmvcHelpUser
 
     /**
      * @param array $data
-     * @return EmvcHelpUser
+     * @return EmvcHelpDummyData
      */
-    public static function new(array $data): EmvcHelpUser
+    public static function new(array $data): EmvcHelpDummyData
     {
         return new self($data['id'], $data['first_name'], $data['last_name'], $data['phone'], $data['email']);
     }

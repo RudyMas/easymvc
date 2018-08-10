@@ -6,14 +6,14 @@ use EasyMVC\Repository\Repository;
 use Model\User;
 
 /**
- * Class EmvcHelpUserRepository
+ * Class EmvcHelpDummyDataRepository
  *
  * @package Repository
  */
-class EmvcHelpUserRepository extends Repository
+class EmvcHelpDummyDataRepository extends Repository
 {
     /**
-     * EmvcHelpUserRepository constructor.
+     * EmvcHelpDummyDataRepository constructor.
      *
      * @param User|null $users
      */

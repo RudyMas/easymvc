@@ -1,5 +1,4 @@
 <?php
 /**
- * This file contains the router information for the build in help for the framework.
+ * This file contains the router information for the build in help of the framework.
  */
-$router->addRoute('GET', '/version', 'EmvcHelp:version');
