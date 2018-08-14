@@ -3,12 +3,13 @@
  * This file is used to en/disable which modules of EasyMVC Core are
  * going to be used in the project
  *
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 /**
  * Set this to true of you are going to use a database in your project
  * You can configure your database(s) in the config/database.php file
+ * Use config/database.local.php for you local database (test server)
  */
 define('USE_DATABASE', false);
 

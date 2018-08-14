@@ -1,6 +1,5 @@
 {
   "name": "easymvc",
-  "version": "1.2.1",
   "private": true,
   "description": "EasyMVC JavaScript Dependencies",
   "author": "Rudy Mas",
@@ -8,6 +7,6 @@
   "dependencies": {
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.4"
   }
 }
