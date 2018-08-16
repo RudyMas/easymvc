@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65c6b8582018bf6baaeef93e9f302c33",
+    "content-hash": "b78268114c26796efc545ae55e3ef9b8",
     "packages": [
         {
             "name": "easymvc/controller",
@@ -52,22 +52,22 @@
         },
         {
             "name": "easymvc/core",
-            "version": "0.3.0.10",
+            "version": "0.4.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Core.git",
-                "reference": "dfd236a4b234d7c5f3880c090315bbfe7da4fed9"
+                "reference": "d1b8cf83c8cc3362ed35a047bacbae1363833ed1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Core/zipball/dfd236a4b234d7c5f3880c090315bbfe7da4fed9",
-                "reference": "dfd236a4b234d7c5f3880c090315bbfe7da4fed9",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Core/zipball/d1b8cf83c8cc3362ed35a047bacbae1363833ed1",
+                "reference": "d1b8cf83c8cc3362ed35a047bacbae1363833ed1",
                 "shasum": ""
             },
             "require": {
                 "easymvc/email": "^2",
                 "easymvc/httprequest": "^1",
-                "easymvc/login": "^3",
+                "easymvc/login": "^4",
                 "easymvc/menu": "^1",
                 "php": ">= 7.1",
                 "rudymas/manipulator": "^1",
@@ -95,7 +95,7 @@
                 }
             ],
             "description": "The Core Class for the EasyMVC Framework",
-            "time": "2018-08-10T10:16:37+00:00"
+            "time": "2018-08-15T12:47:20+00:00"
         },
         {
             "name": "easymvc/email",
@@ -142,20 +142,20 @@
         },
         {
             "name": "easymvc/httprequest",
-            "version": "1.4.0",
+            "version": "1.5.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_HttpRequest.git",
-                "reference": "034de3ab664cd67b074ed1ac1edc0d2de01ca6bd"
+                "reference": "0754c5a251bbfef730c8abb4755dc7f70894fa59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_HttpRequest/zipball/034de3ab664cd67b074ed1ac1edc0d2de01ca6bd",
-                "reference": "034de3ab664cd67b074ed1ac1edc0d2de01ca6bd",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_HttpRequest/zipball/0754c5a251bbfef730c8abb4755dc7f70894fa59",
+                "reference": "0754c5a251bbfef730c8abb4755dc7f70894fa59",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "*",
+                "guzzlehttp/guzzle": "^6",
                 "php": ">= 7.1"
             },
             "type": "library",
@@ -169,7 +169,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -180,26 +180,26 @@
                 }
             ],
             "description": "PHP Class HttpRequest for the EasyMVC Framework",
-            "time": "2018-03-30T13:51:33+00:00"
+            "time": "2018-08-15T11:37:39+00:00"
         },
         {
             "name": "easymvc/login",
-            "version": "3.0.0",
+            "version": "4.0.1.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Login.git",
-                "reference": "e8883c72796371f9f889d0e0fa702c8901a57a26"
+                "reference": "a5efb85bbd14174c023fd3c6c08d3c3e6305b6d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Login/zipball/e8883c72796371f9f889d0e0fa702c8901a57a26",
-                "reference": "e8883c72796371f9f889d0e0fa702c8901a57a26",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Login/zipball/a5efb85bbd14174c023fd3c6c08d3c3e6305b6d9",
+                "reference": "a5efb85bbd14174c023fd3c6c08d3c3e6305b6d9",
                 "shasum": ""
             },
             "require": {
                 "php": ">= 7.1",
-                "rudymas/manipulator": "*",
-                "rudymas/pdo-ext": "*"
+                "rudymas/manipulator": "^1",
+                "rudymas/pdo-ext": "^5"
             },
             "type": "library",
             "autoload": {
@@ -212,7 +212,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -223,7 +223,7 @@
                 }
             ],
             "description": "PHP Class Login for the EasyMVC Framework",
-            "time": "2018-03-28T08:06:49+00:00"
+            "time": "2018-08-15T13:52:33+00:00"
         },
         {
             "name": "easymvc/menu",
