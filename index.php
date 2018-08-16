@@ -22,10 +22,10 @@ $Core = new Core();
 /**
  * Loading the website by routing
  */
-$router = new Router($Core);
+$Router = new Router($Core);
 require_once('config/router.php');
 try {
-    $router->execute();
+    $Router->execute();
 } catch (Exception $exception) {
     http_response_code(500);
     print('EasyMVC : Something went wrong.<br><br>');
