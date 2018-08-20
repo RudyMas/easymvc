@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "easymvc/controller",
-            "version": "1.5.2.17",
+            "version": "1.5.3.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Controller.git",
-                "reference": "93d4c4c45988e86e75e2c2f06fbe09377711c5e1"
+                "reference": "dc5e98ce82ec63605bed235872edefcfed7207a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Controller/zipball/93d4c4c45988e86e75e2c2f06fbe09377711c5e1",
-                "reference": "93d4c4c45988e86e75e2c2f06fbe09377711c5e1",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Controller/zipball/dc5e98ce82ec63605bed235872edefcfed7207a1",
+                "reference": "dc5e98ce82ec63605bed235872edefcfed7207a1",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "PHP Class Controller for the EasyMVC Framework",
-            "time": "2018-07-12T15:56:31+00:00"
+            "time": "2018-08-16T14:21:58+00:00"
         },
         {
             "name": "easymvc/core",
@@ -268,19 +268,20 @@
         },
         {
             "name": "easymvc/repository",
-            "version": "2.1.2.31",
+            "version": "2.1.3.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Repository.git",
-                "reference": "9ed33978403f39883ba304da00e42203ee774438"
+                "reference": "3cd5d710f1c7a3688aea968fc65298e8d3039464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Repository/zipball/9ed33978403f39883ba304da00e42203ee774438",
-                "reference": "9ed33978403f39883ba304da00e42203ee774438",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Repository/zipball/3cd5d710f1c7a3688aea968fc65298e8d3039464",
+                "reference": "3cd5d710f1c7a3688aea968fc65298e8d3039464",
                 "shasum": ""
             },
             "require": {
+                "ext-pdo": "*",
                 "php": ">= 7.1",
                 "rudymas/pdo-ext": "^5"
             },
@@ -306,26 +307,28 @@
                 }
             ],
             "description": "PHP Class Repository for the EasyMVC Framework",
-            "time": "2018-07-16T09:54:12+00:00"
+            "time": "2018-08-16T19:02:43+00:00"
         },
         {
             "name": "easymvc/router",
-            "version": "1.0.0.1",
+            "version": "1.0.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Router.git",
-                "reference": "55ce258a1f7898288826296d097b8d6142bbccc3"
+                "reference": "1d6fbc4455a14a7a12acb10ce39438067830aa2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Router/zipball/55ce258a1f7898288826296d097b8d6142bbccc3",
-                "reference": "55ce258a1f7898288826296d097b8d6142bbccc3",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Router/zipball/1d6fbc4455a14a7a12acb10ce39438067830aa2b",
+                "reference": "1d6fbc4455a14a7a12acb10ce39438067830aa2b",
                 "shasum": ""
             },
             "require": {
-                "easymvc/core": "^0",
-                "mobiledetect/mobiledetectlib": "^2.8",
+                "mobiledetect/mobiledetectlib": "^2",
                 "php": ">= 7.1"
+            },
+            "require-dev": {
+                "easymvc/core": "^0"
             },
             "type": "library",
             "autoload": {
@@ -338,7 +341,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -349,7 +352,7 @@
                 }
             ],
             "description": "PHP Class Router for the EasyMVC Framework",
-            "time": "2018-04-08T12:56:44+00:00"
+            "time": "2018-08-16T17:05:47+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
