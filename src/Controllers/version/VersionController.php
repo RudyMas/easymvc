@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\version;
 
 use EasyMVC\Controller\Controller;
 use Exception;
