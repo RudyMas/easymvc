@@ -1,11 +1,11 @@
-# EasyMVC specific
+# EasyMVC specific restrictions
 
 /config/config.php
 /config/config.local.php
 /config/database.php
 /config/database.local.php
 
-# End EasyMVC specific
+# End EasyMVC specific restrictions
 
 # Created by https://www.gitignore.io/api/node,angular,composer,phpstorm+all,webstorm+all
 
@@ -46,10 +46,10 @@ composer.phar
 
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-composer.lock
+# composer.lock
 
 ### Node ###
-package-lock.json
+# package-lock.json
 
 # Logs
 logs

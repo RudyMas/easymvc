@@ -24,12 +24,13 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.1",
+    "easymvc/router": "^1",
+    "easymvc/core": "^0",
     "easymvc/controller": "^1",
-    "easymvc/repository": "^2",
-    "easymvc/router": "^1"
+    "easymvc/repository": "^2"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "^7"
   },
   "autoload": {
     "psr-4": {
