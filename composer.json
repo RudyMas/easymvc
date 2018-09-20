@@ -27,6 +27,7 @@
     "easymvc/router": "^1",
     "easymvc/core": "^0",
     "easymvc/controller": "^1",
+    "easymvc/model": "^0",
     "easymvc/repository": "^2"
   },
   "require-dev": {
