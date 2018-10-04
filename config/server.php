@@ -7,7 +7,14 @@
  *
  * If needed for any of these, add the :<port> to it when needed.
  *
- * @version 1.0.0
+ * @version 1.0.1
  */
 define('SERVER_DEVELOP', 'localhost');
 define('SERVER_PRODUCTION', 'example.com');
+
+/*
+ * Define the time_zone the server should work on
+ *
+ * More information about timezones can be found at: http://php.net/manual/en/timezones.php
+ */
+define('TIME_ZONE', 'Europe/Brussels');
