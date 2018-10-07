@@ -1,6 +1,6 @@
 /*
 EasyMVC special CSS options
-Version 1.2.10
+Version 1.2.11
 */
 
 /* EasyMVC Background + Version Page */
@@ -307,3 +307,12 @@ button {
 }
 
 /* End CSS Used for Testing */
+
+/* Bootstap 4 add-on */
+.thead-darkgrey th {
+    color: white;
+    background-color: #343a40;
+    border-color: #32383e;
+}
+
+/* End Bootstrap 4 add-on */
