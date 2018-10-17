@@ -52,4 +52,4 @@ $Router->setMobileDetection(true);
 // $Router->setDefaultMobileApp('http://m.example.org');
 
 /** You can remove the following line if you want to disable the internal help for EasyMVC */
-include('emvc_router.php');
+include('router_emvc.php');
