@@ -1,0 +1,414 @@
+/*
+EasyMVC special CSS options
+Version 1.2.11 (SCSS-version)
+*/
+
+//colors
+$color_wild_blue_yonder_approx: rgba(136, 146, 191, 1);
+$color_crimson_approx: rgba(221, 0, 49, 1);
+$color_kashmir_blue_approx: rgba(79, 91, 147, 1);
+$black: rgba(0, 0, 0, 1);
+$white: rgba(255, 255, 255, 1);
+$color_shady_lady_approx: rgba(169, 169, 169, 1);
+$red: rgba(255, 0, 0, 1);
+$color_japanese_laurel_approx: rgba(0, 128, 0, 1);
+$blue: rgba(0, 0, 255, 1);
+$yellow: rgba(255, 255, 0, 1);
+$web_orange: rgba(255, 165, 0, 1);
+$color_seance_approx: rgba(128, 0, 128, 1);
+$color_azure_radiance_approx: rgba(0, 123, 255, 1);
+$color_oslo_gray_approx: rgba(134, 142, 150, 1);
+$color_sea_green_approx: rgba(40, 167, 69, 1);
+$color_amaranth_approx: rgba(220, 53, 69, 1);
+$color_amber_approx: rgba(255, 193, 7, 1);
+$color_eastern_blue_approx: rgba(23, 162, 184, 1);
+$color_alabaster_approx: rgba(248, 249, 250, 1);
+$color_tuna_approx: rgba(52, 58, 64, 1);
+
+//@extend-elements
+//original selectors
+//#bgtopleft, #bgbottomright, #bgmiddle
+%extend_1 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+#bgtopleft {
+  @extend %extend_1;
+  background-color: $color_wild_blue_yonder_approx;
+  clip-path: polygon(0 0, 95% 0, 30% 30%, 0 95%);
+  z-index: -2;
+}
+
+#bgbottomright {
+  @extend %extend_1;
+  background-color: $color_crimson_approx;
+  clip-path: polygon(100% 100%, 100% 5%, 70% 70%, 5% 100%);
+  z-index: -2;
+}
+
+#bgmiddle {
+  @extend %extend_1;
+  background-color: $color_kashmir_blue_approx;
+  clip-path: polygon(0 100%, 0 95%, 30% 30%, 95% 0, 100% 0, 100% 5%, 70% 70%, 5% 100%);
+  z-index: -1;
+}
+
+#versionBackButton {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  button {
+    font-size: 20px;
+    line-height: 10px;
+    background-color: $black;
+    color: $white;
+    border: 1px solid $white;
+    border-radius: 1000px;
+    box-shadow: 0 0 0 1px $black;
+    &:before {
+      content: "Close";
+    }
+    &:hover {
+      background-color: $color_shady_lady_approx;
+      color: $black;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.background {
+  background-color: $white !important;
+}
+
+.background-white {
+  background-color: $white !important;
+}
+
+.background-black {
+  background-color: $black !important;
+}
+
+.background-inverse {
+  background-color: $black !important;
+}
+
+.background-red {
+  background-color: $red !important;
+}
+
+.background-green {
+  background-color: $color_japanese_laurel_approx !important;
+}
+
+.background-blue {
+  background-color: $blue !important;
+}
+
+.background-yellow {
+  background-color: $yellow !important;
+}
+
+.background-orange {
+  background-color: $web_orange !important;
+}
+
+.background-purple {
+  background-color: $color_seance_approx !important;
+}
+
+.background-primary {
+  background-color: $color_azure_radiance_approx !important;
+}
+
+.background-secondary {
+  background-color: $color_oslo_gray_approx !important;
+}
+
+.background-success {
+  background-color: $color_sea_green_approx !important;
+}
+
+.background-danger {
+  background-color: $color_amaranth_approx !important;
+}
+
+.background-warning {
+  background-color: $color_amber_approx !important;
+}
+
+.background-info {
+  background-color: $color_eastern_blue_approx !important;
+}
+
+.background-light {
+  background-color: $color_alabaster_approx !important;
+}
+
+.background-dark {
+  background-color: $color_tuna_approx !important;
+}
+
+.emvc-center-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and(max-width: 767.98px) {
+  .emvc-center-element {
+    position: page;
+    top: 30px;
+    left: 5%;
+    right: 5%;
+    transform: none;
+  }
+}
+
+.emvc-input {
+  background-color: $white;
+  border: 1px solid $color_shady_lady_approx;
+  border-radius: 1000px;
+}
+
+.emvc-label {
+  display: inline-block;
+  border: 1px solid $color_shady_lady_approx;
+  background-color: $white;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 2px 5px;
+}
+
+.emvc-badge {
+  display: inline-block;
+  border: 1px solid $color_shady_lady_approx;
+  background-color: $white;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 2px 5px;
+}
+
+.emvc-badge-pill {
+  border-radius: 1000px;
+}
+
+.emvc-label-primary {
+  background-color: $color_azure_radiance_approx;
+  border-color: $color_azure_radiance_approx;
+  color: $white;
+}
+
+.emvc-badge-primary {
+  background-color: $color_azure_radiance_approx;
+  border-color: $color_azure_radiance_approx;
+  color: $white;
+}
+
+.emvc-label-outline-primary {
+  border-color: $color_azure_radiance_approx;
+  color: $color_azure_radiance_approx;
+}
+
+.emvc-badge-outline-primary {
+  border-color: $color_azure_radiance_approx;
+  color: $color_azure_radiance_approx;
+}
+
+.emvc-label-secondary {
+  background-color: $color_oslo_gray_approx;
+  border-color: $color_oslo_gray_approx;
+  color: $white;
+}
+
+.emvc-badge-secondary {
+  background-color: $color_oslo_gray_approx;
+  border-color: $color_oslo_gray_approx;
+  color: $white;
+}
+
+.emvc-label-outline-secondary {
+  border-color: $color_oslo_gray_approx;
+  color: $color_oslo_gray_approx;
+}
+
+.emvc-badge-outline-secondary {
+  border-color: $color_oslo_gray_approx;
+  color: $color_oslo_gray_approx;
+}
+
+.emvc-label-success {
+  background-color: $color_sea_green_approx;
+  border-color: $color_sea_green_approx;
+  color: $white;
+}
+
+.emvc-badge-success {
+  background-color: $color_sea_green_approx;
+  border-color: $color_sea_green_approx;
+  color: $white;
+}
+
+.emvc-label-outline-success {
+  border-color: $color_sea_green_approx;
+  color: $color_sea_green_approx;
+}
+
+.emvc-badge-outline-success {
+  border-color: $color_sea_green_approx;
+  color: $color_sea_green_approx;
+}
+
+.emvc-label-danger {
+  background-color: $color_amaranth_approx;
+  border-color: $color_amaranth_approx;
+  color: $white;
+}
+
+.emvc-badge-danger {
+  background-color: $color_amaranth_approx;
+  border-color: $color_amaranth_approx;
+  color: $white;
+}
+
+.emvc-label-outline-danger {
+  border-color: $color_amaranth_approx;
+  color: $color_amaranth_approx;
+}
+
+.emvc-badge-outline-danger {
+  border-color: $color_amaranth_approx;
+  color: $color_amaranth_approx;
+}
+
+.emvc-label-warning {
+  background-color: $color_amber_approx;
+  border-color: $color_amber_approx;
+  color: $white;
+}
+
+.emvc-badge-warning {
+  background-color: $color_amber_approx;
+  border-color: $color_amber_approx;
+  color: $white;
+}
+
+.emvc-label-outline-warning {
+  border-color: $color_amber_approx;
+  color: $color_amber_approx;
+}
+
+.emvc-badge-outline-warning {
+  border-color: $color_amber_approx;
+  color: $color_amber_approx;
+}
+
+.emvc-label-info {
+  background-color: $color_eastern_blue_approx;
+  border-color: $color_eastern_blue_approx;
+  color: $white;
+}
+
+.emvc-badge-info {
+  background-color: $color_eastern_blue_approx;
+  border-color: $color_eastern_blue_approx;
+  color: $white;
+}
+
+.emvc-label-outline-info {
+  border-color: $color_eastern_blue_approx;
+  color: $color_eastern_blue_approx;
+}
+
+.emvc-badge-outline-info {
+  border-color: $color_eastern_blue_approx;
+  color: $color_eastern_blue_approx;
+}
+
+.emvc-label-light {
+  background-color: $color_alabaster_approx;
+  border-color: $color_alabaster_approx;
+}
+
+.emvc-badge-light {
+  background-color: $color_alabaster_approx;
+  border-color: $color_alabaster_approx;
+}
+
+.emvc-label-outline-light {
+  border-color: $color_alabaster_approx;
+}
+
+.emvc-badge-outline-light {
+  border-color: $color_alabaster_approx;
+}
+
+.emvc-label-dark {
+  background-color: $color_tuna_approx;
+  border-color: $color_tuna_approx;
+  color: $white;
+}
+
+.emvc-badge-dark {
+  background-color: $color_tuna_approx;
+  border-color: $color_tuna_approx;
+  color: $white;
+}
+
+.emvc-label-outline-dark {
+  border-color: $color_tuna_approx;
+  color: $color_tuna_approx;
+}
+
+.emvc-badge-outline-dark {
+  border-color: $color_tuna_approx;
+  color: $color_tuna_approx;
+}
+
+.emvc-label-inverse {
+  background-color: $black;
+  border-color: $black;
+  color: $white;
+}
+
+.emvc-badge-inverse {
+  background-color: $black;
+  border-color: $black;
+  color: $white;
+}
+
+.emvc-label-outline-inverse {
+  border-color: $black;
+}
+
+.emvc-badge-outline-inverse {
+  border-color: $black;
+}
+
+.emvc-clearfix {
+  &:before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.test_border {
+  border: 2px solid $red;
+}
+
+.thead-darkgrey th {
+  color: $white;
+  background-color: $color_tuna_approx;
+  border-color: $color_tuna_approx;
+}
