@@ -3,7 +3,7 @@
 namespace Repositories\emvchelp;
 
 use EasyMVC\Repository\Repository;
-use Models\emvchelp\DummyData;
+use Models\emvchelp\DummyDataOldStyle;
 
 /**
  * Class DummyDataRepository
@@ -15,9 +15,9 @@ class DummyDataRepository extends Repository
     /**
      * DummyDataRepository constructor.
      *
-     * @param DummyData|null $dummyData
+     * @param DummyDataOldStyle|null $dummyData
      */
-    public function __construct(DummyData $dummyData = null)
+    public function __construct(DummyDataOldStyle $dummyData = null)
     {
         parent::__construct(null, $dummyData);
     }

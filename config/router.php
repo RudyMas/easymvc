@@ -38,17 +38,42 @@
  *      'web|api' : Every call to the website will always be handled by the website. (Website or API)
  *      'mobile' : Every call to the website will always be handled by the mobile app (URL info will be transferred to the App)
  */
-$Router->addRoute('GET', '/mobile', '', [], [], 'mobile');
-$Router->addRoute('GET', '/dashboard', '', [], [], 'mobile');
-$Router->addRoute('GET', '/heroes', '', [], [], 'mobile');
+$Router->addRoute(
+    'GET',
+    '/mobile',
+    '',
+    [],
+    [],
+    'mobile'
+);
+$Router->addRoute(
+    'GET',
+    '/dashboard',
+    '',
+    [],
+    [],
+    'mobile'
+);
+$Router->addRoute(
+    'GET',
+    '/heroes',
+    '',
+    [],
+    [],
+    'mobile'
+);
 
-$Router->addRoute('GET', '/version', 'version\Version:version');
+$Router->addRoute(
+    'GET',
+    '/version',
+    'version\Version:version'
+);
 $Router->setDefault('/version');
 
-/** You need to remove or comment the following line if you don't provide a Mobile App (Angular, REACT, ...) */
+/** Remove or comment the following line if you don't provide a separate Mobile App (Angular, REACT, ...) */
 $Router->setMobileDetection(true);
 
-/** You need to uncomment the following line and set it to the url of your mobile app. Default: http(s)://example.org/m/ */
+/** Uncomment the next line is you have a special URL for your Mobike App. Default: http(s)://example.org/m/ */
 // $Router->setDefaultMobileApp('http://m.example.org');
 
 /** You can remove the following line if you want to disable the internal help for EasyMVC */

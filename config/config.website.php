@@ -1,9 +1,9 @@
 <?php
 /**
- * This file is used to define  constants that can be used inside the website
+ * This file is used to define constants that can be used inside the website
  *
- * @version 1.0.0
+ * @version 1.0.1
  */
 
-// something that will be used on several places in the website
+// something that will be used on several places inside your website
 // define('SOMETHING', 10);

@@ -3,11 +3,14 @@
 namespace Models\emvchelp;
 
 /**
- * Class DummyData
+ * Class DummyDataOldStyle
+ *
+ * This is an example of a standard model class.
+ * Use this kind of model if you don't want to use the EasyMVC extension for model classes.
  *
  * @package Models
  */
-class DummyData
+class DummyDataOldStyle
 {
     private $id;
     private $firstName = '';
@@ -16,7 +19,7 @@ class DummyData
     private $email = '';
 
     /**
-     * DummyData constructor.
+     * DummyDataOldStyle constructor.
      *
      * @param int $id
      * @param string $firstName
@@ -35,9 +38,9 @@ class DummyData
 
     /**
      * @param array $data
-     * @return DummyData
+     * @return DummyDataOldStyle
      */
-    public static function new(array $data): DummyData
+    public static function new(array $data): DummyDataOldStyle
     {
         return new self($data['id'], $data['first_name'], $data['last_name'], $data['phone'], $data['email']);
     }
