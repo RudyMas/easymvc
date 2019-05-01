@@ -1,6 +1,6 @@
 /*
 EasyMVC special CSS options
-Version 1.2.12 (SCSS-version)
+Version 1.2.13 (SCSS-version)
 */
 
 //colors
@@ -155,6 +155,7 @@ button {
 
 .emvc-center-element {
   position: absolute;
+  color: $black !important;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

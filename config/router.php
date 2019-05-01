@@ -38,6 +38,12 @@
  *      'web|api' : Every call to the website will always be handled by the website. (Website or API)
  *      'mobile' : Every call to the website will always be handled by the mobile app (URL info will be transferred to the App)
  */
+
+/**
+ * You can delete the following three routes.
+ *
+ * These are used to demonstrate the mobile capabilities of the framework.
+ */
 $Router->addRoute(
     'GET',
     '/mobile',
