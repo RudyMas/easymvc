@@ -1,6 +1,6 @@
 /*
 EasyMVC special CSS options
-Version 1.2.11 (SCSS-version)
+Version 1.2.13 (SCSS-version)
 */
 #bgtopleft, #bgbottomright, #bgmiddle {
   width: 100%;
@@ -99,6 +99,7 @@ button {
 
 .emvc-center-element {
   position: absolute;
+  color: black !important;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
