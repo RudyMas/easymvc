@@ -12,28 +12,6 @@ session_start();
 require_once('vendor/autoload.php');
 
 use EasyMVC\Core\Core;
-use EasyMVC\Router\Router;
 
 define('EMVC_VERSION', '1.1.5');
-require_once('config/version.php');
-require_once('config/server.php');
-require_once('config/config.website.php');
-date_default_timezone_set(TIME_ZONE);
 $Core = new Core();
-
-/**
- * Loading the website by routing
- */
-$Router = new Router($Core);
-require_once('config/router.php');
-try {
-    $Router->execute();
-} catch (Exception $exception) {
-    http_response_code(500);
-    print('EasyMVC : Something went wrong.<br><br>');
-    print($exception->getMessage());
-    print('<br><br>');
-    print('<pre>');
-    print_r($exception);
-    print('</pre>');
-}

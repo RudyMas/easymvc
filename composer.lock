@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e4ff3d3a4b6bbb5910d7c43fcfa6a64",
+    "content-hash": "6069b94661b954208124a06ddd938a23",
     "packages": [
         {
             "name": "easymvc/controller",
@@ -52,23 +52,27 @@
         },
         {
             "name": "easymvc/core",
-            "version": "0.4.0.13",
+            "version": "0.5.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Core.git",
-                "reference": "f7c89a2562eed5535f350a90f71a928e3504aeac"
+                "reference": "6118d286a3a1e2cc6849ed5d1f65103fbf1839de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Core/zipball/f7c89a2562eed5535f350a90f71a928e3504aeac",
-                "reference": "f7c89a2562eed5535f350a90f71a928e3504aeac",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Core/zipball/6118d286a3a1e2cc6849ed5d1f65103fbf1839de",
+                "reference": "6118d286a3a1e2cc6849ed5d1f65103fbf1839de",
                 "shasum": ""
             },
             "require": {
+                "easymvc/controller": "^1",
                 "easymvc/email": "^2",
                 "easymvc/httprequest": "^1",
                 "easymvc/login": "^4",
                 "easymvc/menu": "^2",
+                "easymvc/model": "^1",
+                "easymvc/repository": "^2",
+                "easymvc/router": "^1",
                 "php": ">= 7.1",
                 "rudymas/manipulator": "^1",
                 "rudymas/pdo-ext": "^5"
@@ -95,7 +99,7 @@
                 }
             ],
             "description": "The Core Class for the EasyMVC Framework",
-            "time": "2018-10-06T16:18:53+00:00"
+            "time": "2019-06-08T11:21:52+00:00"
         },
         {
             "name": "easymvc/email",
@@ -1250,16 +1254,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.9.0",
+            "version": "v2.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "82a1c055c8ed4c4705023bfd0405f3c74db6e3ae"
+                "reference": "84a463403da1c81afbcedda8f0e788c78bd25a79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/82a1c055c8ed4c4705023bfd0405f3c74db6e3ae",
-                "reference": "82a1c055c8ed4c4705023bfd0405f3c74db6e3ae",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/84a463403da1c81afbcedda8f0e788c78bd25a79",
+                "reference": "84a463403da1c81afbcedda8f0e788c78bd25a79",
                 "shasum": ""
             },
             "require": {
@@ -1270,12 +1274,12 @@
             "require-dev": {
                 "psr/container": "^1.0",
                 "symfony/debug": "^2.7",
-                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
+                "symfony/phpunit-bridge": "^3.4.19|^4.1.8|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.9-dev"
+                    "dev-master": "2.11-dev"
                 }
             },
             "autoload": {
@@ -1313,7 +1317,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-04-28T06:57:38+00:00"
+            "time": "2019-06-05T11:17:07+00:00"
         }
     ],
     "packages-dev": [
@@ -1894,16 +1898,16 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "8b389aebe1b8b0578430bda0c7c95a829608e059"
+                "reference": "1038454804406b0b5f5f520358e78c1c2f71501e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/8b389aebe1b8b0578430bda0c7c95a829608e059",
-                "reference": "8b389aebe1b8b0578430bda0c7c95a829608e059",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/1038454804406b0b5f5f520358e78c1c2f71501e",
+                "reference": "1038454804406b0b5f5f520358e78c1c2f71501e",
                 "shasum": ""
             },
             "require": {
@@ -1939,7 +1943,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2019-02-20T10:12:59+00:00"
+            "time": "2019-06-07T04:22:29+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -1992,16 +1996,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.9",
+            "version": "7.5.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "134669cf0eeac3f79bc7f0c793efbc158bffc160"
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/134669cf0eeac3f79bc7f0c793efbc158bffc160",
-                "reference": "134669cf0eeac3f79bc7f0c793efbc158bffc160",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
                 "shasum": ""
             },
             "require": {
@@ -2072,7 +2076,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-04-19T15:50:46+00:00"
+            "time": "2019-05-28T11:59:40+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

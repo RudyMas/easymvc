@@ -11,6 +11,12 @@ use EasyMVC\Controller\Controller;
  */
 class EmvcHelpController extends Controller
 {
+//    private $DB;
+//    private $Login;
+//    private $HttpRequest;
+//    private $Email;
+//    private $Menu;
+
     /**
      * EmvcHelpController constructor.
      * @param array $args
@@ -27,7 +33,7 @@ class EmvcHelpController extends Controller
          *  $this->Email = $Core->Email;
          *  $this->Menu = $Core->Menu;
          *
-         * Don't forget to create the private variables for the modules you are going to use!
+         * Don't forget to uncomment the private variables for the modules you are going to use!
          */
     }
 }
