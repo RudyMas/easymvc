@@ -9,6 +9,4 @@ composer create-project easymvc/easymvc <project_name>
 
 ## Documentation
 
-I'm working on a website to document all my projects. The first version of
-this website will be dedicated to the EasyMVC framework. It should be online 
-early September.
+The documentation can be found [here](https://rmsoft.be/easymvc/docs).
