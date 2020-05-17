@@ -2,7 +2,7 @@
 
 namespace Models\emvchelp;
 
-use EasyMVC\Model\Model;
+use EasyMVC\Model;
 
 /**
  * Class DummyDataEasyMVCStyle

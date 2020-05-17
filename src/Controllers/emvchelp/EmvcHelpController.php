@@ -2,7 +2,7 @@
 
 namespace Controllers\emvchelp;
 
-use EasyMVC\Controller\Controller;
+use EasyMVC\Controller;
 
 /**
  * Class EmvcHelpController

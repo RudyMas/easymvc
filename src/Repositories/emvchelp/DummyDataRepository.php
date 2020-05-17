@@ -2,7 +2,7 @@
 
 namespace Repositories\emvchelp;
 
-use EasyMVC\Repository\Repository;
+use EasyMVC\Repository;
 use Models\emvchelp\DummyDataOldStyle;
 
 /**

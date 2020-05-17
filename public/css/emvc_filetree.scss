@@ -28,12 +28,14 @@ $url_3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAA
   border-radius: 4px;
   padding: 5px;
   margin-bottom: 10px;
+
   .file {
     display: block;
     font-family: $font_0, $font_1, $font_2, $font_3, $font_4, $font_5, $font_6;
     letter-spacing: .3px;
     line-height: 32px;
     color: $black;
+
     .bfolder {
       content: '';
       background: $url_0;
@@ -41,6 +43,7 @@ $url_3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAA
       height: 16px;
       width: 16px;
     }
+
     .wfolder {
       content: '';
       background: $url_1;
@@ -48,6 +51,7 @@ $url_3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAA
       height: 16px;
       width: 16px;
     }
+
     .bfile {
       content: '';
       background: $url_2;
@@ -55,6 +59,7 @@ $url_3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAA
       height: 16px;
       width: 16px;
     }
+
     .wfile {
       content: '';
       background: $url_3;
@@ -63,12 +68,15 @@ $url_3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAA
       width: 16px;
     }
   }
+
   .children {
     padding-left: 24px;
     position: relative;
     overflow: hidden;
+
     .file {
       position: relative;
+
       &:before {
         content: '';
         left: -18px;
