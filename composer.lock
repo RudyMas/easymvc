@@ -49,16 +49,16 @@
         },
         {
             "name": "easymvc/core",
-            "version": "0.5.2.0",
+            "version": "0.5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Core.git",
-                "reference": "3ca10ee8f48fb24554b33209aa09584134803162"
+                "reference": "02e76e7cb7245d62d03e47f54e7f5bcae497e1da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Core/zipball/3ca10ee8f48fb24554b33209aa09584134803162",
-                "reference": "3ca10ee8f48fb24554b33209aa09584134803162",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Core/zipball/02e76e7cb7245d62d03e47f54e7f5bcae497e1da",
+                "reference": "02e76e7cb7245d62d03e47f54e7f5bcae497e1da",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                 }
             ],
             "description": "The Core Class for the EasyMVC Framework",
-            "time": "2020-05-03T14:12:42+00:00"
+            "time": "2020-05-24T16:17:17+00:00"
         },
         {
             "name": "easymvc/email",
@@ -176,16 +176,16 @@
         },
         {
             "name": "easymvc/login",
-            "version": "4.2.1.0",
+            "version": "4.2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Login.git",
-                "reference": "8dd91ee859dd58b9d207b3cd7f7a967c489415e0"
+                "reference": "052570b551a2aab8c0d5adfd13ebd581acb789a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Login/zipball/8dd91ee859dd58b9d207b3cd7f7a967c489415e0",
-                "reference": "8dd91ee859dd58b9d207b3cd7f7a967c489415e0",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Login/zipball/052570b551a2aab8c0d5adfd13ebd581acb789a1",
+                "reference": "052570b551a2aab8c0d5adfd13ebd581acb789a1",
                 "shasum": ""
             },
             "require": {
@@ -213,7 +213,7 @@
                 }
             ],
             "description": "PHP Class Login for the EasyMVC Framework",
-            "time": "2020-05-03T14:34:39+00:00"
+            "time": "2020-05-24T16:21:05+00:00"
         },
         {
             "name": "easymvc/menu",
@@ -293,16 +293,16 @@
         },
         {
             "name": "easymvc/repository",
-            "version": "2.6.2.0",
+            "version": "2.6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Repository.git",
-                "reference": "a2cb16ad3f1b322fe631c73ff89fa370f90f08d2"
+                "reference": "ab1e34fa76f6651cf4a807008e76b0549bd41746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Repository/zipball/a2cb16ad3f1b322fe631c73ff89fa370f90f08d2",
-                "reference": "a2cb16ad3f1b322fe631c73ff89fa370f90f08d2",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Repository/zipball/ab1e34fa76f6651cf4a807008e76b0549bd41746",
+                "reference": "ab1e34fa76f6651cf4a807008e76b0549bd41746",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 }
             ],
             "description": "PHP Class Repository for the EasyMVC Framework",
-            "time": "2020-05-09T12:12:30+00:00"
+            "time": "2020-05-24T16:24:16+00:00"
         },
         {
             "name": "easymvc/router",
@@ -745,7 +745,7 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "? Nette Mail: handy email creation and transfer library for PHP with both text and MIME-compliant support.",
+            "description": "📧 Nette Mail: handy email creation and transfer library for PHP with both text and MIME-compliant support.",
             "homepage": "https://nette.org",
             "keywords": [
                 "mail",
@@ -1036,16 +1036,16 @@
         },
         {
             "name": "rudymas/pdo-ext",
-            "version": "5.4.2.0",
+            "version": "5.4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/pdoext.git",
-                "reference": "cff419dd7e1dbeac4cb275cd57e29e58065ada9a"
+                "reference": "03e733d00d1ce5d0a8258d496f4e1762bb396035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/pdoext/zipball/cff419dd7e1dbeac4cb275cd57e29e58065ada9a",
-                "reference": "cff419dd7e1dbeac4cb275cd57e29e58065ada9a",
+                "url": "https://api.github.com/repos/RudyMas/pdoext/zipball/03e733d00d1ce5d0a8258d496f4e1762bb396035",
+                "reference": "03e733d00d1ce5d0a8258d496f4e1762bb396035",
                 "shasum": ""
             },
             "require": {
@@ -1071,7 +1071,7 @@
                 }
             ],
             "description": "A PDO extension class",
-            "time": "2020-05-10T12:41:08+00:00"
+            "time": "2020-05-24T16:11:10+00:00"
         },
         {
             "name": "rudymas/xml_json",
@@ -1226,6 +1226,20 @@
                 "polyfill",
                 "portable"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-12T16:14:59+00:00"
         },
         {
@@ -1288,6 +1302,20 @@
                 "portable",
                 "shim"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-12T16:47:27+00:00"
         },
         {
@@ -1347,6 +1375,20 @@
                 "portable",
                 "shim"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-12T16:47:27+00:00"
         },
         {
@@ -1401,6 +1443,20 @@
                 "polyfill",
                 "portable",
                 "shim"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-05-12T16:47:27+00:00"
         },
@@ -2884,5 +2940,6 @@
     "platform": {
         "php": ">=7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
