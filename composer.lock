@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "easymvc/controller",
-            "version": "1.5.5.0",
+            "version": "1.5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RudyMas/Emvc_Controller.git",
-                "reference": "6600a3a27b9ae6ed2189c5853293a43fd565cd2b"
+                "reference": "63ce7f8c0903c73b35c7ae88287db3023fa4f8aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RudyMas/Emvc_Controller/zipball/6600a3a27b9ae6ed2189c5853293a43fd565cd2b",
-                "reference": "6600a3a27b9ae6ed2189c5853293a43fd565cd2b",
+                "url": "https://api.github.com/repos/RudyMas/Emvc_Controller/zipball/63ce7f8c0903c73b35c7ae88287db3023fa4f8aa",
+                "reference": "63ce7f8c0903c73b35c7ae88287db3023fa4f8aa",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 }
             ],
             "description": "PHP Class Controller for the EasyMVC Framework",
-            "time": "2020-05-03T14:17:20+00:00"
+            "time": "2020-08-01T19:07:50+00:00"
         },
         {
             "name": "easymvc/core",
