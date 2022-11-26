@@ -52,6 +52,7 @@ $Router->addRoute(
     [],
     'mobile'
 );
+
 $Router->addRoute(
     'GET',
     '/dashboard',
@@ -60,6 +61,7 @@ $Router->addRoute(
     [],
     'mobile'
 );
+
 $Router->addRoute(
     'GET',
     '/heroes',
@@ -74,6 +76,7 @@ $Router->addRoute(
     '/version',
     'version\Version:version'
 );
+
 $Router->setDefault('/version');
 
 /** Remove or comment the following line if you don't provide a separate Mobile App (Angular, REACT, ...) */
