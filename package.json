@@ -5,7 +5,7 @@
   "author": "Rudy Mas",
   "license": "ISC",
   "dependencies": {
-    "@angular/cli": "^10.2.1",
+    "@angular/cli": "^15.1.4",
     "bootstrap": "^4.6.2",
     "jquery": "^3.6.1",
     "popper.js": "^1.16.1"
